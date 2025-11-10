@@ -1,14 +1,13 @@
-import Navbar from "./components/Navbar"
-import Hero from "./components/Hero"
-import Projects from "./components/Projects"
+import Loader from "./components/Loader"
+import { Navbar, Hero, Projects } from "./components"
 export default function Home() {
   return (
-    <>
+    <Loader>
       <Navbar />
       <main>
         <Hero />
-        <Projects/>
+        <Projects />
       </main>
-    </>
+    </Loader>
   )
 }

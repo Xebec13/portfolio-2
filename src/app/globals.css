@@ -37,13 +37,30 @@ h1 {
       transform: scale(1);
     }
   }
-  .animate-slide-up-h1{
-    animation: slide-up-h1 0.7s ease-out forwards;
+  @keyframes curtainUp {
+    0% {
+      transform: translateY(0);
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
+    }
+    50% {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 95%, 0% 100%);
+    }
+    100% {
+      transform: translateY(-100%);
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 95%, 0% 100%);
+    }
+  }
+
+  .animate-curtain {
+    animation: curtainUp 1.2s ease-in-out forwards;
+  }
+  .animate-slide-up-h1 {
+    animation: slide-up-h1 0.6s ease-out forwards;
   }
   .animate-scale-up-img {
-    animation: scale-up 0.8s ease-out forwards;
+    animation: scale-up 0.65s ease-out forwards;
   }
   .animate-content-slide-up {
-    animation: slide-up 0.8s ease-out forwards;
+    animation: slide-up 0.65s ease-out forwards;
   }
 }

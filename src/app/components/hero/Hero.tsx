@@ -22,8 +22,8 @@ export default function Hero() {
                     <Image
                         src="/profile-img1.png"
                         alt="David"
-                        width={2600}
-                        height={1400}
+                        width={720}
+                        height={720}
                         className="object-cover w-full h-full"
                     />
                 </div>

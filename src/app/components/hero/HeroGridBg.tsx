@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const GRID_SIZE = 12; 
+const GRID_SIZE = 10; 
 const FADE_DURATION = 700;
 
 export default function HeroGridBg() {
