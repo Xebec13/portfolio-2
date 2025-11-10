@@ -5,7 +5,8 @@ import "./globals.css";
 const sansation = Sansation({
   subsets: ["latin"],
   variable: "--font-sansation",
-  weight:["400","700"]
+  weight:["400","700"],
+  fallback: ["ui-sans-serif", "system-ui"],
 });
 
 const inter = Inter({
