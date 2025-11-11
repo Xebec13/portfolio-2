@@ -28,8 +28,8 @@ export default function HeroGridBg() {
 
   return (
     <div
-      className="absolute top-0 right-0 w-full h-full z-10 grid overflow-hidden"
-      style={{ gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)` }}
+      className={`absolute top-0 right-0 w-full h-full z-10 grid grid-cols-5 md:grid-cols-10 overflow-hidden`}
+      // style={{ gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)` }}
     >
       {Array.from({ length: GRID_SIZE * GRID_SIZE }).map((_, i) => {
         const isActive = !!activeCells[i] || i === hoveredCell;

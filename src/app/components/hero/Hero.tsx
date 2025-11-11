@@ -32,7 +32,7 @@ export default function Hero() {
             {/* Contact and About Section */}
             <div className="flex flex-col gap-15 font-semibold items-start md:flex-row md:justify-between">
                 {/* Contact info */}
-                <div className="pl-2 text-xl md:text-2xl lg:text-3xl flex flex-col items-start gap-5 overflow-hidden">
+                <div className="p-3  text-xl md:text-2xl lg:text-3xl flex flex-col items-start gap-5 overflow-hidden">
                     <p className="animate-content-slide-up">dhoesen@gmail.com</p>
                     <p className="animate-content-slide-up">Linkedin</p>
                 </div>
