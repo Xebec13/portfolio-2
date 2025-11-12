@@ -2,7 +2,7 @@
 
 body {
   @apply antialiased;
-  @apply bg-zinc-200;
+  @apply bg-zinc-100;
   @apply text-neutral-900;
   font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
