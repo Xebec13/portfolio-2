@@ -12,7 +12,13 @@ body {
 h1 {
   font-family: var(--font-sansation);
 }
+
 @layer utilities {
+  /* ============================= */
+  /* 🔼 Slide-up Animations */
+  /* ============================= */
+
+  /* --- Slide-up for h1 --- */
   @keyframes slide-up-h1 {
     0% {
       transform: translateY(100%);
@@ -21,6 +27,8 @@ h1 {
       transform: translateY(0);
     }
   }
+
+  /* --- Generic Slide-up --- */
   @keyframes slide-up {
     0% {
       transform: translateY(100%);
@@ -29,6 +37,20 @@ h1 {
       transform: translateY(0);
     }
   }
+
+  /* === Classes === */
+  .animate-slide-up-h1 {
+    animation: slide-up-h1 0.6s ease-out forwards;
+  }
+
+  .animate-content-slide-up {
+    animation: slide-up 0.65s ease-out forwards;
+  }
+
+  /* ============================= */
+  /* 🔍 Scale-up Animation */
+  /* ============================= */
+
   @keyframes scale-up {
     0% {
       transform: scale(0.1);
@@ -37,6 +59,15 @@ h1 {
       transform: scale(1);
     }
   }
+
+  .animate-scale-up-img {
+    animation: scale-up 0.65s ease-out forwards;
+  }
+
+  /* ============================= */
+  /* 🎭 Curtain Animation */
+  /* ============================= */
+
   @keyframes curtainUp {
     0% {
       transform: translateY(0);
@@ -54,13 +85,48 @@ h1 {
   .animate-curtain {
     animation: curtainUp 1.2s ease-in-out forwards;
   }
-  .animate-slide-up-h1 {
-    animation: slide-up-h1 0.6s ease-out forwards;
+
+  /* ============================= */
+  /* 🧭 Navigation Slide-down Animation */
+  /* ============================= */
+
+  @keyframes nav-slide-down {
+    from {
+      transform: translateY(-120%);
+    }
+    to {
+      transform: translateY(0);
+    }
   }
-  .animate-scale-up-img {
-    animation: scale-up 0.65s ease-out forwards;
+
+  .nav-slide-down {
+    animation: nav-slide-down 0.7s ease-out forwards;
   }
-  .animate-content-slide-up {
-    animation: slide-up 0.65s ease-out forwards;
+
+  /* ============================= */
+  /* 🔲 Button Animation (3x3 Grid) */
+  /* ============================= */
+
+  /* --- Base Transition --- */
+  .button-animation {
+    transition: all 0.7s ease-in-out;
+  }
+
+  /* --- Even squares fade out when open --- */
+  .button-animation.open:nth-child(even) {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  /* --- Odd squares rotate when open --- */
+  .button-animation.open:nth-child(odd) {
+    transform: rotate(360deg);
+  }
+
+  /* --- Reset state when closed --- */
+  .button-animation:nth-child(even),
+  .button-animation:nth-child(odd) {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
   }
 }
