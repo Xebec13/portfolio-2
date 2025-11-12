@@ -10,7 +10,8 @@ const navItems = [
 ];
 
 const socialLinks = [
-    { label: "Instagram", href: "https://instagram.com" },
+    { label: "Linkedin", href: "https://instagram.com" },
+    { label: "Github", href: "https://instagram.com" },
 ];
 
 export default function Navbar() {
@@ -22,17 +23,17 @@ export default function Navbar() {
     };
 
     return (
-        <nav className=" fixed top-8 right-8 z-20">
+        <nav className="fixed top-7 right-7 z-20 ">
             {/* === Hamburger button === */}
             <button
                 onClick={toggleMenu}
-                className={`nav-slide-down relative grid grid-cols-3 gap-2 p-1.5 rounded-sm cursor-pointer transition-all duration-700 ease-in-out z-50 
-        ${isOpen ? "bg-blue-700 hover:bg-zinc-100 hover:scale-110" : "backdrop-blur-md hover:invert hover:scale-110"}`}
+                className={`nav-slide-down relative grid grid-cols-3 gap-2 p-1.5 rounded-sm cursor-pointer  transition-all duration-700 ease-in-out z-10 
+                ${isOpen ? "bg-blue-700 hover:bg-zinc-100 hover:scale-110" : "bg-zinc-100 hover:invert hover:scale-110"}`}
             >
                 {[...Array(9)].map((_, i) => (
                     <div
                         key={i}
-                        className={`size-1 transition-all bg-neutral-900 duration-700 ease-in-out button-animation ${isOpen ? "open" : " "}`}
+                        className={`border-4 border-current transition-all duration-700 ease-in-out button-animation ${isOpen ? "open" : " "}`}
                     />
                 ))}
             </button>
@@ -40,7 +41,7 @@ export default function Navbar() {
             {/* === Fullscreen overlay menu === */}
             <ul
                 className={`fixed top-0 right-0 flex flex-col justify-between pt-20 px-6 h-screen w-2/3 sm:w-1/3 bg-neutral-950 transition-all duration-500 ease-in-out
-        ${isOpen ? "translate-x-0 opacity-100 visible" : "translate-x-full opacity-0 invisible"}`}
+                ${isOpen ? "translate-x-0 opacity-100 visible" : "translate-x-full opacity-0 invisible"}`}
             >
                 {/* === Navigation Links === */}
                 <div className="text-zinc-200 text-4xl font-semibold uppercase space-y-5">
@@ -48,7 +49,6 @@ export default function Navbar() {
                         <li key={i}>
                             <Link
                                 href={item.href}
-                                onClick={() => setIsOpen(false)} // Close menu when clicking a link
                                 className="transition-colors duration-300 hover:text-blue-700"
                             >
                                 {item.label}

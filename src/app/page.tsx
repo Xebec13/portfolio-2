@@ -1,6 +1,6 @@
 import Loader from "./components/Loader"
 import Divider from "./components/divider/Divider"
-import { Navbar, Hero, Projects } from "./components"
+import { Navbar, Hero, Projects,Footer } from "./components"
 export default function Home() {
   return (
     <Loader>
@@ -10,6 +10,7 @@ export default function Home() {
         <Divider/>
         <Projects />
       </main>
+      <Footer/>
     </Loader>
   )
 }

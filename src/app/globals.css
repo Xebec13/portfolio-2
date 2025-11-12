@@ -1,5 +1,7 @@
 @import "tailwindcss";
-
+html {
+  @apply scroll-smooth;
+}
 body {
   @apply antialiased;
   @apply bg-zinc-100;

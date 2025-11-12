@@ -3,10 +3,10 @@ import Image from "next/image";
 
 export default function Hero() {
     return (
-        <section className="relative  flex md:min-h-screen flex-col items-stretch justify-center gap-10 px-5 pb-10 pt-30 md:justify-between md:px-22 md:pt-35 border-2 border-pink-500">
+        <section id="home" className="relative flex md:min-h-screen flex-col items-stretch justify-center gap-10 px-5 pb-10 pt-30 md:justify-between md:px-22 md:pt-35">
             {/* Header Section */}
             <HeroGridBg />
-            <div className="relative flex flex-col-reverse justify-center gap-5 md:flex-row md:justify-between">
+            <div className="relative flex flex-col-reverse justify-center gap-5 md:flex-row md:justify-between -z-10">
                 {/* Large uppercase name */}
                 <div className="max-w-fit text-[clamp(4.25rem,12vw,15rem)] font-semibold uppercase leading-none">
                     <div className="overflow-hidden">
