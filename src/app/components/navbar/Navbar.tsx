@@ -6,7 +6,6 @@ const navItems = [
     { href: "#home", label: "Home", },
     { href: "#projects", label: "Projects", },
     { href: "#posts", label: "About", },
-    { href: "#footer", label: "Footer", },
 ];
 
 const socialLinks = [
@@ -23,7 +22,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="fixed top-7 right-7 z-20 ">
+        <nav className="fixed top-5 right-5 md:top-7 md:right-7 z-20 ">
             {/* === Hamburger button === */}
             <button
                 onClick={toggleMenu}
@@ -33,7 +32,7 @@ export default function Navbar() {
                 {[...Array(9)].map((_, i) => (
                     <div
                         key={i}
-                        className={`border-4 border-current transition-all duration-700 ease-in-out button-animation ${isOpen ? "open" : " "}`}
+                        className={`border-2 md:border-4 border-current transition-all duration-700 ease-in-out button-animation ${isOpen ? "open" : " "}`}
                     />
                 ))}
             </button>
