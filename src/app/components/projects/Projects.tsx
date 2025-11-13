@@ -16,7 +16,7 @@ export default function Projects() {
         <span className="justify-self-end">Date</span>
       </div>
       <MiniDivider type="main" />
-
+      
       {/* Projects list */}
       <div className="flex flex-col">
         {projectData.slice().reverse().map(project => (

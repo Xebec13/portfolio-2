@@ -33,7 +33,7 @@ export default function Hero() {
             <div className="flex flex-col gap-15  items-start md:flex-row md:justify-between">
                 {/* Contact info */}
                 <div className="shrink-0 flex items-center p-3 font-semibold">
-                    <div className="overflow-hidden relative flex items-center gap-5 group">
+                    <div className="overflow-hidden">
                         <p className="animate-content-slide-up text-xl md:text-2xl lg:text-3xl">Web Developer</p>
                     </div>
                 </div>
