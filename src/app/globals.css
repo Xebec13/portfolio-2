@@ -1,11 +1,14 @@
 @import "tailwindcss";
+
+/* ==================================== */
+/* 🌍 Global Styles */
+/* ==================================== */
 html {
   @apply scroll-smooth;
 }
+
 body {
-  @apply antialiased;
-  @apply bg-zinc-100;
-  @apply text-neutral-900;
+  @apply antialiased bg-zinc-100 text-neutral-900;
   font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -15,12 +18,15 @@ h1 {
   font-family: var(--font-sansation);
 }
 
+/* ==================================== */
+/* ⚙️ Custom Utility Layer */
+/* ==================================== */
 @layer utilities {
   /* ============================= */
   /* 🔼 Slide-up Animations */
   /* ============================= */
 
-  /* --- Slide-up for h1 --- */
+  /* --- For Hero Headings --- */
   @keyframes slide-up-h1 {
     0% {
       transform: translateY(100%);
@@ -40,7 +46,6 @@ h1 {
     }
   }
 
-  /* === Classes === */
   .animate-slide-up-h1 {
     animation: slide-up-h1 0.6s ease-out forwards;
   }
@@ -52,7 +57,6 @@ h1 {
   /* ============================= */
   /* 🔍 Scale-up Animation */
   /* ============================= */
-
   @keyframes scale-up {
     0% {
       transform: scale(0.1);
@@ -67,9 +71,8 @@ h1 {
   }
 
   /* ============================= */
-  /* 🎭 Curtain Animation */
+  /* 🎭 Curtain Reveal Animation */
   /* ============================= */
-
   @keyframes curtainUp {
     0% {
       transform: translateY(0);
@@ -89,9 +92,8 @@ h1 {
   }
 
   /* ============================= */
-  /* 🧭 Navigation Slide-down Animation */
+  /* 🧭 Navbar Slide-down Animation */
   /* ============================= */
-
   @keyframes nav-slide-down {
     from {
       transform: translateY(-120%);
@@ -106,32 +108,103 @@ h1 {
   }
 
   /* ============================= */
-  /* 🔲 Button Animation (3x3 Grid) */
+  /* 🔲 Button Animations (3x3 Grid) */
   /* ============================= */
-
-  /* --- Base Transition --- */
   .button-animation {
     transition: all 0.7s ease-in-out;
   }
 
-  /* --- Even squares fade out when open --- */
+  /* Fade out even children when open */
   .button-animation.open:nth-child(even) {
     opacity: 0;
     transform: scale(0.5);
   }
 
-  /* --- Odd squares rotate when open --- */
+  /* Rotate odd children when open */
   .button-animation.open:nth-child(odd) {
     transform: rotate(360deg);
   }
 
-  /* --- Reset state when closed --- */
+  /* Reset all children when closed */
   .button-animation:nth-child(even),
   .button-animation:nth-child(odd) {
     opacity: 1;
     transform: rotate(0deg) scale(1);
   }
+
+  /* Long ping animation for pulse effects */
   .animate-ping-long {
     animation: ping 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  /* ============================= */
+  /* ❌ Close Button Animation (3x3 Grid) */
+  /* ============================= */
+
+  /* Hide selected squares */
+  .close-btn-animation div:nth-child(1),
+  .close-btn-animation div:nth-child(3),
+  .close-btn-animation div:nth-child(5),
+  .close-btn-animation div:nth-child(6),
+  .close-btn-animation div:nth-child(7),
+  .close-btn-animation div:nth-child(9) {
+    opacity: 0;
+  }
+
+  /* Animate visible squares on hover (parent hover triggers all children) */
+  .close-btn-animation:hover div:nth-child(2),
+  .close-btn-animation:hover div:nth-child(4),
+  .close-btn-animation:hover div:nth-child(8) {
+    animation: spinPulse 2s infinite ease-in-out;
+  }
+
+  /* Rotate + invert pulse effect */
+  @keyframes spinPulse {
+    0% {
+      transform: rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      transform: rotate(180deg);
+      filter: invert(1);
+      border-radius: 50%;
+    }
+    100% {
+      transform: rotate(360deg);
+      opacity: 1;
+    }
+  }
+    /* ============================= */
+  /* 📩 Contact Modal Slide-down Animation */
+  /* ============================= */
+  @keyframes slideDownModal {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-down-modal {
+    animation: slideDownModal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  /* 📩 Contact Modal Slide-Up Animation */
+  /* ============================= */
+  @keyframes slideUpModal {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
+  .animate-slide-up-modal {
+    animation: slideUpModal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 }
