@@ -10,7 +10,7 @@ export default function Projects() {
   return (
     <section id="projects" className="min-h-screen p-5 md:p-13 scroll-mt-50">
       {/* Section header */}
-      <div className="grid grid-cols-3 p-2 gap-3 font-semibold uppercase text-sm md:text-2xl">
+      <div className="mt-10 grid grid-cols-3 p-2 gap-3 font-semibold uppercase text-sm md:text-2xl">
         <span className="justify-self-start">Projects</span>
         <span className="justify-self-start">Tech</span>
         <span className="justify-self-end">Date</span>

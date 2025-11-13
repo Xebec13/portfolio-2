@@ -22,7 +22,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="fixed top-5 right-5 md:top-7 md:right-7 z-20 ">
+        <nav className="fixed top-5 right-5 md:top-5 md:right-7 z-20 ">
             {/* === Hamburger button === */}
             <button
                 onClick={toggleMenu}
