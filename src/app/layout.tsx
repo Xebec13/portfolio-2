@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Sansation,Inter } from "next/font/google";
+import { Sansation,Inter, Work_Sans } from "next/font/google";
 import "./globals.css";
 
 const sansation = Sansation({
@@ -13,7 +13,11 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
-
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  variable: "--font-work-sans",
+  weight:["400"]
+});
 export const metadata: Metadata = {
   title: "DH Portfolio",
   description: "Developer Portfolio",
@@ -27,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${sansation.variable} ${inter.variable}  font-sans antialiased`}
+        className={`${sansation.variable} ${inter.variable} ${workSans.variable}  font-sans antialiased`}
       >
         {children}
       </body>

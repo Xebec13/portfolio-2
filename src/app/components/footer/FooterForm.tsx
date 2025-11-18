@@ -1,6 +1,6 @@
 export default function FooterForm() {
     return (
-        <section className="flex flex-col items-center justify-center text-neutral-900 w-full  bg-zinc-100 ">
+        <section className="flex flex-col items-center justify-center text-neutral-900 w-full  bg-zinc-200 ">
             {/* === Contact Form === */}
             <form className="mt-10 w-full max-w-2xl flex flex-col gap-6">
                 <input

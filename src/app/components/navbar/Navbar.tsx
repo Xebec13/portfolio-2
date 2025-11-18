@@ -28,7 +28,7 @@ export default function Navbar() {
             <button
                 onClick={toggleMenu}
                 className={`nav-slide-down relative grid grid-cols-3 gap-2 p-1.5 rounded-sm cursor-pointer  transition-all duration-700 ease-in-out z-10 
-                ${isOpen ? "bg-blue-700 hover:bg-zinc-100 hover:scale-110" : "bg-zinc-100 hover:invert hover:scale-110"}`}
+                ${isOpen ? "bg-blue-700 hover:bg-zinc-200 hover:scale-110" : "bg-zinc-200 hover:invert hover:scale-110"}`}
             >
                 {[...Array(9)].map((_, i) => (
                     <div

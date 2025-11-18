@@ -58,7 +58,7 @@ export default function FooterCta() {
             {/* === Contact Modal === */}
             {showContact && (
                 <div
-                    className={`absolute inset-0 grid grid-cols-1 md:grid-cols-2 place-items-center min-h-screen p-5 md:p-18 bg-zinc-100 z-50
+                    className={`absolute inset-0 grid grid-cols-1 md:grid-cols-2 place-items-center min-h-screen p-5 md:p-18 bg-zinc-200 z-50
                     ${isClosing ? "animate-slide-up-modal" : "animate-slide-down-modal"}`}
                     onAnimationEnd={handleAnimationEnd}
                 >
@@ -85,10 +85,7 @@ export default function FooterCta() {
                             </p>
                         </div>
                     </div>
-
-                 
-                        <FooterForm />
-                    
+                    <FooterForm />
                 </div>
             )}
         </div>
