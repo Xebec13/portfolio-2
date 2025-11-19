@@ -185,6 +185,35 @@ h1 {
   }
 
   /* ====================================================== */
+  /* 🔶 Chevron                             */
+  /* ====================================================== */
+  .chevron-btn {
+    transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+  }
+  .chevron-btn:nth-child(even) {
+    opacity: 0;
+  }
+  .chevron-btn.open:nth-child(5) {
+    opacity: 0;
+    transform: translateY(-7px);
+  }
+  .chevron-btn.open:nth-child(2) {
+    opacity: 1;
+    transform: translateY(-7px);
+  }
+  .chevron-next:nth-child(2),
+  .chevron-next:nth-child(3),
+  .chevron-next:nth-child(6) {
+    opacity: 0;
+  }
+
+  .chevron-prev:nth-child(1),
+  .chevron-prev:nth-child(4),
+  .chevron-prev:nth-child(5) {
+    opacity: 0;
+  }
+
+  /* ====================================================== */
   /* 🔶 Contact Modal Animations                            */
   /* ====================================================== */
 
@@ -217,7 +246,7 @@ h1 {
   .animate-slide-up-modal {
     animation: slideUpModal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
-   /* ====================================================== */
+  /* ====================================================== */
   /* 🔹 Marquee (infinite horizontal scroll)                */
   /* ====================================================== */
 
@@ -228,8 +257,11 @@ h1 {
   }
 
   @keyframes marquee {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-70%); }
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-70%);
+    }
   }
-
 }
