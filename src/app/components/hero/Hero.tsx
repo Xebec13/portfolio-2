@@ -34,7 +34,7 @@ export default function Hero() {
                 {/* Contact info */}
                 <div className="shrink-0 flex items-center p-3 font-semibold">
                     <div className="overflow-hidden">
-                        <p className="animate-content-slide-up text-xl md:text-2xl lg:text-3xl">Web Developer</p>
+                        <p className="animate-content-slide-up text-xl md:text-2xl lg:text-3xl">Front-End Developer</p>
                     </div>
                 </div>
 
