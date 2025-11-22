@@ -40,7 +40,7 @@ export default function Navbar() {
 
             {/* === Fullscreen overlay menu === */}
             <ul
-                className={`fixed top-0 right-0 flex flex-col justify-between pt-20 px-6 h-screen w-2/3 sm:w-1/3 bg-neutral-950 transition-all duration-500 ease-in-out
+                className={`fixed top-0 right-0 flex flex-col justify-between pt-20 px-6 h-screen w-full  max-w-2/3 md:max-w-1/3 bg-neutral-950 transition-all duration-500 ease-in-out
                 ${isOpen ? "translate-x-0 opacity-100 visible" : "translate-x-full opacity-0 invisible"}`}
             >
                 {/* === Navigation Links === */}

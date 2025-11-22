@@ -2,14 +2,14 @@ import Loader from "./components/utils/Loader"
 import { Navbar, Hero, Projects, About, Footer } from "./components"
 export default function Home() {
   return (
-    // <Loader>
-    <>
+    <Loader>
+      {/* <> */}
       <Navbar />
       <Hero />
       <Projects />
       <About />
       <Footer />
-    </>
-    // </Loader>
+      {/*  </> */}
+    </Loader >
   )
 }

@@ -56,9 +56,9 @@ export const projectData: Project[] = [
       <span key="gsap" aria-label="GSAP" className="text-[0.5rem] font-bold uppercase">GSAP</span>,
     ],
     review:
-      "Using Tailwind, HTML and GSAP, I created a clean corporate layout with subtle motion that helped present the company’s services more clearly. The page was optimized for mobile-first use and served as a simple, fast digital business card before the brand moved to a full WordPress setup.",
+      "Lightweight logistics landing page built with Tailwind and GSAP, focused on clarity, mobile usability and simple brand presentation.",
     techReview:
-      "TailwindCSS, HTML and GSAP delivering a clean corporate layout with scroll-based animations and strong branding.",
+      "Using Tailwind, HTML and GSAP, I created a clean corporate layout with subtle motion that helped present the company’s services more clearly. The page was optimized for mobile-first use and served as a simple, fast digital business card before the brand moved to a full WordPress setup.",
     keyWords: ["Logistics", "Corporate", "Landing Page", "GSAP", "Animations"],
     keyAchi: [
       "Added GSAP animations to give the corporate layout a more modern, dynamic feel.",
@@ -83,7 +83,7 @@ export const projectData: Project[] = [
     review:
       "Polished React landing page inspired by GPT-3, upgraded with smooth GSAP animations and a more thoughtful, modern UI/UX flow.",
     techReview:
-      "Using React, JavaScript, CSS and GSAP, I rebuilt the template with cleaner structure, improved UX flow, and animations that make the page feel more dynamic. I refined spacing, hierarchy and color usage to create a more consistent AI-themed look and added custom motion sequences for a smoother visual experience.",
+      "React, JavaScript, CSS and GSAP, I rebuilt the template with cleaner structure, improved UX flow, and animations that make the page feel more dynamic. I refined spacing, hierarchy and color usage to create a more consistent AI-themed look and added custom motion sequences for a smoother visual experience.",
     keyWords: ["AI", "Landing Page", "GSAP", "React", "Animations"],
     keyAchi: [
       "Enhanced the template with custom GSAP motion to add depth and energy.",
