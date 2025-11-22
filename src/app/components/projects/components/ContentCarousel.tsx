@@ -117,8 +117,8 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
                                 <Image
                                     src={images[pos.idx]}
                                     alt={`${name} screenshot ${pos.idx + 1}`}
-                                    fill
-                                    sizes="300px, 450px"
+                                    width={1920}
+                                    height={1020}
                                     className="rounded-md object-contain"
                                 />
                             </div>

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Hero() {
     return (
-        <section id="/" className="relative flex min-h-screen flex-col items-stretch justify-center md:justify-evenly gap-10 px-5 pb-15 pt-30 md:px-22 md:pt-35">
+        <section id="/" className="relative flex min-h-screen flex-col items-stretch justify-start md:justify-evenly gap-10 px-5 pb-15 pt-30 md:px-22 md:pt-35">
             {/* Header Section */}
             {/* <HeroGridBg /> */}
             <div className="relative flex flex-col-reverse justify-center gap-5 md:flex-row md:justify-between -z-10">
