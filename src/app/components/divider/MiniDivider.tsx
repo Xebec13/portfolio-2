@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 
 interface MiniDividerProps {
-  type?: "main" | "off"; // domyślnie "off"
+  type?: "main" | "off" | "head";
 }
 
 export default function MiniDivider({ type = "off" }: MiniDividerProps) {
@@ -20,19 +20,23 @@ export default function MiniDivider({ type = "off" }: MiniDividerProps) {
       { threshold: 0.1 }
     );
 
-    if (dividerRef.current) {
-      observer.observe(dividerRef.current);
-    }
+    if (dividerRef.current) observer.observe(dividerRef.current);
 
     return () => observer.disconnect();
   }, []);
 
-  const heightClass = type === "main" ? "border-[1.75px]" : "border-[0.9px]";
+  // dodatkowe wysokości
+  const heightClass = {
+    off: "border-[0.9px]",
+    main: "border-[1.75px]",
+    head: "border-3",
+    
+  }[type];
 
   return (
     <div
       ref={dividerRef}
-      className={`${heightClass} border-neutral-900 origin-left transition-transform duration-1200 ease-in-out
+      className={`${heightClass} border-current origin-left transition-transform duration-1200 ease-in-out
         ${isVisible ? "scale-x-100" : "scale-x-0"}
       `}
     />
