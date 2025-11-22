@@ -1,6 +1,6 @@
 import AboutContent from "./AboutContent";
 import AboutBox from "./AboutBox";
-import MiniDivider from "../divider/MiniDivider"
+import MiniDivider from "../utils/MiniDivider"
 
 const infoContent = [
     "I’m a Front-End Developer creating modern, responsive, and animated web experiences with React, TypeScript, Tailwind, and GSAP. After reskilling through CodersLab, I’ve built 5+ real projects, including a working MVP for a local business. My background in psychology, criminology, and hospitality gives me strong problem-solving and interpersonal skills, helping me deliver digital experiences that truly connect with users."

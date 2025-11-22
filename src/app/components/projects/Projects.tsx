@@ -2,7 +2,7 @@
 import { useState } from "react";
 import ProjectItem from "./ProjectItem";
 import { projectData } from "./ProjectData";
-import MiniDivider from "../divider/MiniDivider";
+import MiniDivider from "../utils/MiniDivider";
 
 export default function Projects() {
   const [expandedId, setExpandedId] = useState<number | null>(null);

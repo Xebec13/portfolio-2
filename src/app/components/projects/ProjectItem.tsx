@@ -1,6 +1,6 @@
 import { Project } from "./ProjectData";
 import { ProjectHeader,ProjectContent,ContentWrapper  } from "./components";
-import MiniDivider from "../divider/MiniDivider";
+import MiniDivider from "../utils/MiniDivider";
 
 interface ProjectItemProps {
   project: Project;
