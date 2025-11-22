@@ -10,7 +10,7 @@ export default function About() {
         <section
             id="about"
             className="min-h-screen bg-zinc-200 px-5 py-10 md:px-13 md:py-15">
-            <div className="pt-25 pb-10 ">
+            <div className="py-5 md:pt-25 md:pb-10">
                 <MiniDivider type="head" />
                 <h3 className="uppercase text-[clamp(4rem,10vw,11rem)] font-semibold leading-none">About</h3>
             </div>
