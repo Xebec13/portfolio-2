@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import { useEffect, useState, useCallback } from "react";
 
@@ -8,84 +8,85 @@ interface ContentCarouselProps {
 }
 
 export default function ContentCarousel({ images, name }: ContentCarouselProps) {
-    const [activeIndex, setActiveIndex] = useState(1);
+    const [activeIndex, setActiveIndex] = useState(0);
 
-    // next / prev (defined before effect so effect can call them safely)
-    const next = useCallback(() => {
-        setActiveIndex((prev) => (prev + 1) % images.length);
-    }, [images.length]);
+    const changeIndex = useCallback(
+        (delta: number) => {
+            setActiveIndex((prev) => (prev + delta + images.length) % images.length);
+        },
+        [images.length]
+    );
 
-    const prev = useCallback(() => {
-        setActiveIndex((prev) => (prev - 1 + images.length) % images.length);
-    }, [images.length]);
-
-    // Auto-slide: interval runs independently, does NOT get reset by user interaction
+    // Auto-slide
     useEffect(() => {
         if (!images || images.length <= 1) return;
         const interval = setInterval(() => {
-            // advance automatically
             setActiveIndex((prev) => (prev + 1) % images.length);
-        }, 5000); // change every 5s
+        }, 5000);
 
         return () => clearInterval(interval);
     }, [images, images.length]);
 
-
     return (
-        <div className=" relative">
-            {/* Images Wrapper */}
-            <div
-                className="w-full h-[75vh] border-2 flex">
-                {(() => {
-                    const leftIndex = (activeIndex - 1 + images.length) % images.length;
-                    const rightIndex = (activeIndex + 1 + images.length) % images.length;
+        <div className="relative bottom-10 h-[40vh] md:h-[50vh] w-full ">
 
-                    const positions = [
-                        { idx: leftIndex, x: "-100%" },
-                        { idx: activeIndex, x: "0%" },
-                        { idx: rightIndex, x: "100%" },
-                    ];
+            {/* SLIDES */}
+            <div className="relative w-full h-full ">
+                {images.map((img, idx) => {
+                    const delta = idx - activeIndex;
+                    let translateX = delta * 100;
 
-                    return positions.map((pos) => {
-                        const isActive = pos.idx === activeIndex;
+                    // loop around
+                    if (delta < -1) translateX += images.length * 100;
+                    if (delta > 1) translateX -= images.length * 100;
 
-                        return (
-                            <div
-                                key={pos.idx}
-                                className={`aspect-video rounded-md transition-all duration-500 ease-in-out ${isActive ? "scale-[1.10] md:scale-[1.3] grayscale-0 opacity-100 z-10" : "scale-[0.90] md:scale-100 grayscale-50 opacity-60 z-0"}`}
-                                style={{
-                                    transform: `translateX(${pos.x})`,
-                                }}
-                            >
+                    const isActive = idx === activeIndex;
+
+                    return (
+                        <div
+                            key={idx}
+                            className={`
+                absolute top-1/2 left-1/2 -translate-x-1/2 
+                transition-all duration-500 ease-in-out
+                ${isActive ? "z-10" : "z-0"}
+                ${isActive ? "opacity-100" : "opacity-50"}
+                }
+              `}
+                            style={{
+                                transform: `translateX(${translateX}%) translateY(-50%) scale(${isActive ? 1.1 : 0.9})`,
+                            }}
+                        >
+                            <div className="relative w-100 h-70 lg:w-160 lg:h-110">
                                 <Image
-                                    src={images[pos.idx]}
-                                    alt={`${name} screenshot ${pos.idx + 1}`}
+                                    src={img}
+                                    alt={`${name} screenshot ${idx + 1}`}
                                     fill
-                                    className="rounded-md object-cover"
+                                    className="object-contain w-full h-full rounded-md"
                                 />
                             </div>
-                        );
-                    });
-                })()}
+                        </div>
+                    );
+                })}
             </div>
-            {/* 👉 ABSOLUTE WRAPPER FOR BUTTONS + DOTS */}
-            <div className="absolute inset-0 z-30 flex justify-between items-center">
 
-                {/* Dots (center bottom) */}
-                <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-3">
-                    {/* Prev button */}
-                    <button
-                        onClick={prev}
-                        className="mr-5 grid grid-cols-2 gap-1 p-0.5 ease-in-out duration-500 cursor-pointer transition-transform hover:scale-110">
-                        {[...Array(6)].map((_, i) => (
-                            <div
-                                key={i}
-                                className="chevron-prev  border-[2.5px] md:border-3 border-neutral-800 rounded-full"
-                            />
-                        ))}
-                    </button>
+            {/* BUTTONS + DOTS */}
+            <div className="absolute -bottom-2 left-0 right-0 flex items-center justify-center gap-6 z-30 pb-4">
+                {/* Prev */}
+                <button
+                    type="button"
+                    onClick={() => changeIndex(-1)}
+                    className="grid grid-cols-2 gap-1 p-1 transition-transform hover:scale-110 cursor-pointer"
+                >
+                    {[...Array(6)].map((_, i) => (
+                        <div
+                            key={i}
+                            className="chevron-prev border-[2.5px] md:border-3 border-neutral-800 rounded-full"
+                        />
+                    ))}
+                </button>
 
-                    {/* Dots */}
+                {/* Dots */}
+                <div className="flex items-center justify-center gap-3">
                     {images.map((_, idx) => (
                         <div
                             key={idx}
@@ -93,24 +94,22 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
                                 }`}
                         />
                     ))}
-
-                    {/* Next button */}
-                    <button
-                        onClick={next}
-                        className="ml-5 grid grid-cols-2 gap-1 p-1 ease-in-out duration-500 cursor-pointer transition-transform hover:scale-110">
-                        {[...Array(6)].map((_, i) => (
-                            <div
-                                key={i}
-
-                                className="chevron-next  border-[2.5px] md:border-3 border-neutral-800 rounded-full"
-                            />
-                        ))}
-                    </button>
                 </div>
 
+                {/* Next */}
+                <button
+                    type="button"
+                    onClick={() => changeIndex(1)}
+                    className="grid grid-cols-2 gap-1 p-1 transition-transform hover:scale-110 cursor-pointer"
+                >
+                    {[...Array(6)].map((_, i) => (
+                        <div
+                            key={i}
+                            className="chevron-next border-[2.5px] md:border-3 border-neutral-800 rounded-full"
+                        />
+                    ))}
+                </button>
             </div>
-
-
         </div>
     );
 }

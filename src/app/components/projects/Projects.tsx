@@ -8,7 +8,7 @@ export default function Projects() {
   const [expandedId, setExpandedId] = useState<number | null>(null);
 
   return (
-    <section id="projects" className="min-h-screen p-5 md:p-13 bg-zinc-200">
+    <section id="projects" className="min-h-screen p-3 md:p-13 bg-zinc-200">
       {/* Section header */}
       <div className="mt-10 grid grid-cols-3 p-2 gap-3 font-semibold uppercase text-sm md:text-2xl">
         <span className="justify-self-start">Projects</span>

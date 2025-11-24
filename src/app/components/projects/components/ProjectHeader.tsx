@@ -17,7 +17,7 @@ export default function ProjectHeader({
         <div className="grid grid-cols-3 p-1.5 gap-5 place-items-center text-lef">
 
             {/* 🔹 Title — small when collapsed */}
-            <div className={`justify-self-start text-left origin-left ml-0 transition-[opacity,scale,margin] duration-500 ease-in-out ${isExpanded ? "scale-140 ml-10" : ""} `}>
+            <div className={`justify-self-start text-left origin-left ml-0 transition-[opacity,scale,margin] duration-500 ease-in-out ${isExpanded ? "scale-140 ml-5" : ""} `}>
 
                 <h3 className={`text-md md:text-xl lg:text-2xl font-medium`}>
                     {name}
@@ -25,7 +25,7 @@ export default function ProjectHeader({
             </div>
 
             {/* 🔹 Tech Icons (only collapsed) */}
-            <div className={`justify-self-start grid grid-cols-2 sm:grid-cols-4 place-items-center gap-3 text-xl lg:text-2xl transition-opacity duration-500 ${isExpanded ? "opacity-0" : "opacity-100"}`}>
+            <div className={`justify-self-start grid grid-cols-2 sm:grid-cols-4 place-items-center gap-3 text-xl lg:text-2xl transition-opacity duration-300 ${isExpanded ? "opacity-0" : "opacity-100"}`}>
                 {icons.map((icon, idx) => (
                     <span key={idx} className="inline-flex">
                         {icon}
