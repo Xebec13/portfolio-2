@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState, useCallback } from "react";
-
+import { NextChevron,PrevChevron } from "../../utils/Icons";
 interface ContentCarouselProps {
     images: string[];
     name: string;
@@ -72,18 +72,7 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
             {/* BUTTONS + DOTS */}
             <div className="absolute -bottom-5 left-0 right-0 flex items-center justify-center gap-6 z-30 pb-4">
                 {/* Prev */}
-                <button
-                    type="button"
-                    onClick={() => changeIndex(-1)}
-                    className="grid grid-cols-2 gap-1 p-1 transition-transform hover:scale-110 cursor-pointer"
-                >
-                    {[...Array(6)].map((_, i) => (
-                        <div
-                            key={i}
-                            className="chevron-prev border-[2.5px] md:border-3 border-neutral-800 rounded-full"
-                        />
-                    ))}
-                </button>
+                <PrevChevron onClick={() => changeIndex(-1)} />
 
                 {/* Dots */}
                 <div className="flex items-center justify-center gap-3">
@@ -97,18 +86,7 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
                 </div>
 
                 {/* Next */}
-                <button
-                    type="button"
-                    onClick={() => changeIndex(1)}
-                    className="grid grid-cols-2 gap-1 p-1 transition-transform hover:scale-110 cursor-pointer"
-                >
-                    {[...Array(6)].map((_, i) => (
-                        <div
-                            key={i}
-                            className="chevron-next border-[2.5px] md:border-3 border-neutral-800 rounded-full"
-                        />
-                    ))}
-                </button>
+                <NextChevron onClick={() => changeIndex(1)} />
             </div>
         </div>
     );

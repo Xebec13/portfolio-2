@@ -1,3 +1,4 @@
+import { BackChevron } from "../utils/Icons";
 import { AboutItem } from "./aboutData";
 
 interface AboutOverlayProps {
@@ -32,8 +33,11 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
       ${originClass}
       ${isActive ? "opacity-100 scale-100" : "scale-0 pointer-events-none"}`}
     >
-
-      <p className="text-md md:text-xl font-semibold uppercase">{item.name}</p>
+      <div className="inline-flex items-center gap-1 mb-auto">
+        {/* Back button */}
+        <BackChevron onClick={onClose} />
+        <p className="text-md md:text-xl font-semibold uppercase">{item.name}</p>
+      </div>
 
 
       <div className="max-w-3/4 mb-2">
@@ -63,8 +67,8 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
 
         {/* Content lines */}
         <div className="space-y-1 font-medium">
-            
-          
+
+
           {item.content.map((line, idx) => {
             if (typeof line === "string") {
               return (
@@ -107,16 +111,6 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
           })}
         </div>
       </div>
-
-      {/* Close button */}
-      <button
-        onClick={onClose}
-        className="close-btn-animation absolute top-2 left-1.5 grid grid-cols-3 gap-1 p-0.5 rounded-sm cursor-pointer bg-zinc-100 text-neutral-900 transition-all duration-700 ease-in-out hover:scale-110 hover:text-neutral-900 hover:bg-blue-800"
-      >
-        {[...Array(9)].map((_, idx) => (
-          <div key={idx} className="border-2" />
-        ))}
-      </button>
     </div>
   );
 }

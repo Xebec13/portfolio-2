@@ -1,0 +1,105 @@
+@layer utilities {
+    /* == Navigation Icon animation == */
+ 
+  .nav-icon {
+    transition: all 0.7s ease-in-out;
+  }
+
+  /* Even children fade out */
+  .nav-icon div.open:nth-child(even) {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  /* Odd children spin */
+  .nav-icon div.open:nth-child(odd) {
+    transform: rotate(360deg);
+  }
+
+  /* Reset */
+  .nav-icon div:nth-child(even),
+  .nav-icon div:nth-child(odd) {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+
+  /* == Chevron up/down animation == */
+  .chevron-up-down div {
+    transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+  }
+
+  /* == Hide even squares initially == */
+  .chevron-up-down div:nth-child(even) {
+    opacity: 0;
+  }
+
+  /* == Open state: show second square == */
+  .chevron-up-down div.open:nth-child(2) {
+    opacity: 1;
+    transform: translateY(-7px);
+  }
+
+  /* == Open state: hide fifth square == */
+  .chevron-up-down div.open:nth-child(5) {
+    opacity: 0;
+    transform: translateY(-7px);
+  }
+
+  /* == Close button grid: hide unused squares == */
+  .chevron-back div:nth-child(1),
+  .chevron-back div:nth-child(3),
+  .chevron-back div:nth-child(5),
+  .chevron-back div:nth-child(6),
+  .chevron-back div:nth-child(7),
+  .chevron-back div:nth-child(9),
+  .chevron-footer-back div:nth-child(1),
+  .chevron-footer-back div:nth-child(3),
+  .chevron-footer-back div:nth-child(5),
+  .chevron-footer-back div:nth-child(6),
+  .chevron-footer-back div:nth-child(7),
+  .chevron-footer-back div:nth-child(9) {
+    opacity: 0;
+  }
+
+  /* == Close button hover animation == */
+  .chevron-back:hover div:nth-child(2),
+  .chevron-back:hover div:nth-child(4),
+  .chevron-back:hover div:nth-child(8) {
+    animation: spinPulseRotate 2s infinite ease-in-out;
+  }
+
+  /* == Keyframes for spin/pulse effect == */
+  @keyframes spinPulseRotate {
+    0% {
+      transform: rotate(0);
+    }
+    50% {
+      transform: rotate(180deg);
+      border-radius: 50%;
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  /* == Close footer button hover animation == */
+  .chevron-footer-back:hover div:nth-child(2),
+  .chevron-footer-back:hover div:nth-child(4),
+  .chevron-footer-back:hover div:nth-child(8) {
+    animation: spinPulse 2s infinite ease-in-out;
+  }
+
+  /* == Keyframes for spin/pulse effect == */
+  @keyframes spinPulse {
+    0% {
+      transform: rotate(0);
+    }
+    50% {
+      transform: rotate(180deg);
+      filter: invert(1);
+      border-radius: 50%;
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

@@ -1,9 +1,6 @@
 @import "tailwindcss";
 
-/* ==================================== */
-/* 🌍 Global Styles */
-/* ==================================== */
-
+/* == Global Styles == */
 html {
   @apply scroll-smooth;
 }
@@ -23,16 +20,9 @@ h1 {
   font-family: var(--font-sansation);
 }
 
-/* ==================================== */
-/* 🔷 Utility Animations (Global Layer) */
-/* ==================================== */
-
 @layer utilities {
-  /* ====================================================== */
-  /* 🔸 Slide-Up Animations                                 */
-  /* ====================================================== */
-
-  /* Hero title slide-up */
+ 
+  /* == Slide-Up Animations == */
   @keyframes slide-up-h1 {
     from {
       transform: translateY(100%);
@@ -42,7 +32,6 @@ h1 {
     }
   }
 
-  /* Universal slide-up */
   @keyframes slide-up {
     from {
       transform: translateY(100%);
@@ -55,15 +44,11 @@ h1 {
   .animate-slide-up-h1 {
     animation: slide-up-h1 0.6s ease-out forwards;
   }
-
   .animate-content-slide-up {
     animation: slide-up 0.65s ease-out forwards;
   }
 
-  /* ====================================================== */
-  /* 🔷 Scale-Up Animations                                 */
-  /* ====================================================== */
-
+  /* == Scale-Up Animations == */
   @keyframes scale-up {
     from {
       transform: scale(0.1);
@@ -77,10 +62,7 @@ h1 {
     animation: scale-up 0.65s ease-out forwards;
   }
 
-  /* ====================================================== */
-  /* 🔶 Curtain Reveal                                       */
-  /* ====================================================== */
-
+  /* == Curtain Reveal Animation == */
   @keyframes curtainUp {
     0% {
       transform: translateY(0);
@@ -99,10 +81,7 @@ h1 {
     animation: curtainUp 1.2s ease-in-out forwards;
   }
 
-  /* ====================================================== */
-  /* 🔹 Navbar Slide-Down                                   */
-  /* ====================================================== */
-
+  /* == Navbar Slide-Down == */
   @keyframes nav-slide-down {
     from {
       transform: translateY(-120%);
@@ -116,107 +95,12 @@ h1 {
     animation: nav-slide-down 0.7s ease-out forwards;
   }
 
-  /* ====================================================== */
-  /* 🔷 Button Animation (3×3 Grid Menu)                    */
-  /* ====================================================== */
-
-  .button-animation {
-    transition: all 0.7s ease-in-out;
-  }
-
-  /* Even children fade out */
-  .button-animation.open:nth-child(even) {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-
-  /* Odd children spin */
-  .button-animation.open:nth-child(odd) {
-    transform: rotate(360deg);
-  }
-
-  /* Reset */
-  .button-animation:nth-child(even),
-  .button-animation:nth-child(odd) {
-    opacity: 1;
-    transform: rotate(0) scale(1);
-  }
-
-  /* Long pulsating ping */
+  /* == Long Pulsing Ping == */
   .animate-ping-long {
     animation: ping 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
   }
 
-  /* ====================================================== */
-  /* 🔸 Close Button Animation (3×3 Grid)                   */
-  /* ====================================================== */
-
-  /* Hide selected squares */
-  .close-btn-animation div:nth-child(1),
-  .close-btn-animation div:nth-child(3),
-  .close-btn-animation div:nth-child(5),
-  .close-btn-animation div:nth-child(6),
-  .close-btn-animation div:nth-child(7),
-  .close-btn-animation div:nth-child(9) {
-    opacity: 0;
-  }
-
-  /* Hover pulse/spin for visible squares */
-  .close-btn-animation:hover div:nth-child(2),
-  .close-btn-animation:hover div:nth-child(4),
-  .close-btn-animation:hover div:nth-child(8) {
-    animation: spinPulse 2s infinite ease-in-out;
-  }
-
-  @keyframes spinPulse {
-    0% {
-      transform: rotate(0);
-      opacity: 1;
-    }
-    50% {
-      transform: rotate(180deg);
-      filter: invert(1);
-      border-radius: 50%;
-    }
-    100% {
-      transform: rotate(360deg);
-      opacity: 1;
-    }
-  }
-
-  /* ====================================================== */
-  /* 🔶 Chevron                             */
-  /* ====================================================== */
-  .chevron-btn {
-    transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
-  }
-  .chevron-btn:nth-child(even) {
-    opacity: 0;
-  }
-  .chevron-btn.open:nth-child(5) {
-    opacity: 0;
-    transform: translateY(-7px);
-  }
-  .chevron-btn.open:nth-child(2) {
-    opacity: 1;
-    transform: translateY(-7px);
-  }
-  .chevron-next:nth-child(2),
-  .chevron-next:nth-child(3),
-  .chevron-next:nth-child(6) {
-    opacity: 0;
-  }
-
-  .chevron-prev:nth-child(1),
-  .chevron-prev:nth-child(4),
-  .chevron-prev:nth-child(5) {
-    opacity: 0;
-  }
-
-  /* ====================================================== */
-  /* 🔶 Contact Modal Animations                            */
-  /* ====================================================== */
-
+  /* == Contact Modal Animations == */
   @keyframes slideDownModal {
     from {
       transform: translateY(-100%);
@@ -246,10 +130,8 @@ h1 {
   .animate-slide-up-modal {
     animation: slideUpModal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
-  /* ====================================================== */
-  /* 🔹 Marquee (infinite horizontal scroll)                */
-  /* ====================================================== */
 
+  /* == Marquee (infinite horizontal scroll) == */
   .marquee-track {
     display: inline-flex;
     animation: marquee 45s linear infinite;

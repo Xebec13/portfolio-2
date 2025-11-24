@@ -1,3 +1,4 @@
+import { UpDownChevron } from "../../utils/Icons";
 import { ReactNode } from "react";
 
 interface ProjectHeaderProps {
@@ -38,15 +39,7 @@ export default function ProjectHeader({
                 <span className="text-sm md:text-md">
                     {date}
                 </span>
-                <div className="pt-1.5 grid grid-cols-3 gap-1">
-                    {[...Array(6)].map((_, i) => (
-                        <div
-                            key={i}
-                            className={`chevron-btn border-2 border-current  ${isExpanded ? "open" : ""}`}
-                        />
-                    ))}
-                </div>
-
+                <UpDownChevron isOpen={isExpanded} />
             </div>
         </div>
     );

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import FooterForm from "./FooterForm";
+import { FooterBackChevron } from "../utils/Icons";
 
 export default function FooterCta() {
     const [showContact, setShowContact] = useState(false);
@@ -64,14 +65,8 @@ export default function FooterCta() {
                 >
                     {/* === Left Section: Heading, Email, Close Button === */}
                     <div className="justify-self-start space-y-5 md:space-y-15 mt-10">
-                        <button
-                            onClick={handleClose}
-                            className="close-btn-animation absolute top-5 left-5 grid grid-cols-3 gap-2 p-1.5 rounded-sm cursor-pointer transition-all duration-700 ease-in-out hover:scale-110 hover:bg-blue-700"
-                        >
-                            {[...Array(9)].map((_, i) => (
-                                <div key={i} className="border-2 md:border-4" />
-                            ))}
-                        </button>
+                        {/* Back button */}
+                              <FooterBackChevron onClick={handleClose} />
 
                         {/* === Heading === */}
                         <h3 className="uppercase text-[clamp(4rem,10vw,11rem)] font-bold leading-tight tracking-tight">

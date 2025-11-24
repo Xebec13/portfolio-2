@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { NavIcon } from "../utils/Icons"
 
 const navItems = [
     { href: "/", label: "Home", },
@@ -25,18 +26,7 @@ export default function Navbar() {
     return (
         <nav className="fixed top-5 right-5 md:top-5 md:right-7 z-20 ">
             {/* === Hamburger button === */}
-            <button
-                onClick={toggleMenu}
-                className={`nav-slide-down relative grid grid-cols-3 gap-2 p-1.5 rounded-sm cursor-pointer  transition-all duration-700 ease-in-out z-10 
-                ${isOpen ? "bg-blue-700 hover:bg-zinc-200 hover:scale-110" : "bg-zinc-200 hover:invert hover:scale-110"}`}
-            >
-                {[...Array(9)].map((_, i) => (
-                    <div
-                        key={i}
-                        className={`border-2 md:border-4 border-current transition-all duration-700 ease-in-out button-animation ${isOpen ? "open" : " "}`}
-                    />
-                ))}
-            </button>
+            <NavIcon isOpen={isOpen} onClick={toggleMenu} />
 
             {/* === Fullscreen overlay menu === */}
             <ul
