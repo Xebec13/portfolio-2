@@ -70,7 +70,7 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
             </div>
 
             {/* BUTTONS + DOTS */}
-            <div className="absolute -bottom-2 left-0 right-0 flex items-center justify-center gap-6 z-30 pb-4">
+            <div className="absolute -bottom-5 left-0 right-0 flex items-center justify-center gap-6 z-30 pb-4">
                 {/* Prev */}
                 <button
                     type="button"

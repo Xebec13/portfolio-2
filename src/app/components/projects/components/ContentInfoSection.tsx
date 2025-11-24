@@ -37,12 +37,12 @@ export default function ContentMainSection({ project }: ContentMainSectionProps)
 
       {/* Review */}
       <div className="lg:col-start-1 indent-10">
-        <p className="text-[clamp(1rem,1.25vw,2.25rem)] font-medium">{review}</p>
+        <p className="text-[clamp(1rem,1.15vw,2.25rem)] font-medium">{review}</p>
       </div>
 
       {/* Tech Review */}
       <div className="lg:col-start-2 lg:col-span-2 indent-10">
-        <p className="text-[clamp(1rem,1.25vw,2.25rem)] font-medium">{techReview}</p>
+        <p className="text-[clamp(1rem,1.15vw,2.25rem)] font-medium">{techReview}</p>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ interface ContentWrapperProps {
   children: React.ReactNode;
 }
 
-export default function ContentWrapper({ isExpanded, children }: ContentWrapperProps) {
+export default function ProjectContentWrapper({ isExpanded, children }: ContentWrapperProps) {
   return (
     <div
       className="overflow-hidden transition-[max-height,opacity] duration-700 ease-in-out"
@@ -15,6 +15,7 @@ export default function ContentWrapper({ isExpanded, children }: ContentWrapperP
       <div className="flex flex-col gap-5 px-3 py-2 lg:px-6 lg:py-4">
         {children}
       </div>
+      
     </div>
   );
 }

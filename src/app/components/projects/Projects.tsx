@@ -25,7 +25,7 @@ export default function Projects() {
             project={project}
             isExpanded={expandedId === project.id}
             onToggle={() =>
-              setExpandedId(prev => (prev === project.id ? null : project.id))
+            setExpandedId(prev => (prev === project.id ? null : project.id))
             }
           />
         ))}

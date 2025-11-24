@@ -1,5 +1,5 @@
 import { Project } from "./ProjectData";
-import { ProjectHeader,ProjectContent,ContentWrapper  } from "./components";
+import { ProjectHeader, ProjectContent, ProjectContentWrapper } from "./components";
 import MiniDivider from "../utils/MiniDivider";
 
 interface ProjectItemProps {
@@ -13,7 +13,7 @@ export default function ProjectItem({
   isExpanded,
   onToggle,
 }: ProjectItemProps) {
-  const { 
+  const {
     name,
     date,
     icons,
@@ -21,9 +21,9 @@ export default function ProjectItem({
 
   return (
     <>
-    <button
+      <button
         onClick={onToggle}
-        className="w-full p-2 bg-zinc-200 text-neutral-900 cursor-pointer transition-colors duration-700 ease-in-out hover:text-zinc-200 hover:bg-black"
+        className="w-full p-2 bg-zinc-200 text-neutral-900 cursor-pointer transition-colors duration-700 ease-in-out hover:text-zinc-200 hover:bg-black "
       >
         <ProjectHeader
           name={name}
@@ -33,9 +33,11 @@ export default function ProjectItem({
         />
       </button>
 
-      <ContentWrapper isExpanded={isExpanded}>
+
+      <ProjectContentWrapper isExpanded={isExpanded}>
         <ProjectContent project={project} />
-      </ContentWrapper>
+      </ProjectContentWrapper>
+
 
       {/* Divider */}
       <MiniDivider type="off" />
