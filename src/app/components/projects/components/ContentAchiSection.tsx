@@ -30,7 +30,7 @@ export default function ContentAchiSection({ project }: ContentAchiSectionProps)
       </div>
 
       {/* Images */}
-      <div className="col-span-2">
+      <div className="col-span-2 h-full">
         <ContentCarousel images={images} name={name} />
       </div>
     </div>

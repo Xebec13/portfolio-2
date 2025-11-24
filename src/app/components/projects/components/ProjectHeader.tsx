@@ -14,12 +14,15 @@ export default function ProjectHeader({
     isExpanded,
 }: ProjectHeaderProps) {
     return (
-        <div className="grid grid-cols-3 p-1.5 gap-5 place-items-center text-left">
+        <div className="grid grid-cols-3 p-1.5 gap-5 place-items-center text-lef">
 
             {/* 🔹 Title — small when collapsed */}
-            <h3 className={`justify-self-start text-md md:text-xl lg:text-2xl pl-0 font-medium transition-[opacity,scale,padding] duration-700 ease-in-out ${isExpanded ? "scale-150 pl-10" : ""}`}>
-                {name}
-            </h3>
+            <div className={`justify-self-start text-left origin-left ml-0 transition-[opacity,scale,margin] duration-500 ease-in-out ${isExpanded ? "scale-140 ml-10" : ""} `}>
+
+                <h3 className={`text-md md:text-xl lg:text-2xl font-medium`}>
+                    {name}
+                </h3>
+            </div>
 
             {/* 🔹 Tech Icons (only collapsed) */}
             <div className={`justify-self-start grid grid-cols-2 sm:grid-cols-4 place-items-center gap-3 text-xl lg:text-2xl transition-opacity duration-500 ${isExpanded ? "opacity-0" : "opacity-100"}`}>
@@ -39,7 +42,7 @@ export default function ProjectHeader({
                     {[...Array(6)].map((_, i) => (
                         <div
                             key={i}
-                            className={`chevron-btn border-2 border-current  ${isExpanded ? "open":""}`}
+                            className={`chevron-btn border-2 border-current  ${isExpanded ? "open" : ""}`}
                         />
                     ))}
                 </div>

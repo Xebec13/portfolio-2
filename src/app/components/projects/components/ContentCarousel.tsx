@@ -9,16 +9,6 @@ interface ContentCarouselProps {
 
 export default function ContentCarousel({ images, name }: ContentCarouselProps) {
     const [activeIndex, setActiveIndex] = useState(1);
-    const [imageSize, setImageSize] = useState(300);
-    // Responsive image size
-    useEffect(() => {
-        const updateSize = () => {
-            setImageSize(window.matchMedia("(min-width: 768px)").matches ? 450 : 300);
-        };
-        updateSize();
-        window.addEventListener("resize", updateSize);
-        return () => window.removeEventListener("resize", updateSize);
-    }, []);
 
     // next / prev (defined before effect so effect can call them safely)
     const next = useCallback(() => {
@@ -42,8 +32,42 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
 
 
     return (
-        <div className="relative bottom-10 flex justify-center items-center overflow-hidden">
+        <div className=" relative">
+            {/* Images Wrapper */}
+            <div
+                className="w-full h-[75vh] border-2 flex">
+                {(() => {
+                    const leftIndex = (activeIndex - 1 + images.length) % images.length;
+                    const rightIndex = (activeIndex + 1 + images.length) % images.length;
 
+                    const positions = [
+                        { idx: leftIndex, x: "-100%" },
+                        { idx: activeIndex, x: "0%" },
+                        { idx: rightIndex, x: "100%" },
+                    ];
+
+                    return positions.map((pos) => {
+                        const isActive = pos.idx === activeIndex;
+
+                        return (
+                            <div
+                                key={pos.idx}
+                                className={`aspect-video rounded-md transition-all duration-500 ease-in-out ${isActive ? "scale-[1.10] md:scale-[1.3] grayscale-0 opacity-100 z-10" : "scale-[0.90] md:scale-100 grayscale-50 opacity-60 z-0"}`}
+                                style={{
+                                    transform: `translateX(${pos.x})`,
+                                }}
+                            >
+                                <Image
+                                    src={images[pos.idx]}
+                                    alt={`${name} screenshot ${pos.idx + 1}`}
+                                    fill
+                                    className="rounded-md object-cover"
+                                />
+                            </div>
+                        );
+                    });
+                })()}
+            </div>
             {/* 👉 ABSOLUTE WRAPPER FOR BUTTONS + DOTS */}
             <div className="absolute inset-0 z-30 flex justify-between items-center">
 
@@ -86,46 +110,7 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
 
             </div>
 
-            {/* Images Wrapper */}
-            <div
-                className="relative w-full h-[300px] md:h-[450px] flex items-center justify-center"
-                
-            >
-                {(() => {
-                    const leftIndex = (activeIndex - 1 + images.length) % images.length;
-                    const rightIndex = (activeIndex + 1 + images.length) % images.length;
 
-                    const positions = [
-                        { idx: leftIndex, x: "-100%" },
-                        { idx: activeIndex, x: "0%" },
-                        { idx: rightIndex, x: "100%" },
-                    ];
-
-                    return positions.map((pos) => {
-                        const isActive = pos.idx === activeIndex;
-
-                        return (
-                            <div
-                                key={pos.idx}
-                                className={`absolute rounded-md transition-all duration-500 ease-in-out ${isActive ? "scale-[1.10] md:scale-[1.3] grayscale-0 opacity-100 z-10" : "scale-[0.90] md:scale-100 grayscale-50 opacity-60 z-0"}`}
-                                style={{
-                                    width: imageSize,
-                                    height: imageSize,
-                                    transform: `translateX(${pos.x})`,
-                                }}
-                            >
-                                <Image
-                                    src={images[pos.idx]}
-                                    alt={`${name} screenshot ${pos.idx + 1}`}
-                                    width={1920}
-                                    height={1020}
-                                    className="rounded-md object-contain"
-                                />
-                            </div>
-                        );
-                    });
-                })()}
-            </div>
         </div>
     );
 }
