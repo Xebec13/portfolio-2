@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import FooterForm from "./FooterForm";
-import { FooterBackChevron } from "../utils/Icons";
+import { FooterBackChevron } from "../utils/Icons"; // Upewnij się, że ścieżka jest ok
 
 export default function FooterCta() {
     const [showContact, setShowContact] = useState(false);
@@ -28,7 +28,7 @@ export default function FooterCta() {
 
     return (
         <div className="flex flex-col gap-15 justify-center">
-            {/* === CTA Text === */}
+            {/* === CTA Text (Twoje oryginalne style) === */}
             <div className="bg-clip-text text-transparent bg-linear-to-r from-zinc-100/90 via-zinc-100/80 to-zinc-100/10">
                 <h3 className="text-[clamp(2rem,3.5vw,4rem)] tracking-tight leading-snug">
                     Curious about what we can create together?<br />
@@ -36,18 +36,18 @@ export default function FooterCta() {
                 </h3>
             </div>
 
-            {/* === Button + Status indicator === */}
+            {/* === Button + Status indicator (Twoje oryginalne style) === */}
             <div className="flex flex-col-reverse items-start md:flex-row md:items-center gap-10 text-lg">
                 <button
                     onClick={handleOpen}
-                    className="w-full md:w-fit p-5 bg-zinc-100 text-neutral-900 hover:scale-105 transition-all duration-700 cursor-pointer hover:bg-blue-700 hover:text-zinc-100"
+                    className="w-full md:w-fit gap-2 px-3 py-2 md:px-5 md:py-3 rounded-sm bg-zinc-50 text-blue-700 border border-transparent drop-shadow-md transition-all duration-700 ease-out hover:bg-blue-50 hover:border-blue-800 cursor-pointer"
                 >
                     Get in Touch
                 </button>
 
                 <div className="inline-flex items-center gap-5 text-zinc-100">
                     <div className="relative inline-flex items-center justify-center size-5">
-                        {/* Pulsing background circle */}
+                        {/* Pulsing background circle (Twój niebieski ping) */}
                         <div className="absolute inset-0 h-full w-full bg-blue-300 rounded-full opacity-75 animate-ping-long" />
                         {/* Central circle */}
                         <div className="relative inset-0 size-3.5 bg-blue-700 rounded-full" />
@@ -57,6 +57,7 @@ export default function FooterCta() {
             </div>
 
             {/* === Contact Modal === */}
+            {/* Modal renderuje się warunkowo i przykrywa footer dzięki absolute inset-0 na rodzicu (footerze) */}
             {showContact && (
                 <div
                     className={`absolute inset-0 grid grid-cols-1 md:grid-cols-2 place-items-center min-h-screen p-5 md:p-18 bg-zinc-200 z-50
@@ -64,22 +65,27 @@ export default function FooterCta() {
                     onAnimationEnd={handleAnimationEnd}
                 >
                     {/* === Left Section: Heading, Email, Close Button === */}
-                    <div className="justify-self-start space-y-5 md:space-y-15 mt-10">
+                    <div className="justify-self-start space-y-5 md:space-y-15 mt-10 w-full">
                         {/* Back button */}
-                              <FooterBackChevron onClick={handleClose} />
+                        <FooterBackChevron onClick={handleClose} />
 
                         {/* === Heading === */}
-                        <h3 className="uppercase text-[clamp(4rem,10vw,11rem)] font-bold leading-tight tracking-tight">
+                        <h3 className="uppercase text-[clamp(4rem,10vw,11rem)] font-bold leading-tight tracking-tight text-neutral-900">
                             Shoot Request
                         </h3>
 
                         {/* === Email Tag === */}
                         <div className="overflow-hidden">
-                            <p className="animate-content-slide-up pl-1.5 text-xl md:text-2xl lg:text-3xl font-semibold">
+                            <a 
+                                href="mailto:dhoesen@gmail.com"
+                                className="block animate-content-slide-up pl-1.5 text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 hover:text-blue-700 transition-colors"
+                            >
                                 dhoesen@gmail.com
-                            </p>
+                            </a>
                         </div>
                     </div>
+                    
+                    {/* === Right Section: Form === */}
                     <FooterForm />
                 </div>
             )}

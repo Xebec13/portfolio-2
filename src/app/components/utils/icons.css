@@ -1,6 +1,6 @@
 @layer utilities {
-    /* == Navigation Icon animation == */
- 
+  /* == Navigation Icon animation == */
+
   .nav-icon {
     transition: all 0.7s ease-in-out;
   }
@@ -101,5 +101,37 @@
     100% {
       transform: rotate(360deg);
     }
+  }
+  .chevron-next:hover > *,
+  .chevron-prev:hover > * {
+    opacity: 1;
+    animation: chevronHover 1s infinite ease-in-out;
+  }
+
+  /* chevronHover animation */
+  @keyframes chevronHover {
+    0% {
+      transform: rotate(0);
+      border-radius: 0;
+    }
+    50% {
+      transform: rotate(180deg);
+      border-radius: 50%;
+    }
+    100% {
+      transform: rotate(360deg);
+      border-radius: 100%;
+    }
+  }
+
+  .chevron-prev :nth-child(1),
+  .chevron-prev :nth-child(4),
+  .chevron-prev :nth-child(5) {
+    opacity: 0;
+  }
+  .chevron-next :nth-child(2),
+  .chevron-next :nth-child(3),
+  .chevron-next :nth-child(6) {
+    opacity: 0;
   }
 }

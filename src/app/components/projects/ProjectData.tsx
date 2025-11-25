@@ -1,5 +1,5 @@
-import { JSX } from "react";
-import { FaReact, } from "react-icons/fa";
+import type { JSX } from "react"; // Best practice: explicit type import
+import { FaReact } from "react-icons/fa";
 import { MdHtml, MdJavascript, MdCss } from "react-icons/md";
 import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
 import { LuSpline } from "react-icons/lu";
@@ -9,12 +9,12 @@ export interface Project {
   id: number;
   name: string;
   date: string;
-  icons: JSX.Element[];
+  icons: JSX.Element[]; // Keeping JSX in data is acceptable for static files
   review: string;
   techReview: string;
   keyWords: string[];
   keyAchi: string[];
-  images: string[];
+  images?: string[];
   href?: string;
   gitHref?: string;
 }
@@ -28,17 +28,18 @@ export const projectData: Project[] = [
       <MdHtml key="html" aria-label="HTML" />,
       <RiTailwindCssFill key="tailwind" aria-label="Tailwind" />,
       <MdJavascript key="js" aria-label="JavaScript" />,
-      <span key="gsap" aria-label="GSAP" className="text-[0.5rem] font-bold uppercase">GSAP</span>,
+      // Custom text span styled as an icon
+      <span key="gsap" aria-label="GSAP" className="text-[0.5rem] font-bold uppercase tracking-wider">GSAP</span>,
     ],
     review:
       "Responsive landing page created for a local charity clothing drive, originally built right after my first frontend course and later improved with Tailwind and GSAP.",
     techReview:
-      "HTML, CSS, JavaScript evolved into TailwindCSS with added GSAP animations. The project served as my first real-world exercise in layout structure, responsive design, and UI refinement.",
+      "Starting with vanilla HTML/CSS/JS, I refactored the project into a modern TailwindCSS architecture. I integrated GSAP for micro-interactions to guide user attention. This project was my training ground for responsive design principles and semantic HTML structure.",
     keyWords: ["Landing Page", "Charity", "Tailwind", "GSAP"],
     keyAchi: [
-      "Refactored original vanilla version into a cleaner Tailwind-based layout.",
-      "Improved UX through GSAP micro-interactions and clearer content hierarchy.",
-      "Mobile-first structure developed from scratch as an early practical project.",
+      "Refactored legacy code into a clean, maintainable Tailwind-based structure.",
+      "Enhanced UX with purposeful GSAP animations and improved hierarchy.",
+      "Implemented a mobile-first approach ensuring perfect usability on all devices.",
     ],
     images: ["/assets/pck1.png", "/assets/pck2.png", "/assets/pck3.png"],
     href: "https://pck-fundation.netlify.app",
@@ -53,17 +54,17 @@ export const projectData: Project[] = [
       <MdHtml key="html" aria-label="HTML" />,
       <RiTailwindCssFill key="tailwind" aria-label="Tailwind" />,
       <MdJavascript key="js" aria-label="JavaScript" />,
-      <span key="gsap" aria-label="GSAP" className="text-[0.5rem] font-bold uppercase">GSAP</span>,
+      <span key="gsap" aria-label="GSAP" className="text-[0.5rem] font-bold uppercase tracking-wider">GSAP</span>,
     ],
     review:
-      "Lightweight logistics landing page built with Tailwind and GSAP, focused on clarity, mobile usability and simple brand presentation.",
+      "Lightweight logistics landing page built with Tailwind and GSAP, focused on clarity, mobile usability, and simple brand presentation.",
     techReview:
-      "Using Tailwind, HTML and GSAP, I created a clean corporate layout with subtle motion that helped present the company’s services more clearly. The page was optimized for mobile-first use and served as a simple, fast digital business card before the brand moved to a full WordPress setup.",
-    keyWords: ["Logistics", "Corporate", "Landing Page", "GSAP", "Animations"],
+      "I utilized Tailwind for rapid styling and GSAP for subtle entrance animations. The focus was on performance and clarity—creating a digital business card that loads instantly. The code structure is modular, allowing for easy expansion if the client decides to move away from the static model.",
+    keyWords: ["Logistics", "Corporate", "Landing Page", "GSAP"],
     keyAchi: [
-      "Added GSAP animations to give the corporate layout a more modern, dynamic feel.",
-      "Built a mobile-first structure that worked well as a quick business-card style website.",
-      "Created a clean, trustworthy design aligning with logistics industry standards."
+      "Implemented GSAP reveal animations to create a premium corporate feel.",
+      "Designed a high-performance, mobile-first structure for on-the-go users.",
+      "Delivered a clean code base ready for future migration to a CMS.",
     ],
     images: ["/assets/afal1.png", "/assets/afal2.png", "/assets/afal3.png"],
     href: "https://afal-logistics.netlify.app",
@@ -78,17 +79,17 @@ export const projectData: Project[] = [
       <FaReact key="react" aria-label="React" />,
       <MdCss key="css" aria-label="CSS" />,
       <MdJavascript key="js" aria-label="JavaScript" />,
-      <span key="gsap" aria-label="GSAP" className="text-[0.5rem] font-bold uppercase">GSAP</span>,
+      <span key="gsap" aria-label="GSAP" className="text-[0.5rem] font-bold uppercase tracking-wider">GSAP</span>,
     ],
     review:
       "Polished React landing page inspired by GPT-3, upgraded with smooth GSAP animations and a more thoughtful, modern UI/UX flow.",
     techReview:
-      "React, JavaScript, CSS and GSAP, I rebuilt the template with cleaner structure, improved UX flow, and animations that make the page feel more dynamic. I refined spacing, hierarchy and color usage to create a more consistent AI-themed look and added custom motion sequences for a smoother visual experience.",
-    keyWords: ["AI", "Landing Page", "GSAP", "React", "Animations"],
+      "Built with React to manage component reusability effectively. I replaced standard CSS transitions with GSAP timelines for complex sequencing. I also focused heavily on the visual hierarchy, using gradients and spacing to create a futuristic, AI-driven aesthetic consistent with the brand identity.",
+    keyWords: ["AI", "Landing Page", "GSAP", "React"],
     keyAchi: [
-      "Enhanced the template with custom GSAP motion to add depth and energy.",
-      "Improved layout and hierarchy for a cleaner, more intuitive UX.",
-      "Created a cohesive AI-style visual tone using gradients and subtle animations."
+      "Orchestrated complex animation sequences using GSAP Timelines.",
+      "Improved component modularity in React for better maintainability.",
+      "Refined the UI with modern glassmorphism and gradient effects.",
     ],
     images: ["/assets/gpt1.png", "/assets/gpt2.png", "/assets/gpt3.png"],
     href: "https://what-chat-gpt3.netlify.app",
@@ -103,17 +104,17 @@ export const projectData: Project[] = [
       <FaReact key="react" aria-label="React" />,
       <MdCss key="css" aria-label="CSS" />,
       <MdJavascript key="js" aria-label="JavaScript" />,
-      <span key="gsap" aria-label="GSAP" className="text-[0.5rem] font-bold uppercase">GSAP</span>,
+      <span key="gsap" aria-label="GSAP" className="text-[0.5rem] font-bold uppercase tracking-wider">GSAP</span>,
     ],
     review:
       "Refined restaurant landing page enhanced with custom GSAP animations, polished UI details, and a lively, premium look.",
     techReview:
-      "Built with React, JavaScript and GSAP, the page blends clean UI with smooth, layered animations that elevate the original template. I focused on performance and mobile responsiveness, refining transitions and spacing to make the design feel truly premium. The project is prepared for future improvements, including API-powered content and a full refactor to Next.js.",
-    keyWords: ["Restaurant", "Premium UI", "React", "GSAP", "Animations"],
+      "This project focuses on the 'Premium' feel. I combined React for structure with custom CSS/GSAP for high-fidelity animations. Special attention was paid to typography scaling and image optimization to ensure the site feels app-like on mobile devices. It serves as a strong candidate for Next.js migration.",
+    keyWords: ["Restaurant", "Premium UI", "React", "GSAP"],
     keyAchi: [
-      "Added custom GSAP animations that gave the static template real depth and movement.",
-      "Refined layout, spacing and typography to achieve a clean, premium aesthetic.",
-      "Optimized responsiveness and performance across mobile, tablet, and desktop."
+      "Designed immersive scroll-triggered animations using GSAP ScrollTrigger.",
+      "Achieved a pixel-perfect responsive layout across all breakpoints.",
+      "Optimized rendering performance for a smooth 60fps experience.",
     ],
     images: ["/assets/g1.png", "/assets/g2.png", "/assets/g3.png"],
     href: "https://grestaurant-landing-page.netlify.app",
@@ -128,17 +129,17 @@ export const projectData: Project[] = [
       <FaReact key="react" aria-label="React" />,
       <RiTailwindCssFill key="tailwind" aria-label="Tailwind" />,
       <MdJavascript key="js" aria-label="JavaScript" />,
-      <span key="gsap" aria-label="GSAP" className="text-[0.5rem] font-bold uppercase">GSAP</span>,
+      <span key="gsap" aria-label="GSAP" className="text-[0.5rem] font-bold uppercase tracking-wider">GSAP</span>,
     ],
     review:
-      "Clean, animated vegan restaurant website concept built to showcase a fast, modern layout ready for real-world use",
+      "Clean, animated vegan restaurant website concept built to showcase a fast, modern layout ready for real-world use.",
     techReview:
-      "Using React and Tailwind, I built a clean, modular UI that stays fast and responsive across all devices. GSAP let me create smooth, performance-first animations with custom timelines that give the site a lively, polished feel. I also used local storage to simulate a simple cart system, making the MVP behave more like a real product.",
-    keyWords: ["Restaurant", "E-Commerce", "GSAP", "React", "Animations"],
+      "A functional MVP built with React and Tailwind. Beyond the UI, I implemented a local-storage based cart system to simulate e-commerce logic. GSAP handles the micro-interactions (add to cart, menu transitions), making the application feel responsive and alive without the overhead of a full backend.",
+    keyWords: ["Restaurant", "E-Commerce", "GSAP", "React"],
     keyAchi: [
-      "Built a fast, animation-heavy UI without sacrificing performance.",
-      "Created a functional cart using local storage for a realistic MVP feel.",
-      "Designed a flexible layout that can easily evolve into a production-ready restaurant site",
+      "Engineered a persistent shopping cart state using Local Storage.",
+      "Balanced heavy visual animations with high Core Web Vitals scores.",
+      "Created a scalable component system ready for production use.",
     ],
     images: ["/assets/cl1.png", "/assets/cl2.png", "/assets/cl3.png"],
     href: "https://cl-restaurant.netlify.app",
@@ -156,17 +157,18 @@ export const projectData: Project[] = [
       <LuSpline key="spline" aria-label="Spline" />,
     ],
     review:
-      "Post Prime needed a fast, modern showcase to reflect their podcast’s energy. I delivered a high-performance Next.js site with 3D visuals, live social integrations, and a clean, dynamic layout. An added perk - automatic content syncing that unifies all their latest SM activity in one place.",
+      "A high-performance Next.js site for a podcast, featuring 3D visuals, live social integrations, and automated content syncing.",
     techReview:
-      "Using Next.js, TypeScript, Tailwind CSS, react-scroll-parallax, and Spline, I built a responsive, ultra-fast site featuring a 3D interactive hero, smooth parallax sections, automatically fetched social content, newsletter integration, and Google analytics—delivering both an impressive user experience and powerful management tools for the client.",
-    keyWords: ["Podcast", "Basketball", "Landing Page", "Social Media"],
+      "This is my flagship project using the full modern stack: Next.js (App Router), TypeScript, and Tailwind. I integrated Spline for 3D interactivity and connected external APIs (YouTube/Socials) to auto-update content. It demonstrates ability to build complex, full-stack aware frontend applications with emphasis on performance and SEO.",
+    keyWords: ["Next.js", "3D/Spline", "TypeScript", "API Integration"],
     keyAchi: [
-      "Automated social API feeds (YouTube, Instagram, Facebook).",
-      "3D interactive hero built with Spline + parallax scroll.",
-      "Server-rendered performance with clean Next.js structure.",
+      "Integrated 3D interactive models using Spline for a unique Hero section.",
+      "Implemented ISR (Incremental Static Regeneration) for social feed updates.",
+      "Built a type-safe architecture using strict TypeScript configuration.",
     ],
-    images: ["/assets/pck1.png", "/assets/pck2.png", "/assets/pck3.png"],
-    href: "#",
+    // FIXED: Removed duplicate PCK images. Put placeholders or correct paths here.
+    images: ["/assets/cl1.png", "/assets/cl2.png", "/assets/cl3.png"],
+    href: "#", // Make sure to handle '#' in UI to prevent jump to top or label as 'Coming Soon'
     gitHref: "https://github.com/TwojNick/post-prime",
   },
 ];

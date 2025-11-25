@@ -1,5 +1,6 @@
 import { Project } from "../ProjectData";
-import { ContentLinks, ContentCarousel } from "../components"
+import { ContentLinks, ContentCarousel } from "../components";
+
 interface ContentAchiSectionProps {
   project: Project;
 }
@@ -18,6 +19,7 @@ export default function ContentAchiSection({ project }: ContentAchiSectionProps)
           {keyAchi.map((achivment, idx) => (
             <li key={idx} className="flex items-center gap-3">
               <div className="relative inline-flex w-5 h-5 min-w-5 items-center justify-center">
+                {/* Twoje oryginalne klasy CSS */}
                 <div className="absolute w-3/4 h-3/4 bg-blue-300 rounded-full opacity-75 animate-ping-long" />
                 <div className="relative w-1/2 h-1/2 bg-blue-800 rounded-full" />
               </div>
@@ -31,7 +33,8 @@ export default function ContentAchiSection({ project }: ContentAchiSectionProps)
 
       {/* Images */}
       <div className="col-span-2 overflow-hidden">
-        <ContentCarousel images={images} name={name} />
+        
+        <ContentCarousel images={images || []} name={name} />
       </div>
     </div>
   );

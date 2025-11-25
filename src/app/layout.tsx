@@ -1,11 +1,13 @@
+import {IntroProvider} from "./components/utils/IntroProvider"
+import Loader from "./components/utils/Loader"
 import type { Metadata } from "next";
-import { Sansation,Inter, Work_Sans } from "next/font/google";
+import { Sansation, Inter, Work_Sans } from "next/font/google";
 import "./globals.css";
 
 const sansation = Sansation({
   subsets: ["latin"],
   variable: "--font-sansation",
-  weight:["400","700"],
+  weight: ["400", "700"],
   fallback: ["ui-sans-serif", "system-ui"],
 });
 
@@ -16,7 +18,7 @@ const inter = Inter({
 const workSans = Work_Sans({
   subsets: ["latin"],
   variable: "--font-work-sans",
-  weight:["400"]
+  weight: ["400"]
 });
 export const metadata: Metadata = {
   title: "DH Portfolio",
@@ -33,7 +35,11 @@ export default function RootLayout({
       <body
         className={`${sansation.variable} ${inter.variable} ${workSans.variable}  font-sans antialiased`}
       >
-        {children}
+        <IntroProvider>
+          <Loader>
+            {children}
+          </Loader>
+        </IntroProvider>
       </body>
     </html>
   );

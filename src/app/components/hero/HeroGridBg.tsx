@@ -1,46 +1,46 @@
 "use client";
 import { useState } from "react";
 
-const GRID_SIZE = 10; 
 const FADE_DURATION = 700;
+// We generate enough cells to cover standard screens (10x15 usually covers 16:9 vertical flow)
+// You can increase this number if you see gaps on very large vertical screens
+const TOTAL_CELLS = 100; 
 
 export default function HeroGridBg() {
   const [activeCells, setActiveCells] = useState<Record<number, boolean>>({});
-  const [hoveredCell, setHoveredCell] = useState<number | null>(null);
 
-  const handleHover = (i: number) => {
-    setHoveredCell(i); // komórka jest aktualnie hoverowana
-    setActiveCells((prev) => ({ ...prev, [i]: true }));
+  const handleHover = (index: number) => {
+    // Add cell to active state
+    setActiveCells((prev) => ({ ...prev, [index]: true }));
 
+    // Remove cell from active state after duration
     setTimeout(() => {
       setActiveCells((prev) => {
-        if (!prev[i]) return prev;
-        const updated = { ...prev };
-        delete updated[i];
-        return updated;
+        const newState = { ...prev };
+        delete newState[index];
+        return newState;
       });
     }, FADE_DURATION);
   };
 
-  const handleMouseLeave = () => {
-    setHoveredCell(null);
-  };
-
   return (
     <div
-      className={`absolute top-0 right-0 w-full h-full z-10 grid grid-cols-5 md:grid-cols-10 overflow-hidden`}
-      // style={{ gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)` }}
+      aria-hidden="true"
+      // 'hidden md:grid' -> hides the grid on mobile, shows on desktop
+      className="hidden md:grid absolute inset-0 z-10 w-full h-full grid-cols-10 overflow-hidden pointer-events-auto"
     >
-      {Array.from({ length: GRID_SIZE * GRID_SIZE }).map((_, i) => {
-        const isActive = !!activeCells[i] || i === hoveredCell;
+      {Array.from({ length: TOTAL_CELLS }).map((_, i) => {
+        const isActive = activeCells[i];
 
         return (
           <div
             key={i}
             onMouseEnter={() => handleHover(i)}
-            onMouseLeave={handleMouseLeave}
-            className="aspect-square transition-all duration-700 ease-out"
-            style={{ backdropFilter: isActive ? "invert(1)" : "invert(0)" }}
+            // 'aspect-square' forces perfect squares
+            className={`
+              w-full aspect-square border-transparent transition-all duration-700 ease-out
+              ${isActive ? "backdrop-invert" : "backdrop-invert-0"}
+            `}
           />
         );
       })}

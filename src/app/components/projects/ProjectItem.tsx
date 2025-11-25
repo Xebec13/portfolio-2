@@ -1,7 +1,10 @@
+"use client";
+
 import { Project } from "./ProjectData";
 import { ProjectHeader, ProjectContent, ProjectContentWrapper } from "./components";
 import MiniDivider from "../utils/MiniDivider";
 
+// Explicitly define the props interface
 interface ProjectItemProps {
   project: Project;
   isExpanded: boolean;
@@ -13,18 +16,28 @@ export default function ProjectItem({
   isExpanded,
   onToggle,
 }: ProjectItemProps) {
-  const {
-    name,
-    date,
-    icons,
-  } = project;
+  const { name, date, icons } = project;
 
   return (
-    <>
+    <div className="w-full">
+      {/* 
+        Main Toggle Button 
+        - Accessibility: aria-expanded indicates state to screen readers
+        - Styling: Dynamic classes for expanded state (Dark mode feeling when active)
+      */}
       <button
         onClick={onToggle}
-        className="w-full p-2 bg-zinc-200 text-neutral-900 cursor-pointer transition-colors duration-700 ease-in-out hover:text-zinc-200 hover:bg-black "
+        aria-expanded={isExpanded}
+        className={`
+          group w-full p-2 cursor-pointer transition-all duration-500 ease-in-out
+          border-b border-transparent
+          ${isExpanded 
+            ? "bg-neutral-950 text-zinc-200" // Active state
+            : "bg-zinc-200 text-neutral-900 hover:bg-neutral-900 hover:text-zinc-200" // Default + Hover
+          }
+        `}
       >
+        {/* Header content (Name, Date, Icons) */}
         <ProjectHeader
           name={name}
           date={date}
@@ -33,14 +46,13 @@ export default function ProjectItem({
         />
       </button>
 
-
+      {/* Wrapper controls the height animation */}
       <ProjectContentWrapper isExpanded={isExpanded}>
         <ProjectContent project={project} />
       </ProjectContentWrapper>
 
-
-      {/* Divider */}
-      <MiniDivider type="off" />
-    </>
+      {/* Hide divider if item is expanded for a cleaner look */}
+      {!isExpanded && <MiniDivider type="off" />}
+    </div>
   );
 }

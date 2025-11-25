@@ -1,27 +1,31 @@
 @import "tailwindcss";
 
-/* == Global Styles == */
-html {
-  @apply scroll-smooth;
+@theme {
+  --font-inter: var(--font-inter);
+  --font-work-sans: var(--font-work-sans);
+  --font-sansation: var(--font-sansation);
 }
+
 
 body {
   @apply antialiased bg-zinc-200 text-neutral-900;
+  /* Fallbacki fontów */
   font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-ul.key-font {
-  font-family: var(--font-work-sans);
-}
+@layer utilities {
+  ul.key-font {
+    font-family: var(--font-work-sans);
+  }
 
-h1 {
-  font-family: var(--font-sansation);
+  h1 {
+    font-family: var(--font-sansation);
+  }
 }
 
 @layer utilities {
- 
   /* == Slide-Up Animations == */
   @keyframes slide-up-h1 {
     from {
@@ -131,7 +135,7 @@ h1 {
     animation: slideUpModal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  /* == Marquee (infinite horizontal scroll) == */
+  /* == Marquee (Infinite Loop) == */
   .marquee-track {
     display: inline-flex;
     animation: marquee 45s linear infinite;
@@ -143,7 +147,7 @@ h1 {
       transform: translateX(0);
     }
     to {
-      transform: translateX(-70%);
+      transform: translateX(-33.333%);
     }
   }
 }

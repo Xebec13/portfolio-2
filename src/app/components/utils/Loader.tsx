@@ -1,25 +1,35 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useIntro } from "./IntroProvider";
 
 export default function Loader({ children }: { children: React.ReactNode }) {
-  const [isLoading, setIsLoading] = useState(true);
+  const { setIntroFinished } = useIntro();
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
-    // symulacja ładowania strony
-    const timer = setTimeout(() => setIsLoading(false), 1200);
+    
+    const timer = setTimeout(() => {
+      setShowLoader(false);  
+      setIntroFinished(true); 
+    }, 1200);
+
     return () => clearTimeout(timer);
-  }, []);
+  }, [setIntroFinished]); 
 
-  if (isLoading) {
-    return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden">
-        {/* Kurtyna */}
-        <div className="w-full h-full bg-neutral-900 animate-curtain" />
-        
+  return (
+    <div className="relative">
+      {showLoader && (
+        <div className="fixed inset-0 z-9999 flex items-center justify-center pointer-events-none">
+          
+          <div className="w-full h-full bg-neutral-900 animate-curtain" />
+        </div>
+      )}
+      
+     
+      <div className="w-full">
+        {children}
       </div>
-    );
-  }
-
-  return <>{children}</>;
+    </div>
+  );
 }

@@ -1,11 +1,5 @@
-export interface AboutItem {
-  name: string;
-  headings: string[];
-  badges?: string[];
-  content: (string | ContentItem)[];
-}
-
-interface ContentItem {
+// Define the structure for rich content (like Open Source projects)
+export interface ContentItem {
   name: string;
   href?: string;
   description: string;
@@ -13,97 +7,84 @@ interface ContentItem {
   techStack?: string[];
 }
 
+// Define the main structure
+export interface AboutItem {
+  name: string; // Used for tabs/buttons
+  headings: string[];
+  badges?: string[];
+  // Polymorphic content: can be simple text lines OR complex objects
+  content: (string | ContentItem)[]; 
+}
+
+// Main description text (moved from component to data file)
+export const infoContent = [
+    "I’m a Front-End Developer creating modern, responsive, and animation-rich web applications with React, TypeScript, Tailwind, and GSAP, with experience managing teams of up to 50 people.",
+    "Driven to transition fully into IT, I completed comprehensive coding programs at CodersLab and continued developing my skills through self-learning, online courses, and hands-on practice, including community platforms like icodethis.com.",
+    "Since then, I’ve built 5+ fully responsive, animated projects, including a working MVP for a local business. I’m actively looking to apply my skills in real team environments, delivering end-to-end, market-ready products."
+];
+
 export const aboutData: AboutItem[] = [
   {
     name: "Coding",
-    headings: ["My Tech Stack", "Open Source"],
+    headings: ["My Tech Stack", "Recent Contributions"],
     badges: [
       "HTML", "CSS", "JavaScript", "TypeScript",
-      "Tailwind","Sass","GSAP", 
+      "Tailwind", "Sass", "GSAP", 
       "React", "Next.js", "Figma",
-      "Node", "Python"
+      "Node.js", "Python"
     ],
     content: [
       {
-        name: "Example Project Name",
-        href: "https://github.com/yourproject",
-        description: "Short one-sentence summary of what the project is.",
+        name: "Open Source / Side Project",
+        href: "https://github.com/Xebec13",
+        description: "Active participation in community challenges.",
         contributions: [
-          "Here goes the first sentence about your contribution.",
-          "Here goes the second sentence about your contribution."
+          "Built interactive UI components for community challenges.",
+          "Refactored legacy code to modern React hooks pattern."
         ],
-        techStack: [
-          "Frontend — React",
-          "Styling — Tailwind",
-          "Build — Next.js",
-        ],
-      },
-      {
-        name: "Another Project Name",
-        href: "https://github.com/yourproject2",
-        description: "Short one-sentence summary for the second project.",
-        contributions: [
-          "Your first contribution detail.",
-          "Your second contribution detail."
-        ],
-        techStack: [
-          "Frontend — React",
-          "Styling — Tailwind",
-          "Build — Next.js",
-        ],
+        techStack: ["React", "Tailwind", "Vite"],
       }
+      // Add more real examples here if you have them
     ]
   },
 
   {
     name: "Professional",
-    headings: ["Technical", "Skills"],
+    headings: ["Technical Skills", "Industry Experience"],
     badges: [
-      "Scrum",
-      "Jira",
-      "Collaboration",
-      "Responsive",
-      "UX/UI",
-      "Accessibility",
-      "Animation",
-      "GraphQL",
-      "REST API",
-      "API",
-      "Performance",
-      "Testing"
+      "Scrum", "Jira", "Git", "Code Review",
+      "Responsive Design", "WCAG (Accessibility)",
+      "REST API", "GraphQL", "Performance Opt."
     ],
+    // Strings representing industries/experience
     content: [
-      "Art & Design",
-      "Hospitality & Restaurants",
-      "Startups & SaaS",
-      "Fitness & Wellness",
-      "E-commerce",
-      "Education & E-learning",
-      "Portfolio & Personal Branding",
-      "Local Businesses",
-      "Events & Entertainment",
-      "Digital Agencies / Creative Studios"
+      "Digital Agencies & Creative Studios",
+      "E-commerce & SaaS Platforms",
+      "Hospitality & Local Business Solutions",
+      "Startups & MVP Development",
+      "Education & E-learning Systems"
     ]
   },
+
   {
     name: "Certificates",
     headings: ["Recently Earned"],
     content: [
       "CodersLab IT School — Advanced Web Developers: JavaScript, React, Redux (100h)",
       "CodersLab IT School — Web Developer: JavaScript, Python (200h)",
-      "Scrum Certificate — foundational agile methodology",
-      "Google Certificate — Front-End Development"
+      "Google Certificate — UX Design Foundations",
+      "Agile/Scrum Fundamentals"
     ]
   },
 
   {
     name: "Private",
-    headings: ["Hobbies"],
-    badges: ["Coding", "Travel", "Food", "Basketball", "Criminology", "Psychology", "Comics", "Manga"],
+    headings: ["Hobbies & Interests"],
+    badges: ["Coding", "Travel", "Cooking", "Basketball", "Psychology", "Sci-Fi"],
     content: [
       "I bring my ideas to life through programming, turning concepts into real projects.",
       "Basketball keeps me active, and I especially enjoy the tactical side of the game.",
-      "Love traveling only for the food discovering"
+      "I love traveling, mostly to discover local cuisines and brutalist architecture."
     ]
   }
 ];

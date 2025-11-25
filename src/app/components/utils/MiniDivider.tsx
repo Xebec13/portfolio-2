@@ -10,33 +10,42 @@ export default function MiniDivider({ type = "off" }: MiniDividerProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const element = dividerRef.current;
+    if (!element) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // animation run 1 time
+          observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 } // Odpala, gdy 10% elementu wjedzie na ekran
     );
 
-    if (dividerRef.current) observer.observe(dividerRef.current);
+    observer.observe(element);
 
     return () => observer.disconnect();
   }, []);
 
-  // dodatkowe wysokości
-  const heightClass = {
-    off: "border-[0.9px]",
-    main: "border-[1.75px]",
-    head: "border-3",
-    
+  const styleClass = {
+
+    off: "border-b border-current opacity-40",
+
+
+    main: "border-b-2 border-current opacity-100",
+
+
+    head: "border-b-4 border-current opacity-100",
   }[type];
 
   return (
     <div
       ref={dividerRef}
-      className={`${heightClass} border-current origin-left transition-transform duration-1200 ease-in-out
+
+      className={`
+        w-full transition-transform duration-1000 ease-in-out origin-left
+        ${styleClass}
         ${isVisible ? "scale-x-100" : "scale-x-0"}
       `}
     />
