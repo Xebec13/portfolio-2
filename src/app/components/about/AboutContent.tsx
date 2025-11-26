@@ -13,7 +13,7 @@ export default function AboutContent({
   const restText = content.slice(1);
 
   return (
-    <div className={`font-medium text-base md:text-md text-justify ${globalClass} flex flex-col`}>
+    <div className={`font-medium text-base text-justify ${globalClass} flex flex-col break-normal leading-relaxed`}>
       
       {/* === First Paragraph Section === */}
       <div className="mb-3 space-x-5 relative">

@@ -23,7 +23,7 @@ export default function ProjectHeader({
                 transition-[transform,margin] duration-500 ease-in-out
                 ${isExpanded ? "scale-130 md:scale-110 ml-5" : "ml-0"} 
             `}>
-                <h3 className="text-md md:text-xl lg:text-2xl font-medium  text-inherit">
+                <h3 className="text-base md:text-xl lg:text-2xl font-medium  text-inherit">
                     {name}
                 </h3>
             </div>
@@ -46,7 +46,7 @@ export default function ProjectHeader({
 
             {/* 🔹 Date + Chevron */}
             <div className="justify-self-end flex items-center gap-3 font-semibold">
-                <span className="text-sm md:text-md opacity-80">
+                <span className="text-sm md:text-base opacity-80">
                     {date}
                 </span>
                 <UpDownChevron isOpen={isExpanded} />

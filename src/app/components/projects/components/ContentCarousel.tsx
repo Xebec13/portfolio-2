@@ -74,12 +74,13 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
                             }}
                         >
                             {/* Zachowany Twój układ obrazka i klasy (w-100, h-70 itd.) */}
-                            <div className="relative w-100 h-70 lg:w-160 lg:h-110">
+                            <div className="relative w-[80vw] max-w-[500px] aspect-4/3">
                                 <Image
                                     src={img}
                                     alt={`${name} screenshot ${idx + 1}`}
                                     fill
-                                    className="object-contain w-full h-full rounded-md"
+                                    sizes="(max-width: 1024px) 1024px, 400px"
+                                    className="object-contain object-center w-full h-full"
                                 />
                             </div>
                         </div>
@@ -88,7 +89,7 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
             </div>
 
             {/* BUTTONS + DOTS (Bez zmian) */}
-            <div className="absolute -bottom-5 left-0 right-0 flex items-center justify-center gap-6 z-30 pb-4">
+            <div className="absolute -bottom-6 left-0 right-0 flex items-center justify-center gap-6 z-30 pb-4">
                 {/* Prev */}
                 <PrevChevron onClick={() => changeIndex(-1)} />
 

@@ -42,7 +42,7 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
       <div className="flex items-center justify-between mb-4 shrink-0">
          <div className="inline-flex items-center gap-2">
             <BackChevron onClick={onClose} />
-            <h2 className="text-md md:text-xl font-bold uppercase tracking-wide text-blue-900">
+            <h2 className="text-base md:text-xl font-bold uppercase tracking-wide text-blue-900">
                 {item.name}
             </h2>
          </div>
@@ -53,7 +53,7 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
         
         {/* Section 1: Badges */}
         <div>
-            <h3 className="mb-2 text-blue-800 text-sm sm:text-md font-bold uppercase opacity-80">
+            <h3 className="mb-2 text-blue-800 text-sm sm:text-base font-bold uppercase opacity-80">
             {item.headings[0]}
             </h3>
             <div className="flex flex-wrap gap-1.5">
@@ -71,7 +71,7 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
         {/* Section 2: List Content */}
         <div>
             {item.headings[1] && (
-                <h3 className="mb-2 mt-2 text-blue-800 text-sm sm:text-md font-bold uppercase opacity-80">
+                <h3 className="mb-2 mt-2 text-blue-800 text-sm sm:text-base font-bold uppercase opacity-80">
                 {item.headings[1]}
                 </h3>
             )}

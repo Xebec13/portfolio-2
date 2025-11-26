@@ -11,11 +11,11 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 }
   // Opcje zdefiniowane po stronie klienta
   const lenisOptions = {
-    duration: 1.8,
+    duration: 1.5,
     ease:easeInSine,
     smoothWheel: true,
     wheelMultiplier: 1,
-    touchMultiplier: 2,
+    touchMultiplier: 1.8,
     infinite: false,
     anchors: true,
   };

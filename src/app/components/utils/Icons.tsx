@@ -11,13 +11,13 @@ export function NavIcon({ isOpen = false, onClick }: CustomIconsProps) {
     <button
       onClick={onClick}
       aria-label={isOpen ? "Close menu" : "Open menu"} // accessibility fix
-      className={`nav-slide-down nav-icon relative grid grid-cols-3 gap-2 p-1.5 rounded-sm cursor-pointer transition-all duration-700 ease-in-out z-10 
+      className={`nav-slide-down nav-icon relative grid grid-cols-3 gap-2 p-1 md:p-1.5 rounded-sm cursor-pointer transition-all duration-700 ease-in-out z-10 
         ${isOpen ? "bg-blue-700 hover:bg-zinc-200 hover:scale-110" : "bg-zinc-200 hover:invert hover:scale-110"}`}
     >
       {[...Array(9)].map((_, i) => (
         <div
           key={i}
-          className={`border-2 md:border-4 border-current transition-all duration-700 ease-in-out ${isOpen ? "open" : ""}`}
+          className={`border-2 md:border-3 border-current transition-all duration-700 ease-in-out ${isOpen ? "open" : ""}`}
         />
       ))}
     </button>
@@ -36,7 +36,7 @@ export function NextChevron({ onClick }: CustomIconsProps) {
       {[...Array(6)].map((_, i) => (
         <div
           key={i}
-          className="border-[2.5px] md:border-3 border-neutral-800"
+          className="border-[2.5px] md:border-3 border-zinc-400"
         />
       ))}
     </button>
@@ -55,7 +55,7 @@ export function PrevChevron({ onClick }: CustomIconsProps) {
       {[...Array(6)].map((_, i) => (
         <div
           key={i}
-          className="border-[2.5px] md:border-3 border-neutral-800"
+          className="border-[2.5px] md:border-3 border-zinc-400"
         />
       ))}
     </button>

@@ -40,13 +40,13 @@ export default function FooterCta() {
             <div className="flex flex-col-reverse items-start md:flex-row md:items-center gap-10 text-lg">
                 <button
                     onClick={handleOpen}
-                    className="w-full md:w-fit gap-2 px-3 py-2 md:px-5 md:py-3 rounded-sm bg-zinc-50 text-blue-700 border border-transparent drop-shadow-md transition-all duration-700 ease-out hover:bg-blue-50 hover:border-blue-800 cursor-pointer"
+                    className="w-full md:max-w-fit px-5 py-3 rounded-sm bg-zinc-50 text-blue-900 outline-0 outline-transparent drop-shadow-md transition-all duration-500 ease-out hover:bg-zinc-50 hover:outline-3 hover:outline-blue-700 hover:scale-105 cursor-pointer"
                 >
                     Get in Touch
                 </button>
 
                 <div className="inline-flex items-center gap-5 text-zinc-100">
-                    <div className="relative inline-flex items-center justify-center size-5">
+                    <div className="relative inline-flex items-center justify-center size-5 ">
                         {/* Pulsing background circle (Twój niebieski ping) */}
                         <div className="absolute inset-0 h-full w-full bg-blue-300 rounded-full opacity-75 animate-ping-long" />
                         {/* Central circle */}

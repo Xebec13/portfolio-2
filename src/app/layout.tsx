@@ -21,7 +21,7 @@ const inter = Inter({
 const workSans = Work_Sans({
   subsets: ["latin"],
   variable: "--font-work-sans",
-  weight: ["400"]
+  weight: ["400","600"]
 });
 export const metadata: Metadata = {
   title: "DH Portfolio",

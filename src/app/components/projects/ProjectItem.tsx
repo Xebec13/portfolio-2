@@ -32,7 +32,7 @@ export default function ProjectItem({
           group w-full p-2 cursor-pointer transition-all duration-500 ease-in-out
           border-b border-transparent
           ${isExpanded 
-            ? "bg-neutral-950 text-zinc-200" // Active state
+            ? "bg-zinc-200 text-neutral-900" // Active state
             : "bg-zinc-200 text-neutral-900 hover:bg-neutral-900 hover:text-zinc-200" // Default + Hover
           }
         `}
@@ -52,7 +52,7 @@ export default function ProjectItem({
       </ProjectContentWrapper>
 
       {/* Hide divider if item is expanded for a cleaner look */}
-      {!isExpanded && <MiniDivider type="off" />}
+      <MiniDivider type="off" />
     </div>
   );
 }

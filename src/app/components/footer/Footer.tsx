@@ -9,7 +9,7 @@ export default function Footer() {
         >
             
             {/* === Social Links === */}
-            <div className="flex justify-start md:justify-end items-center gap-6 text-zinc-100 text-md md:text-lg uppercase tracking-wide">
+            <div className="flex justify-start md:justify-end items-center gap-6 text-zinc-100 text-sm md:text-base uppercase tracking-wide">
                 <a 
                     href="https://github.com/Xebec13" 
                     target="_blank" 
