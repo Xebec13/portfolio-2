@@ -1,51 +1,64 @@
 @layer utilities {
-  /* == Navigation Icon animation == */
+  
+  /* =========================================
+     1. Navigation Icon (Hamburger Menu)
+     Transforming 3x3 Grid into an abstract shape
+     ========================================= */
 
   .nav-icon {
     transition: all 0.7s ease-in-out;
   }
 
-  /* Even children fade out */
+  /* Active State: Hide even children to thin out the grid */
   .nav-icon div.open:nth-child(even) {
     opacity: 0;
     transform: scale(0.5);
   }
 
-  /* Odd children spin */
+  /* Active State: Rotate odd children for dynamic effect */
   .nav-icon div.open:nth-child(odd) {
     transform: rotate(360deg);
   }
 
-  /* Reset */
+  /* Default State: Reset transforms */
   .nav-icon div:nth-child(even),
   .nav-icon div:nth-child(odd) {
     opacity: 1;
     transform: rotate(0) scale(1);
   }
 
-  /* == Chevron up/down animation == */
+  /* =========================================
+     2. Accordion Chevron (Expand/Collapse)
+     Logic: Toggling visibility of specific blocks to simulate movement
+     ========================================= */
+  
   .chevron-up-down div {
     transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
   }
 
-  /* == Hide even squares initially == */
+  /* Initial State: Hide even squares to form the base pattern */
   .chevron-up-down div:nth-child(even) {
     opacity: 0;
   }
 
-  /* == Open state: show second square == */
+  /* Open State: Reveal the 2nd block (Visual shift up) */
   .chevron-up-down div.open:nth-child(2) {
     opacity: 1;
     transform: translateY(-7px);
   }
 
-  /* == Open state: hide fifth square == */
+  /* Open State: Hide the 5th block (Visual shift up) */
   .chevron-up-down div.open:nth-child(5) {
     opacity: 0;
     transform: translateY(-7px);
   }
 
-  /* == Close button grid: hide unused squares == */
+  /* =========================================
+     3. Back & Close Buttons
+     Geometric Construction: Hiding specific grid cells to form an arrow/cross
+     ========================================= */
+
+  /* Masking: Hide unused grid cells to shape the arrow */
   .chevron-back div:nth-child(1),
   .chevron-back div:nth-child(3),
   .chevron-back div:nth-child(5),
@@ -61,14 +74,21 @@
     opacity: 0;
   }
 
-  /* == Close button hover animation == */
+  /* Hover Animation: Main Back Button */
   .chevron-back:hover div:nth-child(2),
   .chevron-back:hover div:nth-child(4),
   .chevron-back:hover div:nth-child(8) {
     animation: spinPulseRotate 2s infinite ease-in-out;
   }
 
-  /* == Keyframes for spin/pulse effect == */
+  /* Hover Animation: Footer Scroll-to-Top Button */
+  .chevron-footer-back:hover div:nth-child(2),
+  .chevron-footer-back:hover div:nth-child(4),
+  .chevron-footer-back:hover div:nth-child(8) {
+    animation: spinPulse 2s infinite ease-in-out;
+  }
+
+  /* Keyframes: Standard Rotation & Morphing */
   @keyframes spinPulseRotate {
     0% {
       transform: rotate(0);
@@ -81,14 +101,8 @@
       transform: rotate(360deg);
     }
   }
-  /* == Close footer button hover animation == */
-  .chevron-footer-back:hover div:nth-child(2),
-  .chevron-footer-back:hover div:nth-child(4),
-  .chevron-footer-back:hover div:nth-child(8) {
-    animation: spinPulse 2s infinite ease-in-out;
-  }
 
-  /* == Keyframes for spin/pulse effect == */
+  /* Keyframes: Rotation with Color Inversion (for dark footer) */
   @keyframes spinPulse {
     0% {
       transform: rotate(0);
@@ -102,13 +116,19 @@
       transform: rotate(360deg);
     }
   }
+
+  /* =========================================
+     4. Carousel Navigation (Prev/Next)
+     ========================================= */
+
+  /* Hover Effect: Applies animation to all visible children */
   .chevron-next:hover > *,
   .chevron-prev:hover > * {
     opacity: 1;
     animation: chevronHover 1s infinite ease-in-out;
   }
 
-  /* chevronHover animation */
+  /* Keyframes: Morphing squares into circles while rotating */
   @keyframes chevronHover {
     0% {
       transform: rotate(0);
@@ -124,11 +144,14 @@
     }
   }
 
+  /* Shape Definition: Prev Arrow (<) - Hiding right-side blocks */
   .chevron-prev :nth-child(1),
   .chevron-prev :nth-child(4),
   .chevron-prev :nth-child(5) {
     opacity: 0;
   }
+
+  /* Shape Definition: Next Arrow (>) - Hiding left-side blocks */
   .chevron-next :nth-child(2),
   .chevron-next :nth-child(3),
   .chevron-next :nth-child(6) {

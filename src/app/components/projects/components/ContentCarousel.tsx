@@ -10,10 +10,12 @@ interface ContentCarouselProps {
 
 export default function ContentCarousel({ images, name }: ContentCarouselProps) {
     const [activeIndex, setActiveIndex] = useState(0);
-    // Zabezpieczenie na wypadek gdyby images przyszło puste/undefined
+    
+    // Data Safety: Ensure images is always an array to prevent crashes
     const safeImages = images || [];
     const length = safeImages.length;
 
+    // Navigation Handler: Updates index with wrap-around logic
     const changeIndex = useCallback(
         (delta: number) => {
             if (length === 0) return;
@@ -22,7 +24,7 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
         [length]
     );
 
-    // Auto-slide
+    // Effect: Auto-play functionality (rotates every 5 seconds)
     useEffect(() => {
         if (length <= 1) return;
         const interval = setInterval(() => {
@@ -35,33 +37,34 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
     if (length === 0) return null;
 
     return (
+        // Main Carousel Container
         <div className="relative bottom-10 h-[40vh] md:h-[50vh] w-full ">
 
-            {/* SLIDES */}
+            {/* --- Slides Area --- */}
             <div className="relative w-full h-full ">
                 {safeImages.map((img, idx) => {
-                    // --- ULEPSZONA LOGIKA POZYCJONOWANIA ---
-                    // Obliczamy dystans od aktywnego slajdu
+                    // --- Infinite Loop Positioning Logic ---
+                    // Calculate distance from the currently active slide
                     let delta = idx - activeIndex;
 
-                    // Algorytm "Najkrótszej ścieżki" dla efektu nieskończoności:
-                    // Jeśli delta jest większa niż połowa długości tablicy,
-                    // przesuwamy element wirtualnie w drugą stronę.
+                    // Shortest Path Algorithm: 
+                    // Adjusts delta to ensure slides wrap around the nearest edge rather than scrolling through the whole list.
+                    // E.g., moving from index 0 to last index goes "left" (-1) instead of "right" (+length).
                     if (delta > length / 2) delta -= length;
                     else if (delta < -length / 2) delta += length;
 
-                    // Twoje obliczenia pozycji
+                    // Calculate visual position
                     const translateX = delta * 100;
                     const isActive = idx === activeIndex;
 
-                    // Ukrywamy elementy, które są "daleko" (poza widokiem -1, 0, 1),
-                    // żeby nie przelatywały przez ekran podczas pętli.
+                    // Visibility Optimization: 
+                    // Hide slides that are "far away" (outside the -1 to 1 range) to prevent them 
+                    // from visually flying across the screen during wrap-around.
                     const isVisible = Math.abs(delta) <= 1; 
 
                     return (
                         <div
                             key={idx}
-                            // Zachowane Twoje klasy i style
                             className={`
                                 absolute top-1/2 left-1/2 -translate-x-1/2 
                                 transition-all duration-500 ease-in-out
@@ -73,7 +76,7 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
                                 transform: `translateX(${translateX}%) translateY(-50%) scale(${isActive ? 1.1 : 0.9})`,
                             }}
                         >
-                            {/* Zachowany Twój układ obrazka i klasy (w-100, h-70 itd.) */}
+                            {/* Image Wrapper: Maintains aspect ratio and centers content */}
                             <div className="relative w-[80vw] max-w-[500px] aspect-4/3">
                                 <Image
                                     src={img}
@@ -88,12 +91,12 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
                 })}
             </div>
 
-            {/* BUTTONS + DOTS (Bez zmian) */}
+            {/* --- Navigation Controls (Buttons & Indicators) --- */}
             <div className="absolute -bottom-6 left-0 right-0 flex items-center justify-center gap-6 z-30 pb-4">
-                {/* Prev */}
+                {/* Previous Slide Button */}
                 <PrevChevron onClick={() => changeIndex(-1)} />
 
-                {/* Dots */}
+                {/* Pagination Dots */}
                 <div className="flex items-center justify-center gap-3">
                     {safeImages.map((_, idx) => (
                         <div
@@ -105,7 +108,7 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
                     ))}
                 </div>
 
-                {/* Next */}
+                {/* Next Slide Button */}
                 <NextChevron onClick={() => changeIndex(1)} />
             </div>
         </div>

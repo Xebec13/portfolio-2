@@ -1,25 +1,36 @@
-import type { JSX } from "react"; // Best practice: explicit type import
+import type { JSX } from "react"; // Best practice: Explicit type import triggers strict type checking
 import { FaReact } from "react-icons/fa";
 import { MdHtml, MdJavascript, MdCss } from "react-icons/md";
 import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
 import { LuSpline } from "react-icons/lu";
 import { BiLogoTypescript } from "react-icons/bi";
 
+// ==========================================
+// Type Definitions
+// ==========================================
+
 export interface Project {
   id: number;
   name: string;
   date: string;
-  icons: JSX.Element[]; // Keeping JSX in data is acceptable for static files
-  review: string;
-  techReview: string;
-  keyWords: string[];
-  keyAchi: string[];
+  // Storing JSX Elements directly allows for flexible icon rendering without mapping logic in the component
+  icons: JSX.Element[]; 
+  review: string;       // Short "Elevator Pitch" or general description
+  techReview: string;   // Deep dive into technical implementation and challenges
+  keyWords: string[];   // Used for tags or quick scanning
+  keyAchi: string[];    // Key Achievements: Bullet points displayed in the details view
   images?: string[];
-  href?: string;
-  gitHref?: string;
+  href?: string;        // Live Demo URL
+  gitHref?: string;     // GitHub Repository URL
 }
 
+// ==========================================
+// Data Source
+// ==========================================
+
 export const projectData: Project[] = [
+  
+  // --- Project 1: PCK (Charity) ---
   {
     id: 1,
     name: "PCK",
@@ -28,7 +39,6 @@ export const projectData: Project[] = [
       <MdHtml key="html" aria-label="HTML" />,
       <RiTailwindCssFill key="tailwind" aria-label="Tailwind" />,
       <MdJavascript key="js" aria-label="JavaScript" />,
-      // Custom text span styled as an icon
       <span key="gsap" aria-label="GSAP" className="text-[0.5rem] font-bold uppercase tracking-wider">GSAP</span>,
     ],
     review:
@@ -46,6 +56,7 @@ export const projectData: Project[] = [
     gitHref: "https://github.com/Xebec13/PCK-Zbiorka",
   },
 
+  // --- Project 2: Afal-Logistics ---
   {
     id: 2,
     name: "Afal-Logistics",
@@ -71,6 +82,7 @@ export const projectData: Project[] = [
     gitHref: "https://github.com/Xebec13/Afal-Logistics",
   },
 
+  // --- Project 3: Chat-GPT3 (React) ---
   {
     id: 3,
     name: "Chat-GPT3",
@@ -96,6 +108,7 @@ export const projectData: Project[] = [
     gitHref: "https://github.com/Xebec13/Chat-GPT3",
   },
 
+  // --- Project 4: Gericht Restaurant ---
   {
     id: 4,
     name: "Gericht Restaurant",
@@ -121,6 +134,7 @@ export const projectData: Project[] = [
     gitHref: "https://github.com/Xebec13/Gericht-Restaurant",
   },
 
+  // --- Project 5: Cozy Leaf (E-commerce logic) ---
   {
     id: 5,
     name: "Cozy Leaf",
@@ -146,6 +160,7 @@ export const projectData: Project[] = [
     gitHref: "https://github.com/Xebec13/Cozy-Leaf",
   },
 
+  // --- Project 6: Post Prime (Next.js & 3D) ---
   {
     id: 6,
     name: "Post Prime",
@@ -166,9 +181,9 @@ export const projectData: Project[] = [
       "Implemented ISR (Incremental Static Regeneration) for social feed updates.",
       "Built a type-safe architecture using strict TypeScript configuration.",
     ],
-    // FIXED: Removed duplicate PCK images. Put placeholders or correct paths here.
+    // NOTE: Images are currently placeholders. Ensure paths are updated before production.
     images: ["/assets/cl1.png", "/assets/cl2.png", "/assets/cl3.png"],
-    href: "#", // Make sure to handle '#' in UI to prevent jump to top or label as 'Coming Soon'
+    href: "#", 
     gitHref: "https://github.com/TwojNick/post-prime",
   },
 ];

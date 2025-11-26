@@ -4,27 +4,28 @@ import { useState } from "react";
 import AboutOverlay from "./AboutOverlay";
 import { aboutData, AboutItem } from "./aboutData";
 
+// Definition of component props
 interface AboutBoxProps {
     globalClass?: string;
 }
 
 export default function AboutBox({ globalClass = "" }: AboutBoxProps) {
+    // State to track which grid item is currently active/expanded
     const [activeIdx, setActiveIdx] = useState<number | null>(null);
 
     return (
+        // Main Grid Container: Displays category buttons in a 2-column layout
         <div className={`${globalClass} relative grid grid-cols-2 place-items-center gap-3`}>
             {aboutData.map((item: AboutItem, idx: number) => {
                 const isActive = activeIdx === idx;
 
                 return (
+                    // Item Wrapper: Dynamic z-index ensures the active overlay sits on top of sibling elements
                     <div 
                         key={idx}
-                        // CRITICAL FIX: Z-index manipulation
-                        // When active, this container jumps to z-50 to cover siblings with its overlay.
-                        // When inactive, z-0.
                         className={`h-full w-full bottom-10 shadow-xl transition-all duration-300 ${isActive ? "z-50" : "z-0"}`} 
                     >
-                        {/* Main Button */}
+                        {/* Category Trigger Button: Toggles the active state */}
                         <button
                             onClick={() => setActiveIdx(isActive ? null : idx)}
                             className="flex items-center justify-center w-full h-full uppercase text-blue-800 bg-zinc-100 cursor-pointer hover:bg-zinc-50 transition-colors"
@@ -34,7 +35,7 @@ export default function AboutBox({ globalClass = "" }: AboutBoxProps) {
                             </div>
                         </button>
 
-                        {/* Overlay Content */}
+                        {/* Detailed Content Overlay: Rendered only when this item is active */}
                         <AboutOverlay
                             isActive={isActive}
                             item={item}

@@ -1,16 +1,21 @@
 import { FiGithub } from "react-icons/fi";
 import { LuSquareArrowOutUpRight } from "react-icons/lu";
 
+// Definition of component props
 interface ContentLinksProps {
-    href?: string;
-    gitHref?: string;
+    href?: string;    // URL for the live project
+    gitHref?: string; // URL for the source code repository
 }
 
 export default function ContentLinks({ href, gitHref }: ContentLinksProps) {
+    // Safety Check: Render nothing if no links are provided to avoid empty spacing
     if (!href && !gitHref) return null;
 
     return (
+        // Main Action Container: Uses flex-wrap to handle smaller screens gracefully
         <div className="mt-6 flex flex-wrap gap-3 text-sm md:text-base font-medium whitespace-nowrap">
+            
+            {/* --- Action 1: GitHub / Source Code --- */}
             {gitHref && (
                 <a
                     href={gitHref}
@@ -22,6 +27,8 @@ export default function ContentLinks({ href, gitHref }: ContentLinksProps) {
                     Source Code
                 </a>
             )}
+
+            {/* --- Action 2: Live Deployment --- */}
             {href && (
                 <a
                     href={href}

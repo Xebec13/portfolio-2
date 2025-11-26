@@ -9,7 +9,7 @@ interface AboutOverlayProps {
 }
 
 export default function AboutOverlay({ isActive, item, onClose, index }: AboutOverlayProps) {
-  // Styles mapping
+  // Configuration: Dynamic styling for badges based on the item index
   const badgesStyle = [
     "bg-blue-500/40 text-blue-900 border-blue-200",   
     "bg-blue-300/40 text-blue-700 border-blue-200",   
@@ -18,7 +18,7 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
   ];
   const badgeClass = badgesStyle[index] || "bg-zinc-300 text-neutral-900";
 
-  // Animation Origin mapping
+  // Configuration: Determines the CSS transform origin to animate the overlay expanding from the clicked quadrant
   const originAnim = [
     "origin-top-left",     
     "origin-top-right",    
@@ -28,8 +28,10 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
   const originClass = originAnim[index] || "origin-center";
 
   return (
+    // Main Overlay Container
+    // 'data-lenis-prevent' stops the main page smooth scroll from interfering with this modal's scroll
     <div
-    data-lenis-prevent="true"
+      data-lenis-prevent="true"
       className={`
         absolute inset-0 z-50 flex flex-col px-6 py-6 lg:px-12 lg:py-10 bg-zinc-100 
         transform transition-all duration-300 ease-in-out shadow-2xl
@@ -38,7 +40,7 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
         ${isActive ? "opacity-100 scale-100" : "opacity-0 scale-50 pointer-events-none"}
       `}
     >
-      {/* Header with Back Button */}
+      {/* --- Header Section: Navigation & Title --- */}
       <div className="flex items-center justify-between mb-4 shrink-0">
          <div className="inline-flex items-center gap-2">
             <BackChevron onClick={onClose} />
@@ -48,10 +50,10 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
          </div>
       </div>
 
-      {/* Content Scrollable Area */}
+      {/* --- Main Content Scrollable Area --- */}
       <div className="flex flex-col gap-4">
         
-        {/* Section 1: Badges */}
+        {/* Section 1: Skills/Tech Stack Badges */}
         <div>
             <h3 className="mb-2 text-blue-800 text-sm sm:text-base font-bold uppercase opacity-80">
             {item.headings[0]}
@@ -68,7 +70,7 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
             </div>
         </div>
 
-        {/* Section 2: List Content */}
+        {/* Section 2: Detailed List Content (Polymorphic) */}
         <div>
             {item.headings[1] && (
                 <h3 className="mb-2 mt-2 text-blue-800 text-sm sm:text-base font-bold uppercase opacity-80">
@@ -78,7 +80,8 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
 
             <div className="space-y-3 font-medium text-neutral-800">
             {item.content.map((line, idx) => {
-                // TYPE GUARD: Simple String
+                
+                // TYPE GUARD: Renders simple text lines (e.g., experience descriptions)
                 if (typeof line === "string") {
                 return (
                     <p key={idx} className="text-xs sm:text-sm md:text-base leading-relaxed border-l-2 border-zinc-300 pl-3">
@@ -87,9 +90,10 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
                 );
                 }
 
-                // TYPE GUARD: Complex Object (Project/Contribution)
+                // TYPE GUARD: Renders complex objects (e.g., Open Source projects)
                 return (
                 <div key={idx} className="bg-white/50 p-3 rounded-lg border border-zinc-200">
+                    {/* Project Title & Link */}
                     <div className="flex items-baseline justify-between mb-1">
                         <a
                         href={line.href}
@@ -103,14 +107,14 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
 
                     <p className="text-xs md:text-sm text-zinc-700 mb-2">{line.description}</p>
 
-                    {/* Contributions List */}
+                    {/* Bullet Points: Contributions */}
                     {line.contributions && (
                         <ul className="list-disc list-inside text-xs text-zinc-600 space-y-0.5 mb-2">
                             {line.contributions.map((c, i) => <li key={i}>{c}</li>)}
                         </ul>
                     )}
 
-                    {/* Mini Tech Stack */}
+                    {/* Chips: Technologies used in project */}
                     <div className="flex flex-wrap gap-1">
                     {line.techStack?.map((tech, i) => (
                         <span key={i} className="text-[9px] uppercase tracking-wider font-bold text-zinc-400 bg-zinc-100 px-1.5 py-0.5 rounded">

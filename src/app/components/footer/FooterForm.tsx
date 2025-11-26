@@ -4,18 +4,20 @@ import { FormEvent } from "react";
 
 export default function FooterForm() {
     
-    // Simple handler to prevent page reload
+    // Handler: Intercepts form submission for validation or API integration
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        // Here you would typically add EmailJS or Formspree logic
+        // Placeholder for backend integration (e.g., EmailJS, Formspree)
         alert("Message sent! (Demo)");
     };
 
     return (
+        // Main Form Section: Centered layout with responsive margin
         <section className="flex flex-col items-center justify-center w-full bg-zinc-200 text-neutral-900 mt-10 lg:mt-0">
             <form onSubmit={handleSubmit} className="w-full max-w-xl flex flex-col gap-4">
                 
-                {/* Name Input */}
+                {/* --- Input Field: Name --- */}
+                {/* Styling includes focus transitions and bottom-border effects */}
                 <div className="relative group">
                     <input
                         type="text"
@@ -28,7 +30,7 @@ export default function FooterForm() {
                     />
                 </div>
 
-                {/* Email Input */}
+                {/* --- Input Field: Email --- */}
                 <div className="relative group">
                     <input
                         type="email"
@@ -41,7 +43,8 @@ export default function FooterForm() {
                     />
                 </div>
 
-                {/* Message Input */}
+                {/* --- Textarea: Message --- */}
+                {/* Fixed resize behavior to maintain layout integrity */}
                 <div className="relative group">
                     <textarea
                         name="message"
@@ -54,7 +57,7 @@ export default function FooterForm() {
                     />
                 </div>
 
-                {/* Submit Button */}
+                {/* --- Submit Action --- */}
                 <button
                     type="submit"
                     className="mt-6 w-full p-6 text-lg tracking-wider uppercase font-bold bg-neutral-900 text-zinc-100 hover:bg-blue-800 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer shadow-xl"

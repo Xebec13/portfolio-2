@@ -1,19 +1,30 @@
 import "./icons.css";
 
+// ==========================================
+// Types & Interfaces
+// ==========================================
 export interface CustomIconsProps {
   onClick?: () => void;
-  isOpen?: boolean;
+  isOpen?: boolean; // Controls state-based transformations (e.g., Hamburger to X)
 }
 
-// 1. Nav Icon (Hamburger)
+// ==========================================
+// Icon Components
+// All icons utilize a CSS Grid layout of empty divs with borders 
+// to create geometric, animated shapes (pixel-art style).
+// ==========================================
+
+// 1. Navigation Toggle (Hamburger Menu)
 export function NavIcon({ isOpen = false, onClick }: CustomIconsProps) {
   return (
     <button
       onClick={onClick}
-      aria-label={isOpen ? "Close menu" : "Open menu"} // accessibility fix
+      // Accessibility: Dynamically updates label based on state
+      aria-label={isOpen ? "Close menu" : "Open menu"} 
       className={`nav-slide-down nav-icon relative grid grid-cols-3 gap-2 p-1 md:p-1.5 rounded-sm cursor-pointer transition-all duration-700 ease-in-out z-10 
         ${isOpen ? "bg-blue-700 hover:bg-zinc-200 hover:scale-110" : "bg-zinc-200 hover:invert hover:scale-110"}`}
     >
+      {/* Renders a 3x3 grid. CSS classes in 'icons.css' handle the rotation/hiding of specific cells */}
       {[...Array(9)].map((_, i) => (
         <div
           key={i}
@@ -24,7 +35,7 @@ export function NavIcon({ isOpen = false, onClick }: CustomIconsProps) {
   );
 }
 
-// 2. Next Arrow
+// 2. Carousel Control: Next Slide
 export function NextChevron({ onClick }: CustomIconsProps) {
   return (
     <button
@@ -43,7 +54,7 @@ export function NextChevron({ onClick }: CustomIconsProps) {
   );
 }
 
-// 3. Prev Arrow
+// 3. Carousel Control: Previous Slide
 export function PrevChevron({ onClick }: CustomIconsProps) {
   return (
     <button
@@ -62,12 +73,13 @@ export function PrevChevron({ onClick }: CustomIconsProps) {
   );
 }
 
-// 4. Accordion Chevron (Purely decorative usually, but good to label if interactive)
+// 4. Accordion Toggle Indicator
+// Visual element only (aria-hidden) as it sits inside the main clickable header
 export function UpDownChevron({ isOpen = false }: CustomIconsProps) {
   return (
     <div 
         className="chevron-up-down pt-1.5 grid grid-cols-3 gap-1"
-        aria-hidden="true" // Decorative element inside a larger button
+        aria-hidden="true" 
     >
       {[...Array(6)].map((_, i) => (
         <div
@@ -79,7 +91,7 @@ export function UpDownChevron({ isOpen = false }: CustomIconsProps) {
   );
 }
 
-// 5. Back Button (General)
+// 5. General Back Button (Modal/Navigation)
 export function BackChevron({ onClick }: CustomIconsProps) {
   return (
     <button
@@ -94,12 +106,13 @@ export function BackChevron({ onClick }: CustomIconsProps) {
   );
 }
 
-// 6. Footer Scroll-to-Top (Back)
+// 6. Footer Specific Action (Scroll to Top / Close Contact)
 export function FooterBackChevron({ onClick }: CustomIconsProps) {
   return (
     <button
       onClick={onClick}
       aria-label="Scroll to top"
+      // Positioned absolutely within the footer/modal context
       className="chevron-footer-back absolute top-5 left-5 grid grid-cols-3 gap-2 p-1.5 rounded-sm cursor-pointer transition-all duration-700 ease-in-out hover:scale-110 hover:bg-blue-700"
     >
       {[...Array(9)].map((_, i) => (

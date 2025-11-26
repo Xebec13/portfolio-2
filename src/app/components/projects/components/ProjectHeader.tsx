@@ -15,9 +15,11 @@ export default function ProjectHeader({
     isExpanded,
 }: ProjectHeaderProps) {
     return (
+        // Main Header Grid: Divides the row into 3 distinct sections (Title, Icons, Date)
         <div className="grid grid-cols-3 p-1.5 gap-5 items-center w-full text-left">
 
-            {/* 🔹 Title — Animates ONLY scale and margin to avoid color flicker */}
+            {/* --- Section 1: Project Title --- */}
+            {/* Animation: Scales up and shifts right when active to visually transform into a section header */}
             <div className={`
                 justify-self-start origin-left 
                 transition-[transform,margin] duration-500 ease-in-out
@@ -28,7 +30,8 @@ export default function ProjectHeader({
                 </h3>
             </div>
 
-            {/* 🔹 Tech Icons (Visible only when collapsed) */}
+            {/* --- Section 2: Tech Stack Preview --- */}
+            {/* Visibility: Fades out when expanded to reduce visual clutter and focus on the detailed content */}
             <div 
                 aria-hidden="true"
                 className={`
@@ -44,11 +47,12 @@ export default function ProjectHeader({
                 ))}
             </div>
 
-            {/* 🔹 Date + Chevron */}
+            {/* --- Section 3: Meta Data & Trigger --- */}
             <div className="justify-self-end flex items-center gap-3 font-semibold">
                 <span className="text-sm md:text-base opacity-80">
                     {date}
                 </span>
+                {/* Visual indicator (Arrow) for the accordion state */}
                 <UpDownChevron isOpen={isExpanded} />
             </div>
         </div>

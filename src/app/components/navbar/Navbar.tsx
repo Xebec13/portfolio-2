@@ -1,51 +1,53 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { NavIcon } from "../utils/Icons"; // Zakładam, że ścieżka jest ok
+import { NavIcon } from "../utils/Icons";
 import { useIntro } from "../utils/IntroProvider";
 
-
+// Configuration: Main navigation links targeting section IDs
 const navItems = [
-    { href: "#home", label: "Home" }, // Zmieniłem na /#home dla spójności z id="home" w Hero
+    { href: "#home", label: "Home" },
     { href: "#projects", label: "Projects" },
     { href: "#about", label: "About" },
     { href: "#footer", label: "Contact" },
 ];
 
+// Configuration: External social media profiles
 const socialLinks = [
     { label: "Linkedin", href: "https://www.linkedin.com/in/david-hoesen-054257308/" },
     { label: "Github", href: "https://github.com/Xebec13" },
 ];
 
 export default function Navbar() {
+    // Access global state to sync navbar appearance with the intro animation
     const { introFinished } = useIntro();
+    // Local state for toggling the side menu
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => setIsOpen((prev) => !prev);
     
-    // Function to close menu when a link is clicked (UX fix)
+    // UX Handler: Automatically close the menu when a navigation link is clicked
     const handleLinkClick = () => setIsOpen(false);
 
     return (
         <header>
-            {/* === Hamburger Button Container === */}
-            {/* We apply the intro animation logic here. 
-                Button appears only when introFinished is true. */}
+            {/* --- Toggle Button Container --- */}
+            {/* Animation Logic: The button remains hidden/translated until the global intro sequence completes. */}
             <div className={`fixed top-5 right-5 md:top-5 md:right-7 z-50 transition-all duration-700 ease-out 
                 ${introFinished ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}`}
             >
                 <NavIcon isOpen={isOpen} onClick={toggleMenu} />
             </div>
 
-            {/* === Overlay Menu === */}
-            {/* Changed from <ul> to <aside> overlay wrapper */}
+            {/* --- Slide-out Side Menu --- */}
+            {/* Layout: Fixed positioning off-screen (translate-x-full) sliding in when 'isOpen' is true. */}
             <aside
                 className={`fixed top-0 right-0 h-screen w-full max-w-[75%] md:max-w-[400px] bg-neutral-950 z-40 shadow-2xl
                 flex flex-col justify-between pt-24 px-8 pb-10
                 transition-transform duration-500 ease-in-out
                 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
             >
-                {/* === Navigation Links === */}
+                {/* Navigation Links */}
                 <nav>
                     <ul className="flex flex-col space-y-6 text-zinc-200 text-3xl md:text-4xl font-semibold uppercase">
                         {navItems.map((item, i) => (
@@ -62,7 +64,7 @@ export default function Navbar() {
                     </ul>
                 </nav>
 
-                {/* === Social Links === */}
+                {/* Footer Section: Social Links */}
                 <div className="flex gap-4 text-xs font-medium uppercase text-zinc-400">
                     {socialLinks.map((social, i) => (
                         <a
@@ -78,7 +80,8 @@ export default function Navbar() {
                 </div>
             </aside>
 
-            {/* Optional: Backdrop to close menu when clicking outside */}
+            {/* --- Backdrop Overlay --- */}
+            {/* UX: Allows closing the menu by clicking outside the sidebar area */}
             {isOpen && (
                 <div 
                     onClick={toggleMenu}

@@ -4,11 +4,13 @@ import { Project } from "./ProjectData";
 import { ProjectHeader, ProjectContent, ProjectContentWrapper } from "./components";
 import MiniDivider from "../utils/MiniDivider";
 
-// Explicitly define the props interface
+// ==========================================
+// Props Definition
+// ==========================================
 interface ProjectItemProps {
-  project: Project;
-  isExpanded: boolean;
-  onToggle: () => void;
+  project: Project;     // Data object containing project details
+  isExpanded: boolean;  // State controlling whether the accordion is open
+  onToggle: () => void; // Handler to switch the expanded state
 }
 
 export default function ProjectItem({
@@ -19,11 +21,14 @@ export default function ProjectItem({
   const { name, date, icons } = project;
 
   return (
+    // Single Project Row Container
     <div className="w-full">
+      
+      {/* --- Accordion Trigger --- */}
       {/* 
-        Main Toggle Button 
-        - Accessibility: aria-expanded indicates state to screen readers
-        - Styling: Dynamic classes for expanded state (Dark mode feeling when active)
+        The main button that toggles the project details.
+        - Accessibility: uses 'aria-expanded' to inform screen readers of the state.
+        - Interaction: Changes visual style (inverted colors) on hover and when active.
       */}
       <button
         onClick={onToggle}
@@ -32,12 +37,12 @@ export default function ProjectItem({
           group w-full p-2 cursor-pointer transition-all duration-500 ease-in-out
           border-b border-transparent
           ${isExpanded 
-            ? "bg-zinc-200 text-neutral-900" // Active state
-            : "bg-zinc-200 text-neutral-900 hover:bg-neutral-900 hover:text-zinc-200" // Default + Hover
+            ? "bg-zinc-200 text-neutral-900" // State: Active/Expanded (Light theme match)
+            : "bg-zinc-200 text-neutral-900 hover:bg-neutral-900 hover:text-zinc-200" // State: Default -> Hover (Inverted high contrast)
           }
         `}
       >
-        {/* Header content (Name, Date, Icons) */}
+        {/* Row Header: Displays Summary (Name, Date, Tech Icons) */}
         <ProjectHeader
           name={name}
           date={date}
@@ -46,12 +51,15 @@ export default function ProjectItem({
         />
       </button>
 
-      {/* Wrapper controls the height animation */}
+      {/* --- Collapsible Content Section --- */}
+      {/* Wrapper manages the height transition (opening/closing animation) */}
       <ProjectContentWrapper isExpanded={isExpanded}>
+        {/* Detailed Content: Description, Links, Images */}
         <ProjectContent project={project} />
       </ProjectContentWrapper>
 
-      {/* Hide divider if item is expanded for a cleaner look */}
+      {/* --- Visual Separator --- */}
+      {/* Renders the bottom line or spacer. Configured to 'off' means secondary */}
       <MiniDivider type="off" />
     </div>
   );

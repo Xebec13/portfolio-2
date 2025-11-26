@@ -1,4 +1,8 @@
-// Define the structure for rich content (like Open Source projects)
+// ==========================================
+// Types & Interfaces
+// ==========================================
+
+// Defines the structure for complex content items (e.g., Projects, Open Source contributions)
 export interface ContentItem {
   name: string;
   href?: string;
@@ -7,29 +11,37 @@ export interface ContentItem {
   techStack?: string[];
 }
 
-// Define the main structure
+// Defines the structure for a single Tab section within the About component
 export interface AboutItem {
-  name: string; // Used for tabs/buttons
+  name: string; // Label used for navigation tabs or buttons
   headings: string[];
   badges?: string[];
-  // Polymorphic content: can be simple text lines OR complex objects
-  content: (string | ContentItem)[]; 
+  // Handles polymorphic content: accepts either simple text strings or complex ContentItem objects
+  content: (string | ContentItem)[];
 }
 
-// Main description text (moved from component to data file)
-export const infoContent = [
-    "I’m a Front-End Developer creating modern, responsive, and animation-rich web applications with React, TypeScript, Tailwind, and GSAP, with experience managing teams of up to 50 people.",
-    "Driven to transition fully into IT, I completed comprehensive coding programs at CodersLab and continued developing my skills through self-learning, online courses, and hands-on practice, including community platforms like icodethis.com.",
-    "Since then, I’ve built 5+ fully responsive, animated projects, including a working MVP for a local business. I’m actively looking to apply my skills in real team environments, delivering end-to-end, market-ready products."
+// ==========================================
+// Static Content Data
+// ==========================================
+
+
+// Main biography text displayed in the hero or intro section
+export const infoContent: string[] = [
+  "I’m a Front-End Developer creating modern, responsive, and animation-rich web applications with React, TypeScript, Tailwind, and GSAP, with experience managing teams of up to 50 people.",
+  "Driven to transition fully into IT, I completed comprehensive coding programs at CodersLab and continued developing my skills through self-learning, online courses, and hands-on practice, including community platforms like icodethis.com.",
+  "Since then, I’ve built 5+ fully responsive, animated projects, including a working MVP for a local business. I’m actively looking to apply my skills in real team environments, delivering end-to-end, market-ready products."
 ];
 
+// Main configuration array used to generate the specific sections (Tabs)
 export const aboutData: AboutItem[] = [
+
+  // --- Section 1: Coding (Technical Stack & Projects) ---
   {
     name: "Coding",
     headings: ["My Tech Stack", "Recent Contributions"],
     badges: [
       "HTML", "CSS", "JavaScript", "TypeScript",
-      "Tailwind", "Sass", "GSAP", 
+      "Tailwind", "Sass", "GSAP",
       "React", "Next.js", "Figma",
       "Node.js", "Python"
     ],
@@ -44,10 +56,11 @@ export const aboutData: AboutItem[] = [
         ],
         techStack: ["React", "Tailwind", "Vite"],
       }
-      // Add more real examples here if you have them
+      // Placeholder for future projects
     ]
   },
 
+  // --- Section 2: Professional (Skills & Experience) ---
   {
     name: "Professional",
     headings: ["Technical Skills", "Industry Experience"],
@@ -56,7 +69,7 @@ export const aboutData: AboutItem[] = [
       "Responsive Design", "WCAG (Accessibility)",
       "REST API", "GraphQL", "Performance Opt."
     ],
-    // Strings representing industries/experience
+    // List of industries or areas of expertise
     content: [
       "Digital Agencies & Creative Studios",
       "E-commerce & SaaS Platforms",
@@ -66,6 +79,7 @@ export const aboutData: AboutItem[] = [
     ]
   },
 
+  // --- Section 3: Education & Certifications ---
   {
     name: "Certificates",
     headings: ["Recently Earned"],
@@ -77,6 +91,7 @@ export const aboutData: AboutItem[] = [
     ]
   },
 
+  // --- Section 4: Personal (Hobbies & Interests) ---
   {
     name: "Private",
     headings: ["Hobbies & Interests"],
