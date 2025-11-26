@@ -23,6 +23,7 @@ export default function AboutContent({
           <Image 
             src="/quote-img.png" 
             alt="Quote decoration" 
+            sizes="(max-width: 768px) 60px, 80px"
             fill 
             className="object-contain"
           />

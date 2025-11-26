@@ -1,5 +1,8 @@
-import {IntroProvider} from "./components/utils/IntroProvider"
+import { IntroProvider } from "./components/utils/IntroProvider"
 import Loader from "./components/utils/Loader"
+
+import SmoothScroll from "./components/utils/SmoothScroll";
+
 import type { Metadata } from "next";
 import { Sansation, Inter, Work_Sans } from "next/font/google";
 import "./globals.css";
@@ -35,11 +38,13 @@ export default function RootLayout({
       <body
         className={`${sansation.variable} ${inter.variable} ${workSans.variable}  font-sans antialiased`}
       >
-        <IntroProvider>
-          <Loader>
-            {children}
-          </Loader>
-        </IntroProvider>
+        <SmoothScroll>
+          <IntroProvider>
+            <Loader>
+              {children}
+            </Loader>
+          </IntroProvider>
+        </SmoothScroll>
       </body>
     </html>
   );

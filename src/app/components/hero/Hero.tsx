@@ -16,7 +16,7 @@ export default function Hero() {
         <section id="home" className="relative flex min-h-screen flex-col items-stretch justify-start md:justify-evenly gap-10 px-5 pb-0 pt-30 md:pb-15 md:px-22 md:pt-35 overflow-hidden">
             
             {/* Background Grid - Visible only on Desktop (md+) */}
-            <HeroGridBg />
+            {/* <HeroGridBg /> */}
             
             {/* Content Container */}
             <div className="relative flex flex-col-reverse justify-center gap-5 md:flex-row md:justify-between z-0">

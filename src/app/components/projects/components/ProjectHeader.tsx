@@ -23,7 +23,7 @@ export default function ProjectHeader({
                 transition-[transform,margin] duration-500 ease-in-out
                 ${isExpanded ? "scale-130 md:scale-110 ml-5" : "ml-0"} 
             `}>
-                <h3 className="text-md md:text-xl lg:text-2xl font-medium whitespace-nowrap text-inherit">
+                <h3 className="text-md md:text-xl lg:text-2xl font-medium  text-inherit">
                     {name}
                 </h3>
             </div>

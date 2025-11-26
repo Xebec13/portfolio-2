@@ -4,8 +4,9 @@ import Link from "next/link";
 import { NavIcon } from "../utils/Icons"; // Zakładam, że ścieżka jest ok
 import { useIntro } from "../utils/IntroProvider";
 
+
 const navItems = [
-    { href: "/#home", label: "Home" }, // Zmieniłem na /#home dla spójności z id="home" w Hero
+    { href: "#home", label: "Home" }, // Zmieniłem na /#home dla spójności z id="home" w Hero
     { href: "#projects", label: "Projects" },
     { href: "#about", label: "About" },
     { href: "#footer", label: "Contact" },
@@ -81,7 +82,7 @@ export default function Navbar() {
             {isOpen && (
                 <div 
                     onClick={toggleMenu}
-                    className="fixed inset-0 bg-black/50 backdrop-blur-xs z-30 transition-opacity" 
+                    className="fixed inset-0 bg-black/50 z-30 transition-opacity" 
                 />
             )}
         </header>

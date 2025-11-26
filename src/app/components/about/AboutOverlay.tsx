@@ -29,6 +29,7 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
 
   return (
     <div
+    data-lenis-prevent="true"
       className={`
         absolute inset-0 z-50 flex flex-col px-6 py-6 lg:px-12 lg:py-10 bg-zinc-100 
         transform transition-all duration-300 ease-in-out shadow-2xl

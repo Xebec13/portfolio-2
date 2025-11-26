@@ -30,10 +30,10 @@ export default function MiniDivider({ type = "off" }: MiniDividerProps) {
 
   const styleClass = {
 
-    off: "border-b border-current opacity-40",
+    off: "border-b-2 border-current ",
 
 
-    main: "border-b-2 border-current opacity-100",
+    main: "border-b-3 border-current opacity-100",
 
 
     head: "border-b-4 border-current opacity-100",
