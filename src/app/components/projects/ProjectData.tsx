@@ -15,7 +15,7 @@ interface BaseProjectData {
   images: string[];
   href?: string;
   gitHref?: string;
-  key: string; 
+  key: string;
 }
 
 interface LocalizedProjectData {
@@ -26,7 +26,7 @@ interface LocalizedProjectData {
   keyAchi: string[];
 }
 
-export interface Project extends BaseProjectData, LocalizedProjectData {}
+export interface Project extends BaseProjectData, LocalizedProjectData { }
 
 export type Language = "en" | "pl";
 
@@ -38,7 +38,7 @@ export type Language = "en" | "pl";
 const baseProjects: BaseProjectData[] = [
   {
     id: 1,
-    key: "pck", 
+    key: "pck",
     date: "2023",
     icons: [
       <MdHtml key="html" aria-label="HTML" />,
@@ -115,8 +115,8 @@ const baseProjects: BaseProjectData[] = [
       <RiTailwindCssFill key="tailwind" aria-label="Tailwind" />,
       <BiLogoTypescript key="ts" aria-label="TypeScript" />,
     ],
-    images: ["/assets/cl1.png", "/assets/cl2.png", "/assets/cl3.png"], 
-    href: "#", 
+    images: ["/assets/cl1.png", "/assets/cl2.png", "/assets/cl3.png"],
+    href: "#",
     gitHref: "https://github.com/TwojNick/post-prime",
   },
 ];
@@ -141,7 +141,7 @@ const translations: Record<Language, Record<string, LocalizedProjectData>> = {
       name: "Afal-Logistics",
       review: "To test a new client communication channel, Afal Logistics needed a clear, functional online presence. I delivered a lightweight MVP landing page that balances brand clarity, mobile-first usability, and expandability — allowing the company to experiment with digital outreach effectively.",
       techReview: "I utilized Tailwind for rapid styling and GSAP for subtle entrance animations. The focus was on performance and clarity — creating a digital business card that loads instantly. The code structure is modular, allowing for easy expansion.",
-      keyWords: ["Commercial", "Logistics", "Distribution", "Chemicals", "Landing Page","Contact Form"],
+      keyWords: ["Commercial", "Logistics", "Distribution", "Chemicals", "Landing Page", "Contact Form"],
       keyAchi: [
         "implemented GSAP reveal animations to create a premium corporate feel",
         "designed a lightweight, responsive structure optimized for mobile users and smooth operation",
@@ -174,7 +174,7 @@ const translations: Record<Language, Record<string, LocalizedProjectData>> = {
       name: "Cozy Leaf",
       review: "For this mockup project, the case assumes that Cozy Leaf — a fictional vegan restaurant — needed a refreshed presentation of its brand online and an engaging, interactive, and enjoyable digital experience for users. I created a fast, engaging site with interactive ordering, table reservations, a dynamic menu, and playful UI animations to enrich the customer journey.",
       techReview: "Developed with React, JavaScript, and Tailwind, the site features a modular architecture with reusable UI components, GSAP-powered micro-animations, interactive ordering and reservation flows, and a fully responsive layout. The result is a smooth, conversion-oriented interface with strong performance and clean, maintainable code.",
-      keyWords: ["Mockup", "Restaurant", "Vegan", "Online Ordering", "Table Reservation","Contact Form"],
+      keyWords: ["Mockup", "Restaurant", "Vegan", "Online Ordering", "Table Reservation", "Contact Form"],
       keyAchi: [
         "implemented a persistent shopping cart state using Local Storage for seamless ordering",
         "balanced rich UI animations with strong Core Web Vitals performance",

@@ -144,7 +144,7 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
                   return (
                     <div key={idx} className="flex flex-col gap-3">
                       {titles.map((title, i) => (
-                        <div key={i} className="p-1.5 space-y-2">
+                        <div key={i} className="space-y-2">
                           {/* Górny wiersz: Tytuł (Bold) */}
                           <p className="text-sm md:text-base font-bold text-zinc-500 uppercase mb-1">
                             {title}
@@ -172,7 +172,7 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
                   const facts = (item.content[1] as string[]) || []; // np. Up until now...
 
                   return (
-                    <div key={idx} className="flex flex-col gap-5">
+                    <div key={idx} className="flex flex-col">
                       {topics.map((topic, i) => (
                         <div key={i} className="p-1.5">
                           {/* Topic Title */}
