@@ -17,13 +17,13 @@ export default function AboutContent({
 
   return (
     // Main Text Container
-    <div className={`font-medium text-base text-justify ${globalClass} flex flex-col break-normal leading-relaxed`}>
+    <div className={`font-medium text-base ${globalClass} flex flex-col break-normal leading-relaxed`}>
 
       {/* --- Section 1: Intro with Profile Image --- */}
       <div className="mb-3 space-x-5 relative">
 
         {/* Decorative Quote Icon (Top-Left) */}
-        <div className="absolute -top-5 left-30 md:left-37 size-15 md:size-20 rotate-180 opacity-80 pointer-events-none select-none">
+        <div className="absolute top-0 left-30 md:left-37 size-15 md:size-20 rotate-180 opacity-80 pointer-events-none select-none">
           <Image
             src="/quote-img.png"
             alt="Quote decoration"
@@ -45,7 +45,7 @@ export default function AboutContent({
         </div>
 
         {/* First Paragraph Text */}
-        <p className="relative top-1/2 -translate-y-1/2 indent-10 leading-7.5 tracking-widest text-neutral-900">
+        <p className="relative top-1/2 -translate-y-1/2 indent-10 leading-7.5 text-base text-justify tracking-[7%] text-neutral-900">
           {firstText}
         </p>
 
@@ -56,13 +56,13 @@ export default function AboutContent({
       {/* --- Section 2: Remaining Biography Text --- */}
       <div className="relative space-y-4 mt-5">
         {restText.map((txt, i) => (
-          <p key={i} className="indent-10 leading-7.5 tracking-widest relative z-10 text-neutral-900">
+          <p key={i} className="indent-10 leading-7.5 text-base text-justify tracking-[7%] relative z-10 text-neutral-900">
             {txt}
           </p>
         ))}
 
         {/* Decorative Quote Icon (Bottom-Right) */}
-        <div className="absolute bottom-0 md:bottom-5 right-0 size-15 md:size-20 opacity-80 pointer-events-none select-none">
+        <div className="absolute bottom-0 right-0 size-15 md:size-20 opacity-80 pointer-events-none select-none">
           <Image
             src="/quote-img.png"
             alt="Quote decoration"

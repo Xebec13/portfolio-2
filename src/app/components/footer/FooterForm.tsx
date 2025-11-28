@@ -16,7 +16,7 @@ export default function FooterForm() {
 
     return (
         // Main Form Section: Centered layout with responsive margin
-        <section className="flex flex-col items-center justify-center w-full bg-zinc-200 text-neutral-900 mt-10 lg:mt-0">
+        <section className="flex flex-col items-center justify-center w-full p-2 bg-zinc-300 text-neutral-900 mt-10 lg:mt-0">
             <form onSubmit={handleSubmit} className="w-full max-w-xl flex flex-col gap-4">
                 
                 {/* --- Input Field: Name --- */}
@@ -29,7 +29,7 @@ export default function FooterForm() {
                         required
                         placeholder={t.form.namePlaceholder}
                         aria-label="Your Name"
-                        className="w-full p-6 bg-zinc-300/50 border-b-2 border-zinc-400 focus:border-blue-800 focus:bg-white focus:outline-none transition-all duration-300 placeholder:text-zinc-500 font-medium"
+                        className="w-full p-6 bg-zinc-400/50 border-b-2 border-zinc-500 focus:border-blue-800 focus:bg-white focus:outline-none transition-all duration-300 placeholder:text-zinc-500 font-medium"
                     />
                 </div>
 
@@ -42,7 +42,7 @@ export default function FooterForm() {
                         required
                         placeholder={t.form.emailPlaceholder}
                         aria-label="Your Email"
-                        className="w-full p-6 bg-zinc-300/50 border-b-2 border-zinc-400 focus:border-blue-700 focus:bg-white focus:outline-none transition-all duration-300 placeholder:text-zinc-500 font-medium"
+                        className="w-full p-6 bg-zinc-400/50 border-b-2 border-zinc-500 focus:border-blue-700 focus:bg-white focus:outline-none transition-all duration-300 placeholder:text-zinc-500 font-medium"
                     />
                 </div>
 
@@ -56,7 +56,7 @@ export default function FooterForm() {
                         placeholder={t.form.msgPlaceholder}
                         aria-label="Your Message"
                         rows={5}
-                        className="w-full p-6 bg-zinc-300/50 border-b-2 border-zinc-400 focus:border-blue-700 focus:bg-white focus:outline-none transition-all duration-300 placeholder:text-zinc-500 font-medium resize-none"
+                        className="w-full p-6 bg-zinc-400/50 border-b-2 border-zinc-500 focus:border-blue-700 focus:bg-white focus:outline-none transition-all duration-300 placeholder:text-zinc-500 font-medium resize-none"
                     />
                 </div>
 

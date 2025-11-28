@@ -35,7 +35,7 @@ export const dictionary = {
       namePlaceholder: "Your Name",
       emailPlaceholder: "Your Email",
       msgPlaceholder: "Tell me about your project...",
-      btnSend: "Send Message",
+      btnSend: "Send",
       btnSending: "Sending...",
       successTitle: "Message Sent!",
       successMsg: "Thank you for reaching out. I'll get back to you shortly.",
@@ -50,19 +50,19 @@ export const dictionary = {
       contact: "Kontakt",
     },
     hero: {
-      bio: "Cześć! Pasjonuję się tworzeniem czystych, responsywnych i dopracowanych wizualnie interfejsów. Stwórzmy coś razem!",
+      bio: "Cześć! Projektuję responsywne, estetyczne i wizualnie dopracowane interfejsy. \nZróbmy coś razem!",
     },
     // NEW SECTION: Projects Table Headers
     projects: {
       headerProject: "Projekty",
-      headerTech: "Technologie",
+      headerTech: "Tech",
       headerDate: "Data",
     },
     footer: {
-      ctaTitle: "Ciekawy, co możemy razem stworzyć?",
-      ctaSubtitle: "Zrealizujmy wspólnie coś niezwykłego!",
-      btn: "Napisz do mnie",
-      status: "Dostępny do współpracy",
+      ctaTitle: "Ciekawi Cię, co możemy razem zbudować?",
+      ctaSubtitle: "Rozwińmy Twój pomysł w coś ponadprzeciętnego!",
+      btn: "Porozmawiajmy",
+      status: "Gotowy do współpracy",
       copyright: "Wszelkie prawa zastrzeżone",
       designedBy: "Projekt i wykonanie: Xebec13",
       links: {
@@ -71,11 +71,11 @@ export const dictionary = {
       }
     },
     form: {
-      title: "Wyślij zgłoszenie",
-      namePlaceholder: "Twoje Imię",
-      emailPlaceholder: "Twój Email",
-      msgPlaceholder: "Opisz swój projekt...",
-      btnSend: "Wyślij Wiadomość",
+      title: "ROZPOCZNIJ PROJEKT",
+      namePlaceholder: "Jak się nazywasz?",
+      emailPlaceholder: "Podaj swój e-mail",
+      msgPlaceholder: "Opowiedz mi o swoim projekcie...",
+      btnSend: "Wyślij",
       btnSending: "Wysyłanie...",
       successTitle: "Wiadomość Wysłana!",
       successMsg: "Dziękuję za kontakt. Odpiszę najszybciej jak to możliwe.",

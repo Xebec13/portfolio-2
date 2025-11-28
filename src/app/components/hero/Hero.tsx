@@ -2,7 +2,7 @@
 
 import HeroGridBg from "./HeroGridBg";
 import Image from "next/image";
-import { useIntro } from "../utils/IntroProvider"; 
+import { useIntro } from "../utils/IntroProvider";
 import { useLanguage } from "../context/LanguageProvider";
 import { GLOBAL } from "../context/constants"; // Import Global Data
 
@@ -25,14 +25,14 @@ export default function Hero() {
         // Main Hero Container
         // Uses flex layout to distribute content vertically (justify-evenly on desktop)
         <section id="home" className="relative flex min-h-screen flex-col items-stretch justify-start md:justify-evenly gap-10 px-5 pb-0 pt-30 md:pb-15 md:px-22 md:pt-35 overflow-hidden">
-            
+
             {/* Background Layer: Decorative Grid (Desktop only) */}
             <HeroGridBg />
-            
+
             {/* --- Upper Section: Main Heading & Avatar --- */}
             {/* Layout: Column-reverse on mobile (Image top, text bottom), Row on desktop */}
             <div className="relative flex flex-col-reverse justify-center gap-5 md:flex-row md:justify-between z-0">
-                
+
                 {/* Typography: Main Name Heading (Dynamic from GLOBAL) */}
                 {/* pointer-events-none ensures text doesn't interfere with interactions underneath */}
                 <div className="max-w-fit text-[clamp(4.25rem,12vw,15rem)] font-semibold uppercase leading-none text-neutral-900 pointer-events-none">
@@ -60,7 +60,7 @@ export default function Hero() {
 
             {/* --- Lower Section: Role Title & Short Bio --- */}
             <div className="flex flex-col gap-15 items-start md:flex-row md:justify-between z-0 pointer-events-none">
-                
+
                 {/* Job Title / Role (Dynamic from GLOBAL) */}
                 <div className="shrink-0 flex items-center p-3 font-semibold">
                     <div className="overflow-hidden">
@@ -71,10 +71,12 @@ export default function Hero() {
                 </div>
 
                 {/* Introduction Text (Localized from Translations) */}
-                <div className="text-[clamp(1.5rem,3vw,4.5rem)] indent-12 md:max-w-1/2 lg-max-w-1/3 font-medium tracking-tighter leading-none text-justify overflow-hidden">
-                    <p className={`${animate("animate-content-slide-up")} whitespace-pre-line`}>
-                        {t.hero.bio}
-                    </p>
+                <div className="text-[clamp(1.5rem,3vw,4.5rem)] indent-12 md:max-w-1/2 lg-max-w-1/3 font-medium tracking-tighter text-justify leading-none">
+                    <div className="overflow-hidden p-1.5">
+                        <p className={`${animate("animate-content-slide-up")} whitespace-pre-line`}>
+                            {t.hero.bio}
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>

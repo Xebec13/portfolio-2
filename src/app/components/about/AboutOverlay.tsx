@@ -1,5 +1,5 @@
 import { BackChevron } from "../utils/Icons";
-import { AboutItem } from "./aboutData";
+import { AboutItem, ContentItem } from "./aboutData"; // Upewnij się, że importujesz ContentItem
 
 interface AboutOverlayProps {
   isActive: boolean;
@@ -9,27 +9,26 @@ interface AboutOverlayProps {
 }
 
 export default function AboutOverlay({ isActive, item, onClose, index }: AboutOverlayProps) {
-  // Configuration: Dynamic styling for badges based on the item index
+
+  // Styles mapping for Badges (no changes here)
   const badgesStyle = [
-    "bg-blue-500/40 text-blue-900 border-blue-200",   
-    "bg-blue-300/40 text-blue-700 border-blue-200",   
-    "bg-zinc-300/40 text-zinc-900 border-zinc-300",   
-    "bg-zinc-300/20 text-zinc-500 border-zinc-200",   
+    "bg-blue-600/40 text-blue-950 border-blue-950",
+    "bg-blue-600/20 text-blue-800 border-blue-800",
+    "bg-zinc-600/20 text-zinc-600 border-zinc-500",
+    "bg-zinc-400/20 text-zinc-500 border-zinc-400",
   ];
   const badgeClass = badgesStyle[index] || "bg-zinc-300 text-neutral-900";
 
-  // Configuration: Determines the CSS transform origin to animate the overlay expanding from the clicked quadrant
+  // Animation Origin mapping (no changes here)
   const originAnim = [
-    "origin-top-left",     
-    "origin-top-right",    
-    "origin-bottom-left",  
-    "origin-bottom-right", 
+    "origin-top-left",
+    "origin-top-right",
+    "origin-bottom-left",
+    "origin-bottom-right",
   ];
   const originClass = originAnim[index] || "origin-center";
 
   return (
-    // Main Overlay Container
-    // 'data-lenis-prevent' stops the main page smooth scroll from interfering with this modal's scroll
     <div
       data-lenis-prevent="true"
       className={`
@@ -40,92 +39,162 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
         ${isActive ? "opacity-100 scale-100" : "opacity-0 scale-50 pointer-events-none"}
       `}
     >
-      {/* --- Header Section: Navigation & Title --- */}
+      {/* --- Header Section --- */}
       <div className="flex items-center justify-between mb-4 shrink-0">
-         <div className="inline-flex items-center gap-2">
-            <BackChevron onClick={onClose} />
-            <h2 className="text-base md:text-xl font-bold uppercase tracking-wide text-blue-900">
-                {item.name}
-            </h2>
-         </div>
+        <div className="inline-flex items-center gap-2">
+          <BackChevron onClick={onClose} />
+          <p className="text-lg md:text-xl font-bold uppercase tracking-wide text-blue-900">
+            {item.name}
+          </p>
+        </div>
       </div>
 
       {/* --- Main Content Scrollable Area --- */}
-      <div className="flex flex-col gap-4">
-        
-        {/* Section 1: Skills/Tech Stack Badges */}
+      <div className="flex flex-col gap-6">
+
+        {/* Section 1: Badges */}
         <div>
-            <h3 className="mb-2 text-blue-800 text-sm sm:text-base font-bold uppercase opacity-80">
+          <p className="mb-3 text-blue-800 text-base md:text-lg font-bold uppercase">
             {item.headings[0]}
-            </h3>
-            <div className="flex flex-wrap gap-1.5">
+          </p>
+          <div className="flex flex-wrap gap-2 uppercase">
             {item.badges?.map((badge, idx) => (
-                <span
+              <span
                 key={idx}
-                className={`py-1 px-2.5 text-[10px] md:text-xs font-semibold rounded-md border ${badgeClass}`}
-                >
+                className={`py-1 px-3 text-[10px] md:text-xs font-semibold rounded-full border ${badgeClass}`}
+              >
                 {badge}
-                </span>
+              </span>
             ))}
-            </div>
+          </div>
         </div>
 
-        {/* Section 2: Detailed List Content (Polymorphic) */}
+        {/* Section 2: Detailed List Content (4 DIFFERENT LAYOUTS) */}
         <div>
-            {item.headings[1] && (
-                <h3 className="mb-2 mt-2 text-blue-800 text-sm sm:text-base font-bold uppercase opacity-80">
-                {item.headings[1]}
-                </h3>
-            )}
+          {item.headings[1] && (
+            <p className="mb-3 mt-2 text-blue-800 text-base md:text-lg font-bold uppercase">
+              {item.headings[1]}
+            </p>
+          )}
 
-            <div className="space-y-3 font-medium text-neutral-800">
+          <div className="space-y-3 font-medium text-neutral-800">
             {item.content.map((line, idx) => {
-                
-                // TYPE GUARD: Renders simple text lines (e.g., experience descriptions)
-                if (typeof line === "string") {
-                return (
-                    <p key={idx} className="text-xs sm:text-sm md:text-base leading-relaxed border-l-2 border-zinc-300 pl-3">
-                    {line}
-                    </p>
-                );
-                }
 
-                // TYPE GUARD: Renders complex objects (e.g., Open Source projects)
+              // =========================================================
+              // 1. CODING LAYOUT (Index 0) - Complex Project Cards
+              // =========================================================
+              if (index === 0 && typeof line !== "string") {
+                const project = line as ContentItem; // Type assertion for safety
                 return (
-                <div key={idx} className="bg-white/50 p-3 rounded-lg border border-zinc-200">
-                    {/* Project Title & Link */}
-                    <div className="flex items-baseline justify-between mb-1">
-                        <a
-                        href={line.href}
+                  <div key={idx} className="p-2">
+                    <div className="flex items-baseline justify-between mb-2">
+                      <a
+                        href={project.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-800 font-bold underline decoration-blue-300 hover:decoration-blue-800 text-sm md:text-base"
-                        >
-                        {line.name}
-                        </a>
+                        className="text-blue-700 font-bold underline decoration-blue-800 hover:decoration-transparent text-sm md:text-base capitalize"
+                      >
+                        {project.name}
+                      </a>
                     </div>
-
-                    <p className="text-xs md:text-sm text-zinc-700 mb-2">{line.description}</p>
-
-                    {/* Bullet Points: Contributions */}
-                    {line.contributions && (
-                        <ul className="list-disc list-inside text-xs text-zinc-600 space-y-0.5 mb-2">
-                            {line.contributions.map((c, i) => <li key={i}>{c}</li>)}
-                        </ul>
-                    )}
-
-                    {/* Chips: Technologies used in project */}
-                    <div className="flex flex-wrap gap-1">
-                    {line.techStack?.map((tech, i) => (
-                        <span key={i} className="text-[9px] uppercase tracking-wider font-bold text-zinc-400 bg-zinc-100 px-1.5 py-0.5 rounded">
-                        {tech}
-                        </span>
-                    ))}
-                    </div>
-                </div>
+                    <p className="text-xs md:text-sm text-zinc-700 mb-3 tracking-wide">{project.description}</p>
+                  </div>
                 );
+              }
+
+              // =========================================================
+              // 2. PROFESSIONAL LAYOUT (Index 1) - Special Arrays Layout
+              // =========================================================
+              if (index === 1 && Array.isArray(line)) {
+                // Logic: idx 0 -> headings[2], idx 1 -> headings[3]
+                const subHeading = item.headings[idx + 2];
+
+                return (
+                  <div key={idx} className="mb-4">
+                    {/* Powiększony tekst nagłówka (zgodnie z prośbą) */}
+                    <p className="text-blue-600 text-sm md:text-base uppercase font-semibold">
+                      {subHeading}
+                    </p>
+
+                    {/* Zawartość jako jeden div z wrapem */}
+                    <div className="whitespace-nowrap flex flex-wrap gap-4 tracking-widest p-1.5">
+                      {line.map((val, i) => (
+                        <span key={i} className="inline-flex items-center gap-4 text-xs ">
+                          {val}
+                          <div className="size-1 rounded-full bg-blue-900" />
+                        </span>
+                      ))}
+
+                    </div>
+                  </div>
+                );
+              }
+
+              // =========================================================
+              // 3. LEARNING LAYOUT (Index 2) - Paired Arrays Logic
+              // =========================================================
+              if (index === 2) {
+                // Renderujemy WSZYSTKO tylko przy pierwszym przebiegu (idx === 0)
+                if (idx === 0 && Array.isArray(line)) {
+                  const titles = line; // Pierwsza tablica (Tytuły)
+                  // Bezpiecznie pobieramy drugą tablicę (Szczegóły)
+                  // Zakładamy, że struktura danych w 'about.ts' jest zawsze poprawna (tablica tablic)
+                  const details = (item.content[1] as string[]) || [];
+
+                  return (
+                    <div key={idx} className="flex flex-col gap-3">
+                      {titles.map((title, i) => (
+                        <div key={i} className="p-1.5 space-y-2">
+                          {/* Górny wiersz: Tytuł (Bold) */}
+                          <p className="text-sm md:text-base font-bold text-zinc-500 uppercase mb-1">
+                            {title}
+                          </p>
+                          {/* Dolny wiersz: Szczegóły (Normal) */}
+                          <p className="text-xs md:text-sm text-zinc-600 font-medium capitalize">
+                            {details[i] || ""}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                }
+                // Przy drugim przebiegu (idx === 1) nie robimy nic, bo już to wyświetliliśmy wyżej
+                if (idx === 1) return null;
+              }
+
+              // =========================================================
+              // 4. PERSONAL LAYOUT (Index 3) - Paired Arrays Logic (NEW)
+              // =========================================================
+              if (index === 3) {
+                // idx 0 -> Pobieramy tematy i opisy
+                if (idx === 0 && Array.isArray(line)) {
+                  const topics = line; // np. Traveling
+                  const facts = (item.content[1] as string[]) || []; // np. Up until now...
+
+                  return (
+                    <div key={idx} className="flex flex-col gap-5">
+                      {topics.map((topic, i) => (
+                        <div key={i} className="p-1.5">
+                          {/* Topic Title */}
+                          <p className="text-base font-bold text-zinc-400 uppercase mb-1 tracking-wide">
+                            {topic}
+                          </p>
+                          {/* Fact Description */}
+                          <p className="text-sm md:text-base  text-zinc-600 first-letter:capitalize">
+                            {facts[i] || ""}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                }
+                // idx 1 -> Pomijamy (już wyświetlone)
+                if (idx === 1) return null;
+              }
+
+              return null;
             })}
-            </div>
+          </div>
         </div>
       </div>
     </div>

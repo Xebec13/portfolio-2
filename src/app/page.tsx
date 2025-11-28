@@ -6,14 +6,13 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Projects />
-      <div className="relative min-h-screen">
-        {/* Sticky About */}
-        <div className="sticky top-0 z-10">
+
+      {/* Kontener Layoutu */}
+      <div className="relative w-full">
+        <div className="relative z-10 bg-zinc-200  lg:sticky lg:top-0">
           <About />
         </div>
-
-        {/* Footer wchodzi nad About */}
-        <div className="relative z-20">
+        <div className="sticky bottom-0 left-0 w-full z-0 lg:relative lg:z-20">
           <Footer />
         </div>
       </div>

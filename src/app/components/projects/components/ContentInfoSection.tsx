@@ -34,7 +34,7 @@ export default function ContentInfoSection({ project }: ContentInfoSectionProps)
         {icons.map((icon, idx) => (
           <li
             key={idx}
-            className="rounded-full text-xs md:text-sm border border-blue-900 bg-blue-600/30 text-blue-950 py-1 px-3"
+            className="rounded-full text-[10px] md:text-sm border border-blue-900 bg-blue-600/30 text-blue-950 py-1 px-3"
           >
             {icon.props["aria-label"]}
           </li>

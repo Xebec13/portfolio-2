@@ -24,15 +24,15 @@ export default function Projects() {
       
       {/* Table Header with Localized Labels */}
       <div className="mt-10 grid grid-cols-2 lg:grid-cols-3 p-2 gap-3 font-semibold uppercase text-lg md:text-2xl">
-        <span className="justify-self-start">
+        <h3 className="justify-self-start">
           {t.projects.headerProject}
-        </span>
-        <span className="justify-self-start hidden lg:block">
+        </h3>
+        <h3 className="justify-self-start hidden lg:block">
           {t.projects.headerTech}
-        </span>
-        <span className="justify-self-end">
+        </h3>
+        <h3 className="justify-self-end">
           {t.projects.headerDate}
-        </span>
+        </h3>
       </div>
       
       <MiniDivider type="main" />

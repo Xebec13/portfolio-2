@@ -72,7 +72,7 @@ export default function FooterCta() {
             */}
             {showContact && (
                 <div
-                    className={`absolute inset-0 grid grid-cols-1 md:grid-cols-2 place-items-center min-h-screen p-5 md:p-18 bg-zinc-200 z-50
+                    className={`absolute inset-0 grid grid-cols-1 md:grid-cols-2 place-items-center min-h-screen p-5 md:p-18 bg-zinc-300 z-50
                     ${isClosing ? "animate-slide-up-modal" : "animate-slide-down-modal"}`}
                     onAnimationEnd={handleAnimationEnd}
                 >
@@ -81,14 +81,17 @@ export default function FooterCta() {
                         {/* Close / Back Button */}
                         <FooterBackChevron onClick={handleClose} />
 
-                        {/* Large Heading */}
-                        <h3 className="uppercase text-[clamp(4rem,10vw,11rem)] font-bold leading-tight tracking-tight text-neutral-900">
-                            {t.form.title}
-                        </h3>
+                        <div className="overflow-hidden">
+
+                            {/* Large Heading */}
+                            <h3 className="uppercase nav-slide-down text-[clamp(4rem,8.25vw,9rem)] font-bold leading-tight tracking-tight text-neutral-900">
+                                {t.form.title}
+                            </h3>
+                        </div>
 
                         {/* Direct Email Link using GLOBAL data */}
                         <div className="overflow-hidden">
-                            <a 
+                            <a
                                 href={`mailto:${GLOBAL.email}`}
                                 className="block animate-content-slide-up pl-1.5 text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 hover:text-blue-700 transition-colors"
                             >
@@ -96,7 +99,7 @@ export default function FooterCta() {
                             </a>
                         </div>
                     </div>
-                    
+
                     {/* Right Column: Input Form Component */}
                     <FooterForm />
                 </div>
