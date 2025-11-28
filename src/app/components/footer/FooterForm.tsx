@@ -1,14 +1,17 @@
 "use client";
 
 import { FormEvent } from "react";
+import { useLanguage } from "../context/LanguageProvider"; // Import Translations
 
 export default function FooterForm() {
+    // Access current translations for placeholders and buttons
+    const { t } = useLanguage();
     
     // Handler: Intercepts form submission for validation or API integration
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         // Placeholder for backend integration (e.g., EmailJS, Formspree)
-        alert("Message sent! (Demo)");
+        alert(t.form.successTitle + " (Demo)");
     };
 
     return (
@@ -24,7 +27,7 @@ export default function FooterForm() {
                         name="name"
                         id="name"
                         required
-                        placeholder="Your Name"
+                        placeholder={t.form.namePlaceholder}
                         aria-label="Your Name"
                         className="w-full p-6 bg-zinc-300/50 border-b-2 border-zinc-400 focus:border-blue-800 focus:bg-white focus:outline-none transition-all duration-300 placeholder:text-zinc-500 font-medium"
                     />
@@ -37,7 +40,7 @@ export default function FooterForm() {
                         name="email"
                         id="email"
                         required
-                        placeholder="Your Email"
+                        placeholder={t.form.emailPlaceholder}
                         aria-label="Your Email"
                         className="w-full p-6 bg-zinc-300/50 border-b-2 border-zinc-400 focus:border-blue-700 focus:bg-white focus:outline-none transition-all duration-300 placeholder:text-zinc-500 font-medium"
                     />
@@ -50,7 +53,7 @@ export default function FooterForm() {
                         name="message"
                         id="message"
                         required
-                        placeholder="Tell me about your project..."
+                        placeholder={t.form.msgPlaceholder}
                         aria-label="Your Message"
                         rows={5}
                         className="w-full p-6 bg-zinc-300/50 border-b-2 border-zinc-400 focus:border-blue-700 focus:bg-white focus:outline-none transition-all duration-300 placeholder:text-zinc-500 font-medium resize-none"
@@ -62,7 +65,7 @@ export default function FooterForm() {
                     type="submit"
                     className="mt-6 w-full p-6 text-lg tracking-wider uppercase font-bold bg-neutral-900 text-zinc-100 hover:bg-blue-800 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer shadow-xl"
                 >
-                    Send Message
+                    {t.form.btnSend}
                 </button>
             </form>
         </section>

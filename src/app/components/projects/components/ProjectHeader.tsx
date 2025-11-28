@@ -49,7 +49,7 @@ export default function ProjectHeader({
 
             {/* --- Section 3: Meta Data & Trigger --- */}
             <div className="justify-self-end flex items-center gap-3 font-semibold">
-                <span className="text-sm md:text-base opacity-80">
+                <span className="text-sm md:text-base text-inherit">
                     {date}
                 </span>
                 {/* Visual indicator (Arrow) for the accordion state */}

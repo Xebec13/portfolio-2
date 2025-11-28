@@ -3,39 +3,42 @@ import { useState } from "react";
 import Link from "next/link";
 import { NavIcon } from "../utils/Icons";
 import { useIntro } from "../utils/IntroProvider";
-
-// Configuration: Main navigation links targeting section IDs
-const navItems = [
-    { href: "#home", label: "Home" },
-    { href: "#projects", label: "Projects" },
-    { href: "#about", label: "About" },
-    { href: "#footer", label: "Contact" },
-];
-
-// Configuration: External social media profiles
-const socialLinks = [
-    { label: "Linkedin", href: "https://www.linkedin.com/in/david-hoesen-054257308/" },
-    { label: "Github", href: "https://github.com/Xebec13" },
-];
+import { useLanguage } from "../context/LanguageProvider"; // Import Context
+import { GLOBAL } from "../context/constants"; // Import Constants
 
 export default function Navbar() {
     // Access global state to sync navbar appearance with the intro animation
     const { introFinished } = useIntro();
+
+    // Access translation helper (t) and toggle function
+    const { t, language, toggleLanguage } = useLanguage();
+
     // Local state for toggling the side menu
     const [isOpen, setIsOpen] = useState(false);
 
+    // Configuration: Main navigation links targeting section IDs.
+    // Defined INSIDE the component to access dynamic translations via 't'.
+    const navItems = [
+        { href: GLOBAL.navLinks[0].href, label: t.nav.home },
+        { href: GLOBAL.navLinks[1].href, label: t.nav.projects },
+        { href: GLOBAL.navLinks[2].href, label: t.nav.about },
+        { href: GLOBAL.navLinks[3].href, label: t.nav.contact },
+    ];
+
     const toggleMenu = () => setIsOpen((prev) => !prev);
-    
+
     // UX Handler: Automatically close the menu when a navigation link is clicked
     const handleLinkClick = () => setIsOpen(false);
 
+    // Helper: Animation class for elements appearing after intro
+    const fadeClass = introFinished
+        ? "opacity-100 translate-y-0"
+        : "opacity-0 -translate-y-10";
+
     return (
         <header>
-            {/* --- Toggle Button Container --- */}
-            {/* Animation Logic: The button remains hidden/translated until the global intro sequence completes. */}
-            <div className={`fixed top-5 right-5 md:top-5 md:right-7 z-50 transition-all duration-700 ease-out 
-                ${introFinished ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}`}
-            >
+            {/* --- Toggle Button Container (Top Right) --- */}
+            <div className={`fixed top-5 right-5 md:top-5 md:right-7 z-50 transition-all duration-700 ease-out ${fadeClass}`}>
                 <NavIcon isOpen={isOpen} onClick={toggleMenu} />
             </div>
 
@@ -64,28 +67,33 @@ export default function Navbar() {
                     </ul>
                 </nav>
 
-                {/* Footer Section: Social Links */}
+                {/* Footer Section: Social Links from GLOBAL */}
                 <div className="flex gap-4 text-xs font-medium uppercase text-zinc-400">
-                    {socialLinks.map((social, i) => (
-                        <a
-                            key={i}
-                            href={social.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="transition-colors duration-300 hover:text-white"
-                        >
-                            {social.label}
-                        </a>
-                    ))}
+                    <a
+                        href={GLOBAL.socials.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition-colors duration-300 hover:text-white"
+                    >
+                        {t.footer.links.linkedin}
+                    </a>
+                    <a
+                        href={GLOBAL.socials.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition-colors duration-300 hover:text-white"
+                    >
+                        {t.footer.links.github}
+                    </a>
                 </div>
             </aside>
 
             {/* --- Backdrop Overlay --- */}
             {/* UX: Allows closing the menu by clicking outside the sidebar area */}
             {isOpen && (
-                <div 
+                <div
                     onClick={toggleMenu}
-                    className="fixed inset-0 bg-black/50 z-30 transition-opacity" 
+                    className="fixed inset-0 bg-black/50 z-30 transition-opacity"
                 />
             )}
         </header>

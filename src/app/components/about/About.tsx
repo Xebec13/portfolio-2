@@ -1,8 +1,18 @@
+"use client";
+
 import AboutContent from "./AboutContent";
 import AboutBox from "./AboutBox";
-import { infoContent } from "./aboutData";
+// Change: Import helper function instead of static array
+import { getInfoContent } from "./aboutData"; 
+import { useLanguage } from "../context/LanguageProvider";
 
 export default function About() {
+    // Access global language state
+    const { language, t } = useLanguage();
+    
+    // Retrieve localized biography text based on current language
+    const currentInfoContent = getInfoContent(language);
+
     return (
         // Main Section Container
         <section
@@ -12,7 +22,7 @@ export default function About() {
             {/* Section Header */}
             <div className="py-5 md:pt-15 md:pb-10">
                 <h3 className="uppercase text-[clamp(4rem,10vw,11rem)] font-semibold leading-none">
-                    About
+                    {t.nav.about}
                 </h3>
             </div>
 
@@ -21,7 +31,7 @@ export default function About() {
                 
                 {/* Left Column: Biography & General Info */}
                 <AboutContent
-                    content={infoContent}
+                    content={currentInfoContent}
                     globalClass="justify-self-start lg:col-start-1 lg:max-w-[95%] w-full max-w-full"
                 />
                 

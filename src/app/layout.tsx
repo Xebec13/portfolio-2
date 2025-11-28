@@ -1,6 +1,6 @@
 import { IntroProvider } from "./components/utils/IntroProvider"
 import Loader from "./components/utils/Loader"
-
+import { LanguageProvider } from "./components/context/LanguageProvider";
 import SmoothScroll from "./components/utils/SmoothScroll";
 
 import type { Metadata } from "next";
@@ -21,7 +21,7 @@ const inter = Inter({
 const workSans = Work_Sans({
   subsets: ["latin"],
   variable: "--font-work-sans",
-  weight: ["400","600"]
+  weight: ["400", "600"]
 });
 export const metadata: Metadata = {
   title: "DH Portfolio",
@@ -39,11 +39,14 @@ export default function RootLayout({
         className={`${sansation.variable} ${inter.variable} ${workSans.variable}  font-sans antialiased`}
       >
         <SmoothScroll>
-          <IntroProvider>
-            <Loader>
-              {children}
-            </Loader>
-          </IntroProvider>
+          <LanguageProvider>
+
+            <IntroProvider>
+              <Loader>
+                {children}
+              </Loader>
+            </IntroProvider>
+          </LanguageProvider>
         </SmoothScroll>
       </body>
     </html>

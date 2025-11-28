@@ -1,43 +1,51 @@
 "use client";
 import { useState, useMemo } from "react";
 import ProjectItem from "./ProjectItem";
-import { projectData } from "./ProjectData";
+import { getProjects } from "./ProjectData"; // Make sure path matches your structure
 import MiniDivider from "../utils/MiniDivider";
+import { useLanguage } from "../context/LanguageProvider"; 
 
 export default function Projects() {
-  // State to track which project accordion is currently expanded
   const [expandedId, setExpandedId] = useState<number | null>(null);
+  
+  // Accessing both current language (for data fetching) and translations (for UI text)
+  const { language, t } = useLanguage();
 
-  // Optimization: Memoize the reversed array to prevent unnecessary recalculations on re-renders
+  // Optimization: Fetch projects based on the selected language.
+  // We use .reverse() here to display the newest projects (end of array) at the top.
   const sortedProjects = useMemo(() => {
-    return [...projectData].reverse();
-  }, []);
+    const data = getProjects(language); 
+    // Create a shallow copy with [...] before reversing to avoid mutating the source
+    return [...data].reverse();
+  }, [language]);
 
   return (
-    // Main Section Container
     <section id="projects" className="min-h-screen p-3 md:p-13 bg-zinc-200 text-neutral-900">
       
-      {/* --- Table Header --- */}
-      {/* Layout: Grid with 2 columns on mobile, 3 on desktop (Tech column is hidden on small screens) */}
+      {/* Table Header with Localized Labels */}
       <div className="mt-10 grid grid-cols-2 lg:grid-cols-3 p-2 gap-3 font-semibold uppercase text-lg md:text-2xl">
-        <span className="justify-self-start">Projects</span>
-        <span className="justify-self-start hidden lg:block">Tech</span>
-        <span className="justify-self-end">Date</span>
+        <span className="justify-self-start">
+          {t.projects.headerProject}
+        </span>
+        <span className="justify-self-start hidden lg:block">
+          {t.projects.headerTech}
+        </span>
+        <span className="justify-self-end">
+          {t.projects.headerDate}
+        </span>
       </div>
       
-      {/* Separator Line */}
       <MiniDivider type="main" />
       
-      {/* --- Project List Container --- */}
+      {/* Render the list of projects */}
       <div className="flex flex-col">
         {sortedProjects.map((project) => (
           <ProjectItem
             key={project.id}
             project={project}
             isExpanded={expandedId === project.id}
-            // Handler: Toggles the expansion state. If clicking the already open item, close it (set to null).
             onToggle={() =>
-            setExpandedId((prev) => (prev === project.id ? null : project.id))
+              setExpandedId((prev) => (prev === project.id ? null : project.id))
             }
           />
         ))}

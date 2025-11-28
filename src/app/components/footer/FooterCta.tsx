@@ -2,11 +2,16 @@
 import { useState } from "react";
 import FooterForm from "./FooterForm";
 import { FooterBackChevron } from "../utils/Icons";
+import { GLOBAL } from "../context/constants"; // Import Global Data (Email)
+import { useLanguage } from "../context/LanguageProvider"; // Import Translations
 
 export default function FooterCta() {
     // State to manage modal visibility and animation lifecycle
     const [showContact, setShowContact] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
+
+    // Access current translations
+    const { t } = useLanguage();
 
     // Activates the modal
     const handleOpen = () => {
@@ -32,8 +37,8 @@ export default function FooterCta() {
             {/* --- Section 1: Main CTA Headline --- */}
             <div className="bg-clip-text text-transparent bg-linear-to-r from-zinc-100/90 via-zinc-100/80 to-zinc-100/10">
                 <h3 className="text-[clamp(2rem,3.5vw,4rem)] tracking-tight leading-snug">
-                    Curious about what we can create together?<br />
-                    Let’s bring something extraordinary to life!
+                    {t.footer.ctaTitle}<br />
+                    {t.footer.ctaSubtitle}
                 </h3>
             </div>
 
@@ -44,7 +49,7 @@ export default function FooterCta() {
                     onClick={handleOpen}
                     className="w-full md:max-w-fit px-5 py-3 rounded-sm bg-zinc-50 text-blue-900 outline-0 outline-transparent drop-shadow-md transition-all duration-500 ease-out hover:bg-zinc-50 hover:outline-3 hover:outline-blue-700 hover:scale-105 cursor-pointer"
                 >
-                    Get in Touch
+                    {t.footer.btn}
                 </button>
 
                 {/* Status Indicator */}
@@ -55,7 +60,7 @@ export default function FooterCta() {
                         {/* Core Dot */}
                         <div className="relative inset-0 size-3.5 bg-blue-700 rounded-full" />
                     </div>
-                    <p>Available For Work</p>
+                    <p>{t.footer.status}</p>
                 </div>
             </div>
 
@@ -78,16 +83,16 @@ export default function FooterCta() {
 
                         {/* Large Heading */}
                         <h3 className="uppercase text-[clamp(4rem,10vw,11rem)] font-bold leading-tight tracking-tight text-neutral-900">
-                            Shoot Request
+                            {t.form.title}
                         </h3>
 
-                        {/* Direct Email Link */}
+                        {/* Direct Email Link using GLOBAL data */}
                         <div className="overflow-hidden">
                             <a 
-                                href="mailto:dhoesen@gmail.com"
+                                href={`mailto:${GLOBAL.email}`}
                                 className="block animate-content-slide-up pl-1.5 text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 hover:text-blue-700 transition-colors"
                             >
-                                dhoesen@gmail.com
+                                {GLOBAL.email}
                             </a>
                         </div>
                     </div>

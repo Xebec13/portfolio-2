@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import AboutOverlay from "./AboutOverlay";
-import { aboutData, AboutItem } from "./aboutData";
+// Change: Import helper function and Type from the new data file location
+import { getAboutData, AboutItem } from "./aboutData";
+import { useLanguage } from "../context/LanguageProvider";
 
 // Definition of component props
 interface AboutBoxProps {
@@ -13,10 +15,14 @@ export default function AboutBox({ globalClass = "" }: AboutBoxProps) {
     // State to track which grid item is currently active/expanded
     const [activeIdx, setActiveIdx] = useState<number | null>(null);
 
+    // Access current language to fetch the correct data set (PL or EN)
+    const { language } = useLanguage();
+    const currentAboutData = getAboutData(language);
+
     return (
         // Main Grid Container: Displays category buttons in a 2-column layout
         <div className={`${globalClass} relative grid grid-cols-2 place-items-center gap-3`}>
-            {aboutData.map((item: AboutItem, idx: number) => {
+            {currentAboutData.map((item: AboutItem, idx: number) => {
                 const isActive = activeIdx === idx;
 
                 return (

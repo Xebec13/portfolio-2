@@ -34,10 +34,10 @@ export default function ProjectItem({
         onClick={onToggle}
         aria-expanded={isExpanded}
         className={`
-          group w-full p-2 cursor-pointer transition-all duration-500 ease-in-out
+          group w-full p-2 cursor-pointer transition-colors duration-500 ease-in-out
           border-b border-transparent
           ${isExpanded 
-            ? "bg-zinc-200 text-neutral-900" // State: Active/Expanded (Light theme match)
+            ? "bg-zinc-200 text-neutral-900 hover:bg-neutral-900 hover:text-zinc-200" // State: Active/Expanded (Light theme match)
             : "bg-zinc-200 text-neutral-900 hover:bg-neutral-900 hover:text-zinc-200" // State: Default -> Hover (Inverted high contrast)
           }
         `}
