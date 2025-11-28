@@ -121,3 +121,66 @@ export function FooterBackChevron({ onClick }: CustomIconsProps) {
     </button>
   );
 }
+// 7. Coding Icon (</>) - Composite of 3 grids
+export function CodingIcon({ onClick }: CustomIconsProps) {
+  return (
+    <div 
+      onClick={onClick}
+      className="coding-icon group flex items-center gap-1 cursor-pointer"
+      aria-label="Code symbol"
+    >
+      {/* Left Bracket (<) - 2x3 Grid */}
+      <div className="bracket-left grid grid-cols-2 gap-0.5 p-0.5">
+         {[...Array(6)].map((_, i) => (
+           <div key={i} className="border-2 border-blue-900/80 bg-blue-100/20" />
+         ))}
+      </div>
+
+      {/* Slash (/) - 3x3 Grid */}
+      <div className="slash grid grid-cols-3 gap-0.5 p-0.5">
+         {[...Array(9)].map((_, i) => (
+           <div key={i} className="border-2 border-blue-600/80" />
+         ))}
+      </div>
+
+      {/* Right Bracket (>) - 2x3 Grid */}
+      <div className="bracket-right grid grid-cols-2 gap-0.5 p-0.5">
+         {[...Array(6)].map((_, i) => (
+           <div key={i} className="border-2 border-blue-900/80 bg-blue-100/20" />
+         ))}
+      </div>
+    </div>
+  );
+}
+// 8. Professional Icon (Briefcase / Structure)
+export function ProfIcon({ onClick }: CustomIconsProps) {
+  return (
+    <div onClick={onClick} className="prof-icon grid grid-cols-3 gap-0.5 p-0.5 cursor-pointer">
+      {[...Array(9)].map((_, i) => (
+        <div key={i} className="border-2 border-blue-800" />
+      ))}
+    </div>
+  );
+}
+
+// 9. Certificate Icon (Award / Star)
+export function CertIcon({ onClick }: CustomIconsProps) {
+  return (
+    <div onClick={onClick} className="cert-icon grid grid-cols-3 gap-0.5 p-0.5 cursor-pointer">
+      {[...Array(9)].map((_, i) => (
+        <div key={i} className="border-2 border-yellow-600" />
+      ))}
+    </div>
+  );
+}
+
+// 10. Private Icon (Heart / Smile)
+export function HeartIcon({ onClick }: CustomIconsProps) {
+  return (
+    <div onClick={onClick} className="heart-icon grid grid-cols-3 gap-0.5 p-0.5 cursor-pointer">
+      {[...Array(9)].map((_, i) => (
+        <div key={i} className="border-2 border-red-700" />
+      ))}
+    </div>
+  );
+}

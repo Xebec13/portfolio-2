@@ -1,5 +1,4 @@
 @layer utilities {
-  
   /* =========================================
      1. Navigation Icon (Hamburger Menu)
      Transforming 3x3 Grid into an abstract shape
@@ -31,7 +30,7 @@
      2. Accordion Chevron (Expand/Collapse)
      Logic: Toggling visibility of specific blocks to simulate movement
      ========================================= */
-  
+
   .chevron-up-down div {
     transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
   }
@@ -156,5 +155,161 @@
   .chevron-next :nth-child(3),
   .chevron-next :nth-child(6) {
     opacity: 0;
+  }
+
+  /* Common transitions for all parts */
+  .coding-icon .bracket-left div,
+  .coding-icon .bracket-right div,
+  .coding-icon .slash div {
+    transition: all 0.5s ease-in-out;
+  }
+
+  /* --- LEFT BRACKET (<) --- */
+  /* Hide: Top-Left(1), Mid-Right(4), Bot-Left(5) */
+  /* Visible: Top-Right(2), Mid-Left(3), Bot-Right(6) -> Makes shape < */
+  .bracket-left div:nth-child(1),
+  .bracket-left div:nth-child(4),
+  .bracket-left div:nth-child(5) {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  /* --- RIGHT BRACKET (>) --- */
+  /* Hide: Top-Right(2), Mid-Left(3), Bot-Right(6) */
+  /* Visible: Top-Left(1), Mid-Right(4), Bot-Left(5) -> Makes shape > */
+  .bracket-right div:nth-child(2),
+  .bracket-right div:nth-child(3),
+  .bracket-right div:nth-child(6) {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  /* --- SLASH (/) --- */
+  /* 3x3 Grid. Visible indices: 3 (Top-Right), 5 (Center), 7 (Bot-Left) */
+  .slash div:not(:nth-child(3)):not(:nth-child(5)):not(:nth-child(7)) {
+    opacity: 0;
+  }
+
+  /* --- HOVER ANIMATIONS --- */
+
+  /* 1. Expand Brackets: Move Left bracket left, Right bracket right */
+  .coding-icon:hover .bracket-left {
+    transform: translateX(-4px);
+  }
+  .coding-icon:hover .bracket-right {
+    transform: translateX(4px);
+  }
+
+  /* 2. Slash Effect: Rotate and Color Change */
+  .coding-icon:hover .slash div {
+    border-color: #3b82f6; /* blue-500 */
+    background-color: #3b82f6;
+  }
+  .coding-icon:hover .slash {
+    animation: slashSpin 1s ease-in-out infinite alternate;
+  }
+
+  @keyframes slashSpin {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    100% {
+      transform: rotate(15deg) scale(1.1);
+    }
+  }
+  /* =========================================
+     8. Professional Icon (Briefcase shape)
+     ========================================= */
+  .prof-icon div {
+    transition: all 0.4s ease;
+  }
+
+  /* Shape: Briefcase handle (top center) + Body (mid & bot rows) */
+  /* Hide: 1 and 3 (top corners) */
+  .prof-icon div:nth-child(1),
+  .prof-icon div:nth-child(3) {
+    opacity: 0;
+  }
+
+  /* Hover: "Building" effect - stack grows up */
+  .prof-icon:hover div:nth-child(1),
+  .prof-icon:hover div:nth-child(3) {
+    opacity: 1;
+    transform: translateY(2px);
+  }
+  .prof-icon:hover div:nth-child(2) {
+    transform: translateY(-2px) scale(1.2); /* Handle pops up */
+  }
+
+  /* =========================================
+     9. Certificate Icon (Medal/Star shape)
+     ========================================= */
+  .cert-icon div {
+    transition: all 0.4s ease;
+  }
+
+  /* Shape: Plus/Star sign */
+  /* Hide corners: 1, 3, 7, 9 */
+  .cert-icon div:nth-child(1),
+  .cert-icon div:nth-child(3),
+  .cert-icon div:nth-child(7),
+  .cert-icon div:nth-child(9) {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  /* Hover: Rotate and expand to full square */
+  .cert-icon:hover div {
+    opacity: 1;
+    transform: scale(1);
+    border-radius: 50%; /* Turn into dots */
+    border-color: #ca8a04; /* yellow-600 */
+  }
+  .cert-icon:hover {
+    animation: spinPulse 2s infinite linear;
+  }
+
+  /* =========================================
+     10. Private Icon (Heart shape)
+     ========================================= */
+  .heart-icon div {
+    transition: all 0.4s ease;
+  }
+
+  /* Shape: Heart */
+  /* Hide: 1, 3 (top corners), 7, 9 (bottom corners) */
+  /* Keep: 2 (top mid), 4,5,6 (mid row), 8 (bot mid) - Simple Diamond/Heart */
+  .heart-icon div:nth-child(1),
+  .heart-icon div:nth-child(3),
+  .heart-icon div:nth-child(7),
+  .heart-icon div:nth-child(9) {
+    opacity: 0;
+  }
+
+  /* Hover: Heart beat */
+  .heart-icon:hover div:nth-child(2),
+  .heart-icon:hover div:nth-child(4),
+  .heart-icon:hover div:nth-child(6),
+  .heart-icon:hover div:nth-child(8) {
+    background-color: #b91c1c; /* red-700 */
+    border-color: #b91c1c;
+  }
+
+  .heart-icon:hover div:nth-child(5) {
+    transform: scale(0.5); /* Center contracts */
+  }
+
+  .heart-icon:hover {
+    animation: heartbeat 1s infinite;
+  }
+
+  @keyframes heartbeat {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
   }
 }
