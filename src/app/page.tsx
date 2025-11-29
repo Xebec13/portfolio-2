@@ -6,7 +6,6 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Projects />
-
       {/* Kontener Layoutu */}
       <div className="relative w-full">
         <div className="relative z-10 bg-zinc-200  lg:sticky lg:top-0">

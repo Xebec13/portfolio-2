@@ -157,12 +157,26 @@
     opacity: 0;
   }
 
-  /* Common transitions for all parts */
-  .coding-icon .bracket-left div,
-  .coding-icon .bracket-right div,
-  .coding-icon .slash div {
-    transition: all 0.5s ease-in-out;
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   /* --- LEFT BRACKET (<) --- */
   /* Hide: Top-Left(1), Mid-Right(4), Bot-Left(5) */
@@ -183,40 +197,19 @@
     opacity: 0;
     transform: scale(0);
   }
+  .coding-icon {
+    transition: all 0.5s ease-in-out;
+  }
+  .coding-icon div {
+    transition: all 0.5s ease-in-out;
+  }
+  .coding-icon .slash {
+    transform: rotate(30deg);
+  }
+ 
 
-  /* --- SLASH (/) --- */
-  /* 3x3 Grid. Visible indices: 3 (Top-Right), 5 (Center), 7 (Bot-Left) */
-  .slash div:not(:nth-child(3)):not(:nth-child(5)):not(:nth-child(7)) {
-    opacity: 0;
-  }
 
-  /* --- HOVER ANIMATIONS --- */
 
-  /* 1. Expand Brackets: Move Left bracket left, Right bracket right */
-  .coding-icon:hover .bracket-left {
-    transform: translateX(-4px);
-  }
-  .coding-icon:hover .bracket-right {
-    transform: translateX(4px);
-  }
-
-  /* 2. Slash Effect: Rotate and Color Change */
-  .coding-icon:hover .slash div {
-    border-color: #3b82f6; /* blue-500 */
-    background-color: #3b82f6;
-  }
-  .coding-icon:hover .slash {
-    animation: slashSpin 1s ease-in-out infinite alternate;
-  }
-
-  @keyframes slashSpin {
-    0% {
-      transform: rotate(0deg) scale(1);
-    }
-    100% {
-      transform: rotate(15deg) scale(1.1);
-    }
-  }
   /* =========================================
      8. Professional Icon (Briefcase shape)
      ========================================= */

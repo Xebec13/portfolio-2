@@ -121,32 +121,37 @@ export function FooterBackChevron({ onClick }: CustomIconsProps) {
     </button>
   );
 }
+
+
+
+
+
 // 7. Coding Icon (</>) - Composite of 3 grids
 export function CodingIcon({ onClick }: CustomIconsProps) {
   return (
     <div 
       onClick={onClick}
-      className="coding-icon group flex items-center gap-1 cursor-pointer"
+      className="coding-icon group flex items-center gap-1.5 cursor-pointer"
       aria-label="Code symbol"
     >
       {/* Left Bracket (<) - 2x3 Grid */}
-      <div className="bracket-left grid grid-cols-2 gap-0.5 p-0.5">
+      <div className="bracket-left grid grid-cols-2 gap-0.5 p-1">
          {[...Array(6)].map((_, i) => (
-           <div key={i} className="border-2 border-blue-900/80 bg-blue-100/20" />
+           <div key={i} className="border-[2.5px] border-blue-900/80 bg-blue-100/20 rounded-full" />
          ))}
       </div>
 
       {/* Slash (/) - 3x3 Grid */}
-      <div className="slash grid grid-cols-3 gap-0.5 p-0.5">
-         {[...Array(9)].map((_, i) => (
-           <div key={i} className="border-2 border-blue-600/80" />
+      <div className="slash grid grid-cols-1 gap-0.5 p-0.5">
+         {[...Array(6)].map((_, i) => (
+           <div key={i} className="border-2 border-blue-900/80 rounded-full" />
          ))}
       </div>
 
       {/* Right Bracket (>) - 2x3 Grid */}
-      <div className="bracket-right grid grid-cols-2 gap-0.5 p-0.5">
+      <div className="bracket-right grid grid-cols-2 gap-0.5 p-1">
          {[...Array(6)].map((_, i) => (
-           <div key={i} className="border-2 border-blue-900/80 bg-blue-100/20" />
+           <div key={i} className="border-[2.5px] border-blue-900/80 bg-blue-100/20 rounded-full" />
          ))}
       </div>
     </div>

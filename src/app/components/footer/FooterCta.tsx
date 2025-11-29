@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
 import FooterForm from "./FooterForm";
-import { FooterBackChevron } from "../utils/Icons";
-import { GLOBAL } from "../context/constants"; // Import Global Data (Email)
-import { useLanguage } from "../context/LanguageProvider"; // Import Translations
+import { FooterBackChevron } from "../icons/Icons";
+import { GLOBAL } from "../data/globalData"; // Import Global Data (Email)
+import { useLanguage } from "../utils/LanguageProvider"; // Import Translations
 
 export default function FooterCta() {
     // State to manage modal visibility and animation lifecycle

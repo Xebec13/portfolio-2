@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent } from "react";
-import { useLanguage } from "../context/LanguageProvider"; // Import Translations
+import { useLanguage } from "../utils/LanguageProvider"; // Import Translations
 
 export default function FooterForm() {
     // Access current translations for placeholders and buttons

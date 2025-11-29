@@ -1,6 +1,6 @@
 "use client";
 
-import { Language } from "../context/translations"
+import { Language } from "../data/uiData"
 
 interface IntroButtonsProps {
     onSelect: (lang: Language) => void;

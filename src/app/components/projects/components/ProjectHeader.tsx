@@ -1,4 +1,4 @@
-import { UpDownChevron } from "../../utils/Icons";
+import { UpDownChevron } from "../../icons/Icons";
 import { ReactNode } from "react";
 
 interface ProjectHeaderProps {

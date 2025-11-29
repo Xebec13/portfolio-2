@@ -1,6 +1,6 @@
 "use client";
 
-import { Project } from "./ProjectData";
+import { Project } from "../data/ProjectData";
 import { ProjectHeader, ProjectContent, ProjectContentWrapper } from "./components";
 import MiniDivider from "../utils/MiniDivider";
 

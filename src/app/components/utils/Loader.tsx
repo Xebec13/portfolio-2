@@ -2,8 +2,8 @@
 
 import { useState, useLayoutEffect, useEffect } from "react";
 import { useIntro } from "../utils/IntroProvider";
-import { useLanguage } from "../context/LanguageProvider"; 
-import { Language } from "../context/translations";
+import { useLanguage } from "./LanguageProvider"; 
+import { Language } from "../data/uiData";
 import IntroButtons from "./IntroButtons";
 
 export default function Loader({ children }: { children: React.ReactNode }) {

@@ -1,8 +1,8 @@
 "use client"; 
 
 import FooterCta from "./FooterCta";
-import { useLanguage } from "../context/LanguageProvider";
-import { GLOBAL } from "../context/constants";
+import { useLanguage } from "../utils/LanguageProvider";
+import { GLOBAL } from "../data/globalData";
 
 export default function Footer() {
     const { t } = useLanguage();

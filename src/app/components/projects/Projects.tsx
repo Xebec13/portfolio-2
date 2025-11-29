@@ -1,9 +1,9 @@
 "use client";
 import { useState, useMemo } from "react";
 import ProjectItem from "./ProjectItem";
-import { getProjects } from "./ProjectData"; // Make sure path matches your structure
+import { getProjects } from "../data/ProjectData"; // Make sure path matches your structure
 import MiniDivider from "../utils/MiniDivider";
-import { useLanguage } from "../context/LanguageProvider"; 
+import { useLanguage } from "../utils/LanguageProvider"; 
 
 export default function Projects() {
   const [expandedId, setExpandedId] = useState<number | null>(null);

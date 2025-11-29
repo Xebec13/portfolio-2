@@ -3,9 +3,9 @@
 import { useState } from "react";
 import AboutOverlay from "./AboutOverlay";
 // Change: Import helper function and Type from the new data file location
-import { getAboutData, AboutItem } from "./aboutData";
-import { useLanguage } from "../context/LanguageProvider";
-import { CodingIcon, ProfIcon, CertIcon, HeartIcon } from "../utils/Icons";
+import { getAboutData, AboutItem } from "../data/aboutData";
+import { useLanguage } from "../utils/LanguageProvider";
+import { CodingIcon, ProfIcon, CertIcon, HeartIcon } from "../icons/Icons";
 // Definition of component props
 interface AboutBoxProps {
     globalClass?: string;
@@ -45,7 +45,7 @@ export default function AboutBox({ globalClass = "" }: AboutBoxProps) {
                             onClick={() => setActiveIdx(isActive ? null : idx)}
                             className="flex items-center justify-center w-full h-full uppercase text-blue-800 bg-zinc-100 cursor-pointer hover:bg-zinc-50 transition-colors"
                         >
-                            <div className="inline-flex items-center gap-1.5">
+                            <div className="inline-flex items-center gap-4">
                                 {getIcon(idx)}
                                 <p className="text-xs sm:text-lg md:text-xl font-semibold">{item.name}</p>
                             </div>

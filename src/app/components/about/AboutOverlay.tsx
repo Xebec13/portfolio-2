@@ -1,5 +1,5 @@
-import { BackChevron } from "../utils/Icons";
-import { AboutItem, ContentItem } from "./aboutData"; // Upewnij się, że importujesz ContentItem
+import { BackChevron } from "../icons/Icons";
+import { AboutItem, ContentItem } from "../data/aboutData"; // Upewnij się, że importujesz ContentItem
 
 interface AboutOverlayProps {
   isActive: boolean;

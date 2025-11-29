@@ -3,8 +3,8 @@
 import HeroGridBg from "./HeroGridBg";
 import Image from "next/image";
 import { useIntro } from "../utils/IntroProvider";
-import { useLanguage } from "../context/LanguageProvider";
-import { GLOBAL } from "../context/constants"; // Import Global Data
+import { useLanguage } from "../utils/LanguageProvider";
+import { GLOBAL } from "../data/globalData"; // Import Global Data
 
 export default function Hero() {
     // Access global state to determine if the intro sequence has completed

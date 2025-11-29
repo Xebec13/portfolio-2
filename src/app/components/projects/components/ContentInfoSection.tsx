@@ -1,4 +1,4 @@
-import { Project } from "../ProjectData";
+import { Project } from "../../data/ProjectData";
 
 
 interface ContentInfoSectionProps {

@@ -1,6 +1,6 @@
 import { IntroProvider } from "./components/utils/IntroProvider"
 import Loader from "./components/utils/Loader"
-import { LanguageProvider } from "./components/context/LanguageProvider";
+import { LanguageProvider } from "./components/utils/LanguageProvider";
 import SmoothScroll from "./components/utils/SmoothScroll";
 
 import type { Metadata } from "next";

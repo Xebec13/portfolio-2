@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState, useCallback } from "react";
-import { NextChevron, PrevChevron } from "../../utils/Icons";
+import { NextChevron, PrevChevron } from "../../icons/Icons";
 
 interface ContentCarouselProps {
     images: string[];

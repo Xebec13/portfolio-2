@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, ReactNode } from "react";
 // Imports types and the dictionary from the same folder
-import { dictionary, Language } from "./translations"; 
+import { dictionary, Language } from "../data/uiData"; 
 
 interface LanguageContextType {
   language: Language;

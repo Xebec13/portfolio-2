@@ -3,8 +3,8 @@
 import AboutContent from "./AboutContent";
 import AboutBox from "./AboutBox";
 // Change: Import helper function instead of static array
-import { getInfoContent } from "./aboutData";
-import { useLanguage } from "../context/LanguageProvider";
+import { getInfoContent } from "../data/aboutData";
+import { useLanguage } from "../utils/LanguageProvider";
 
 export default function About() {
     // Access global language state
