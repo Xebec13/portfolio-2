@@ -37,7 +37,7 @@ export default function About() {
 
                 {/* Right Column: Interactive Details Box */}
                 <AboutBox
-                    globalClass="justify-self-center w-full h-full min-h-115 lg:min-h-125 max-h-150 "
+                    globalClass="justify-self-center w-full h-full min-h-150 lg:min-h-125"
                 />
             </div>
         </section>

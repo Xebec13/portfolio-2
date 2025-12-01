@@ -78,24 +78,23 @@ const aboutDataSource: AboutDataSource[] = [
         items: [
           {
             name: "I Code This",
-            href: "https://github.com/Xebec13",
+            href: "https://icodethis.com/Xebec13",
             description: "Active participation in community challenges.",
             contributions: [
-              "Built interactive UI components for community challenges.",
-              "Refactored legacy code to modern React hooks pattern."
+              "Three of my projects were recognized for staying in the Top 5.",
+              "One of them remains in the Top 5 and keeps growing in popularity."
             ],
-            techStack: ["React", "Tailwind", "Vite"],
           },
-          {
-            name: "I Code This",
-            href: "https://github.com/Xebec13",
-            description: "Active participation in community challenges.",
-            contributions: [
-              "Built interactive UI components for community challenges.",
-              "Refactored legacy code to modern React hooks pattern."
-            ],
-            techStack: ["React", "Tailwind", "Vite"],
-          }
+          // {
+          //   name: "I Code This",
+          //   href: "https://github.com/Xebec13",
+          //   description: "Active participation in community challenges.",
+          //   contributions: [
+          //     "Built interactive UI components for community challenges.",
+          //     "Refactored legacy code to modern React hooks pattern."
+          //   ],
+          //   techStack: ["React", "Tailwind", "Vite"],
+          // }
         ]
       },
       pl: {
@@ -111,21 +110,21 @@ const aboutDataSource: AboutDataSource[] = [
             href: "https://github.com/Xebec13",
             description: "Active participation in community challenges.",
             contributions: [
-              "Built interactive UI components for community challenges.",
-              "Refactored legacy code to modern React hooks pattern."
+              "Trzy z moich projektów zostały wyróżnione za utrzymanie się w pierwszej piątce.",
+              "Jeden z nich nadal znajduje się w Top 5 i wciąż zyskuje na popularności."
             ],
             techStack: ["React", "Tailwind", "Vite"],
           },
-          {
-            name: "I Code This",
-            href: "https://github.com/Xebec13",
-            description: "Active participation in community challenges.",
-            contributions: [
-              "Built interactive UI components for community challenges.",
-              "Refactored legacy code to modern React hooks pattern."
-            ],
-            techStack: ["React", "Tailwind", "Vite"],
-          }
+          // {
+          //   name: "I Code This",
+          //   href: "https://github.com/Xebec13",
+          //   description: "Active participation in community challenges.",
+          //   contributions: [
+          //     "Built interactive UI components for community challenges.",
+          //     "Refactored legacy code to modern React hooks pattern."
+          //   ],
+          //   techStack: ["React", "Tailwind", "Vite"],
+          // }
         ]
       }
     }

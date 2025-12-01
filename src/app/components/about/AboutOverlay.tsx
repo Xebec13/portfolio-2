@@ -43,9 +43,9 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
       <div className="flex items-center justify-between mb-4 shrink-0">
         <div className="inline-flex items-center gap-2">
           <BackChevron onClick={onClose} />
-          <p className="text-lg md:text-xl font-bold uppercase tracking-wide text-blue-900">
+          <h4 className="text-lg md:text-xl font-bold uppercase tracking-wide text-blue-900/80">
             {item.name}
-          </p>
+          </h4>
         </div>
       </div>
 
@@ -54,14 +54,14 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
 
         {/* Section 1: Badges */}
         <div>
-          <p className="mb-3 text-blue-800 text-base md:text-lg font-bold uppercase">
+          <p className="mb-3 text-blue-900/60 text-base md:text-lg font-bold uppercase">
             {item.headings[0]}
           </p>
-          <div className="flex flex-wrap gap-2 uppercase">
+          <div className="flex flex-wrap gap-1 uppercase">
             {item.badges?.map((badge, idx) => (
               <span
                 key={idx}
-                className={`py-1 px-3 text-[10px] md:text-xs font-semibold rounded-full border ${badgeClass}`}
+                className={`py-1 px-3 text-xs md:text-sm font-semibold rounded-full border ${badgeClass}`}
               >
                 {badge}
               </span>
@@ -72,7 +72,7 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
         {/* Section 2: Detailed List Content (4 DIFFERENT LAYOUTS) */}
         <div>
           {item.headings[1] && (
-            <p className="mb-3 mt-2 text-blue-800 text-base md:text-lg font-bold uppercase">
+            <p className="mb-3 mt-2 text-blue-900/60 text-base md:text-lg font-bold uppercase">
               {item.headings[1]}
             </p>
           )}
@@ -97,7 +97,20 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
                         {project.name}
                       </a>
                     </div>
-                    <p className="text-xs md:text-sm text-zinc-700 mb-3 tracking-wide">{project.description}</p>
+                    <p className="text-sm md:text-md text-zinc-700 mb-3 tracking-wide">{project.description}</p>
+                    {/* Contributions Mapped List */}
+                    {project.contributions && (
+                      <ul className="list-disc list-inside space-y-1 mb-3">
+                        {project.contributions.map((contribution, i) => (
+                          <li
+                            key={i}
+                            className="text-xs md:text-sm text-zinc-700 tracking-wide"
+                          >
+                            {contribution}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 );
               }

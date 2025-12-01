@@ -46,12 +46,12 @@ export default function AboutBox({ globalClass = "" }: AboutBoxProps) {
                             className="group flex items-center justify-center w-full h-full uppercase text-blue-900/80 bg-zinc-100 cursor-pointer hover:bg-zinc-50 transition-colors"
                         >
 
-                            <div className="flex items-center justify-center gap-3 md:gap-5">
+                            <div className="flex flex-col items-center justify-center gap-3 md:gap-5">
 
                                 {getIcon(idx)}
 
 
-                                <h3 className="text-sm md:text-base lg:text-xl font-semibold">
+                                <h3 className="text-md md:text-xl lg:text-2xl font-semibold">
                                     {item.name}
                                 </h3>
 
