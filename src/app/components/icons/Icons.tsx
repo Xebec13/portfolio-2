@@ -96,7 +96,7 @@ export function BackChevron({ onClick }: CustomIconsProps) {
       aria-label="Go back"
       className="cursor-pointer"
     >
-      <div className="chevron-back grid grid-cols-3 gap-1 p-0.5 outline-0 rounded-sm">
+      <div className="chevron-back grid grid-cols-3 gap-1 p-1 outline-0 cursor-pointer bg-transparent transition-all duration-500 ease-in-out hover:scale-105 hover:bg-blue-700/80">
         {[...Array(9)].map((_, i) => (
           <div key={i} className="border-2 border-current" />
         ))}
@@ -112,7 +112,7 @@ export function FooterBackChevron({ onClick }: CustomIconsProps) {
       onClick={onClick}
       aria-label="Scroll to top"
       // Positioned absolutely within the footer/modal context
-      className="chevron-footer-back absolute top-5 left-5 grid grid-cols-3 gap-1 p-1 rounded-sm cursor-pointer bg-transparent transition-all duration-500 ease-in-out hover:scale-105 hover:bg-blue-700/80"
+      className="chevron-footer-back absolute top-5 left-5 grid grid-cols-3 gap-1 p-1 cursor-pointer bg-transparent transition-all duration-500 ease-in-out hover:scale-105 hover:bg-blue-700/80"
     >
       {[...Array(9)].map((_, i) => (
         <div key={i} className="border-2" />
@@ -159,7 +159,7 @@ export function ProfIcon({ onClick }: CustomIconsProps) {
     <div
       onClick={onClick}
       aria-label="Professional skills"
-      className="prof-icon relative flex items-center justify-center cursor-pointer size-8"
+      className="prof-icon group relative flex items-center justify-center cursor-pointer size-8 transition-transform duration-300 group-hover:scale-110"
     >
       {/* 
         Grid 4 columns x 4 rows = 16 cells.
@@ -183,7 +183,7 @@ export function CertIcon({ onClick }: CustomIconsProps) {
     <div
       onClick={onClick}
       aria-label="Professional skills"
-      className="cert-icon flex flex-col items-center justify-center cursor-pointer"
+      className="cert-icon gruop flex flex-col items-center justify-center cursor-pointer transition-transform duration-300 group-hover:scale-110"
     >
 
       <div className="lock-icon w-3 h-2 border-[2.5px] border-b-0 border-blue-900/80 rounded-t-full" />
@@ -215,7 +215,7 @@ export function PersonalIcon({ onClick }: CustomIconsProps) {
 
       // 2. Find the parent button (with 'group' class)
       // This avoids changing parent code!
-      const parentButton = faceRef.current.closest('button.group');
+      const parentButton = faceRef.current.closest('.eye-ref');
 
       if (!parentButton) return;
 
@@ -266,7 +266,7 @@ export function PersonalIcon({ onClick }: CustomIconsProps) {
       onClick={onClick}
       // Removed onMouseMove/onMouseLeave here, handled by useEffect
       aria-label="Personal interests"
-      className="personal-icon relative flex items-center justify-center cursor-pointer size-9"
+      className="personal-icon group relative flex items-center justify-center cursor-pointer size-9 transition-transform duration-300 group-hover:scale-110"
     >
 
       <div className="smile-icon right-0.5 relative size-full grid grid-cols-5 gap-2">

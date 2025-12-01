@@ -102,7 +102,7 @@
      ========================================= */
   .chevron-back,
   .chevron-footer-back {
-    transition: all 0.5ms ease-in-out;
+    border-radius: 100%;
   }
   /* Masking: Hide unused grid cells to shape the arrow */
   .chevron-back div:nth-child(1),
@@ -120,46 +120,6 @@
     opacity: 0;
   }
 
-  /* Hover Animation: Main Back Button */
-  .chevron-back:hover div:nth-child(2),
-  .chevron-back:hover div:nth-child(4),
-  .chevron-back:hover div:nth-child(8) {
-    animation: spinPulseRotate 2s infinite ease-in-out;
-  }
-
-  /* Hover Animation: Footer Scroll-to-Top Button */
-  .chevron-footer-back:hover div:nth-child(2),
-  .chevron-footer-back:hover div:nth-child(4),
-  .chevron-footer-back:hover div:nth-child(8) {
-    animation: spinPulse 2s infinite ease-in-out;
-  }
-
-  /* Keyframes: Standard Rotation & Morphing */
-  @keyframes spinPulseRotate {
-    0% {
-      border-radius: 0%;
-    }
-    50% {
-      border-radius: 50%;
-    }
-    100% {
-      border-radius: 100%;
-    }
-  }
-
-  /* Keyframes: Rotation with Color Inversion (for dark footer) */
-  @keyframes spinPulse {
-    0% {
-      transform: rotate(0);
-    }
-    50% {
-      transform: rotate(180deg);
-      border-radius: 50%;
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
 
   /* =========================================
      7. Coding Icon (</>)
@@ -311,9 +271,6 @@
 
   /* --- SCULPTING THE SHAPE --- */
   
-  /* Grid 4x4 = 16 cells. Indices 1-16. */
-  /* Row 1: 1, 2, 3, 4 */
-  
   /* Hide top-left (1) and top-right (4) to create the Handle */
   .briefcase-grid div:nth-child(1),
   .briefcase-grid div:nth-child(4) {
@@ -362,6 +319,7 @@
     background-color: #1e3a8a; /* Dark center */
     transform: scale(0.9);
   }
+
   /* =========================================
      9. Certificate Icon (Medal/Star shape)
      ========================================= */

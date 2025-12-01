@@ -1,6 +1,6 @@
 import { BackChevron } from "../icons/Icons";
 import { AboutItem, ContentItem } from "../data/aboutData"; // Upewnij się, że importujesz ContentItem
-
+import { CodingIcon, ProfIcon, CertIcon, PersonalIcon } from "../icons/Icons";
 interface AboutOverlayProps {
   isActive: boolean;
   item: AboutItem;
@@ -27,6 +27,16 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
     "origin-bottom-right",
   ];
   const originClass = originAnim[index] || "origin-center";
+  const getIcon = (idx: number) => {
+    switch (idx) {
+      case 0: return <CodingIcon />;
+      case 1: return <ProfIcon />;
+      case 2: return <CertIcon />;
+      case 3: return <PersonalIcon />;
+      default: return null;
+    }
+  };
+
 
   return (
     <div
@@ -34,18 +44,19 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
       className={`
         absolute inset-0 z-50 flex flex-col p-6 lg:p-8 bg-zinc-100 
         transform transition-all duration-300 ease-in-out shadow-2xl
-        overflow-y-auto scrollbar-thin scrollbar-thumb-zinc-400
+        overflow-y-auto scrollbar-thin scrollbar-thumb-zinc-400 eye-ref
         ${originClass}
         ${isActive ? "opacity-100 scale-100" : "opacity-0 scale-50 pointer-events-none"}
       `}
     >
       {/* --- Header Section --- */}
       <div className="flex items-center justify-between mb-4 shrink-0">
-        <div className="inline-flex items-center gap-2">
+        <div className="inline-flex items-center gap-2 w-full">
           <BackChevron onClick={onClose} />
-          <h4 className="text-lg md:text-xl font-bold uppercase tracking-wide text-blue-900/80">
-            {item.name}
-          </h4>
+          <div className="w-full flex flex-row justify-between items-center gap-2">
+            <h4 className="text-lg md:text-xl font-bold uppercase tracking-wide text-blue-900/80">{item.name}</h4>
+            {getIcon(index)}
+          </div>
         </div>
       </div>
 
@@ -123,14 +134,14 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
                 const subHeading = item.headings[idx + 2];
 
                 return (
-                  <div key={idx} className="mb-4">
+                  <div key={idx} className="mb-4 space-y-1 leading-relaxed">
                     {/* Powiększony tekst nagłówka (zgodnie z prośbą) */}
                     <p className="text-blue-600 text-sm md:text-base uppercase font-semibold">
                       {subHeading}
                     </p>
 
                     {/* Zawartość jako jeden div z wrapem */}
-                    <div className="whitespace-nowrap flex flex-wrap gap-4 tracking-widest p-1.5">
+                    <div className="whitespace-nowrap flex flex-wrap gap-4 tracking-widest">
                       {line.map((val, i) => (
                         <span key={i} className="inline-flex items-center gap-4 text-xs ">
                           {val}
