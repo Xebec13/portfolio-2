@@ -143,7 +143,7 @@ const aboutDataSource: AboutDataSource[] = [
         ],
         items: [
           [
-            "Bar", "Restaurant", "Hotel", "Resort", "Events", "Podcast", "Distribution"
+            "Clubs", "Restaurant", "Hotel", "Resort", "Events", "Podcast", "Distribution"
           ],
           [
             "Team Leadership & Operations", "Operations Setup", "Business Process Optimization",
@@ -162,7 +162,7 @@ const aboutDataSource: AboutDataSource[] = [
         ],
         items: [
           [
-            "Bar", "Restauracja", "Hotel", "Resort", "Imprezy", "Podcast", "Sprzedaż"
+            "Kluby", "Restauracja", "Hotel", "Resort", "Imprezy", "Podcast", "Sprzedaż"
           ],
           [
             "Zarządzanie zespołem i operacjami", "Tworzenie i uruchamianie procesów operacyjnych",

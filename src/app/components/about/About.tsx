@@ -20,8 +20,8 @@ export default function About() {
             className="min-h-screen bg-zinc-200 px-5 py-5 md:px-13 md:py-10"
         >
             {/* Section Header */}
-            <div className="pb-15 lg:pb-30">
-                <h3 className="uppercase text-[clamp(4rem,10vw,11rem)] font-semibold leading-none tracking-widest">
+            <div className="pb-10 lg:pb-15">
+                <h3 className="uppercase text-[clamp(4rem,8.5vw,9rem)] font-semibold leading-none tracking-widest">
                     About Me
                 </h3>
             </div>
@@ -37,7 +37,7 @@ export default function About() {
 
                 {/* Right Column: Interactive Details Box */}
                 <AboutBox
-                    globalClass="justify-self-center w-full h-full min-h-115 lg:min-h-125 max-h-150 bottom-0 lg:bottom-15"
+                    globalClass="justify-self-center w-full h-full min-h-115 lg:min-h-125 max-h-150 "
                 />
             </div>
         </section>

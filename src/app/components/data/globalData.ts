@@ -1,6 +1,6 @@
 
 export const GLOBAL = {
-  name: "David Hoesen",
+  name: "Dawid Hoesen",
   role: "Front-End Developer",
   email: "dhoesen@gmail.com",
   socials: {

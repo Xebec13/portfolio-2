@@ -63,7 +63,7 @@ export default function Navbar() {
                         href={GLOBAL.socials.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="transition-colors duration-300 hover:text-white"
+                        className="transition-colors duration-300 hover:text-blue-600"
                     >
                         {t.footer.links.linkedin}
                     </a>
@@ -71,7 +71,7 @@ export default function Navbar() {
                         href={GLOBAL.socials.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="transition-colors duration-300 hover:text-white"
+                        className="transition-colors duration-300 hover:text-blue-600"
                     >
                         {t.footer.links.github}
                     </a>

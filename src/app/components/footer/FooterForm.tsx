@@ -63,7 +63,7 @@ export default function FooterForm() {
                 {/* --- Submit Action --- */}
                 <button
                     type="submit"
-                    className="mt-6 w-full p-6 text-lg tracking-wider uppercase font-bold bg-neutral-900 text-zinc-100 hover:bg-blue-800 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer shadow-xl"
+                    className="w-full p-5 rounded-sm bg-zinc-50 text-blue-900 border border-transparent drop-shadow-md transition-all duration-700 ease-out hover:bg-blue-50 hover:border-blue-800 cursor-pointer"
                 >
                     {t.form.btnSend}
                 </button>

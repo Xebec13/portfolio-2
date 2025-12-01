@@ -27,7 +27,51 @@
   }
 
   /* =========================================
-     2. Accordion Chevron (Expand/Collapse)
+     2. & 3. Carousel Navigation (Next/Prev)
+     Logic: Hiding specific blocks to form arrow shapes
+     ========================================= */
+
+  /* Hover Effect: Applies animation to all visible children */
+  .chevron-next:hover > *,
+  .chevron-prev:hover > * {
+    opacity: 1;
+    animation: chevronHover 1s infinite ease-in-out;
+  }
+
+  /* Keyframes: Morphing squares into circles while rotating */
+  @keyframes chevronHover {
+    0% {
+      transform: rotate(0);
+      border-radius: 0;
+    }
+    50% {
+      transform: rotate(180deg);
+      border-radius: 50%;
+    }
+    100% {
+      transform: rotate(360deg);
+      border-radius: 100%;
+    }
+  }
+
+  /* Shape Definition: Prev Arrow (<) - Hiding right-side blocks (1, 4, 5) */
+  /* Grid is 2 cols x 3 rows. Hiding right column elements creates left arrow. */
+  .chevron-prev :nth-child(1),
+  .chevron-prev :nth-child(4),
+  .chevron-prev :nth-child(5) {
+    opacity: 0;
+  }
+
+  /* Shape Definition: Next Arrow (>) - Hiding left-side blocks (2, 3, 6) */
+  /* Grid is 2 cols x 3 rows. Hiding left column elements creates right arrow. */
+  .chevron-next :nth-child(2),
+  .chevron-next :nth-child(3),
+  .chevron-next :nth-child(6) {
+    opacity: 0;
+  }
+
+  /* =========================================
+     4. Accordion Chevron (Expand/Collapse)
      Logic: Toggling visibility of specific blocks to simulate movement
      ========================================= */
 
@@ -53,10 +97,13 @@
   }
 
   /* =========================================
-     3. Back & Close Buttons
+     5. & 6. Back Buttons (General & Footer)
      Geometric Construction: Hiding specific grid cells to form an arrow/cross
      ========================================= */
-
+  .chevron-back,
+  .chevron-footer-back {
+    transition: all 0.5ms ease-in-out;
+  }
   /* Masking: Hide unused grid cells to shape the arrow */
   .chevron-back div:nth-child(1),
   .chevron-back div:nth-child(3),
@@ -90,14 +137,13 @@
   /* Keyframes: Standard Rotation & Morphing */
   @keyframes spinPulseRotate {
     0% {
-      transform: rotate(0);
+      border-radius: 0%;
     }
     50% {
-      transform: rotate(180deg);
       border-radius: 50%;
     }
     100% {
-      transform: rotate(360deg);
+      border-radius: 100%;
     }
   }
 
@@ -108,7 +154,6 @@
     }
     50% {
       transform: rotate(180deg);
-      filter: invert(1);
       border-radius: 50%;
     }
     100% {
@@ -117,192 +162,306 @@
   }
 
   /* =========================================
-     4. Carousel Navigation (Prev/Next)
+     7. Coding Icon (</>)
+     Composite of 3 grids: Left Bracket, Slash, Right Bracket
      ========================================= */
-
-  /* Hover Effect: Applies animation to all visible children */
-  .chevron-next:hover > *,
-  .chevron-prev:hover > * {
-    opacity: 1;
-    animation: chevronHover 1s infinite ease-in-out;
-  }
-
-  /* Keyframes: Morphing squares into circles while rotating */
-  @keyframes chevronHover {
-    0% {
-      transform: rotate(0);
-      border-radius: 0;
-    }
-    50% {
-      transform: rotate(180deg);
-      border-radius: 50%;
-    }
-    100% {
-      transform: rotate(360deg);
-      border-radius: 100%;
-    }
-  }
-
-  /* Shape Definition: Prev Arrow (<) - Hiding right-side blocks */
-  .chevron-prev :nth-child(1),
-  .chevron-prev :nth-child(4),
-  .chevron-prev :nth-child(5) {
-    opacity: 0;
-  }
-
-  /* Shape Definition: Next Arrow (>) - Hiding left-side blocks */
-  .chevron-next :nth-child(2),
-  .chevron-next :nth-child(3),
-  .chevron-next :nth-child(6) {
-    opacity: 0;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /* --- LEFT BRACKET (<) --- */
-  /* Hide: Top-Left(1), Mid-Right(4), Bot-Left(5) */
-  /* Visible: Top-Right(2), Mid-Left(3), Bot-Right(6) -> Makes shape < */
-  .bracket-left div:nth-child(1),
-  .bracket-left div:nth-child(4),
-  .bracket-left div:nth-child(5) {
-    opacity: 0;
-    transform: scale(0);
-  }
-
-  /* --- RIGHT BRACKET (>) --- */
-  /* Hide: Top-Right(2), Mid-Left(3), Bot-Right(6) */
-  /* Visible: Top-Left(1), Mid-Right(4), Bot-Left(5) -> Makes shape > */
-  .bracket-right div:nth-child(2),
-  .bracket-right div:nth-child(3),
-  .bracket-right div:nth-child(6) {
-    opacity: 0;
-    transform: scale(0);
-  }
   .coding-icon {
     transition: all 0.5s ease-in-out;
   }
   .coding-icon div {
     transition: all 0.5s ease-in-out;
   }
+
+  /* --- SLASH (/) --- */
   .coding-icon .slash {
-    transform: rotate(30deg);
-  }
- 
+    /* Initial State: Visible, rotated, slightly scaled */
+    transform: rotate(25deg) scale(1);
+    opacity: 1;
 
-
-
-  /* =========================================
-     8. Professional Icon (Briefcase shape)
-     ========================================= */
-  .prof-icon div {
-    transition: all 0.4s ease;
+    /* Smooth return to visibility and rotation after mouse leave */
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
   }
 
-  /* Shape: Briefcase handle (top center) + Body (mid & bot rows) */
-  /* Hide: 1 and 3 (top corners) */
-  .prof-icon div:nth-child(1),
-  .prof-icon div:nth-child(3) {
+  /* Hover: Slash straightens up (0deg) */
+  /* Note: We don't set opacity to 0 on the parent here because we want 
+     sequential fading of children (dots) via animation */
+  .coding-icon:hover .slash,
+  .group:hover .coding-icon .slash {
+    transform: rotate(0deg) scale(0.9);
+  }
+
+  /* --- SLASH CHILDREN (Dots) --- */
+  .coding-icon .slash div {
+    /* Visible by default */
+    opacity: 1;
+    /* Smooth return to visibility when mouse leaves */
+    transition: opacity 0.4s ease-out;
+  }
+
+  /* Vanish animation definition */
+  @keyframes slashVanishSequence {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    } /* Maintain invisibility until the end of the cycle */
+  }
+
+  /* Trigger vanish animation on hover */
+  .coding-icon:hover .slash div,
+  .group:hover .coding-icon .slash div {
+    /* 'forwards' would make them vanish once forever during hover, 
+       'infinite' makes them blink (vanish and appear). 
+       We set 'infinite' so the effect lasts as long as we hover */
+    animation: slashVanishSequence 1.5s infinite ease-in-out;
+  }
+
+  /* 
+     VANISHING SEQUENCE: From bottom (6) to top (1)
+  */
+
+  /* Bottom (vanishes first) */
+  .group:hover .coding-icon .slash div:nth-child(6),
+  .coding-icon:hover .slash div:nth-child(6) {
+    animation-delay: 0s;
+  }
+
+  .group:hover .coding-icon .slash div:nth-child(5),
+  .coding-icon:hover .slash div:nth-child(5) {
+    animation-delay: 0.1s;
+  }
+
+  .group:hover .coding-icon .slash div:nth-child(4),
+  .coding-icon:hover .slash div:nth-child(4) {
+    animation-delay: 0.2s;
+  }
+
+  .group:hover .coding-icon .slash div:nth-child(3),
+  .coding-icon:hover .slash div:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  .group:hover .coding-icon .slash div:nth-child(2),
+  .coding-icon:hover .slash div:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+
+  /* Top (vanishes last) */
+  .group:hover .coding-icon .slash div:nth-child(1),
+  .coding-icon:hover .slash div:nth-child(1) {
+    animation-delay: 0.5s;
+  }
+
+  /* --- LEFT BRACKET (<) --- */
+
+  /* 1. Container Styles */
+  .bracket-left {
+    /* Initial State: Pushed inward (7px) */
+    transform: translateX(7px) scale(1);
+    transition: transform 0.5s ease-in-out;
+  }
+
+  /* Hover: Open bracket (return to 0px) */
+  .coding-icon:hover .bracket-left,
+  .group:hover .coding-icon .bracket-left {
+    transform: translateX(0) scale(1); /* Scale 1 (or 0.9 if you prefer smaller) */
+  }
+
+  /* 2. Shape Masking (Always visible as <) */
+  .bracket-left div:nth-child(1),
+  .bracket-left div:nth-child(3),
+  .bracket-left div:nth-child(5),
+  .bracket-left div:nth-child(6),
+  .bracket-left div:nth-child(7),
+  .bracket-left div:nth-child(9) {
     opacity: 0;
   }
 
-  /* Hover: "Building" effect - stack grows up */
-  .prof-icon:hover div:nth-child(1),
-  .prof-icon:hover div:nth-child(3) {
-    opacity: 1;
-    transform: translateY(2px);
-  }
-  .prof-icon:hover div:nth-child(2) {
-    transform: translateY(-2px) scale(1.2); /* Handle pops up */
+  /* --- RIGHT BRACKET (>) --- */
+
+  /* 1. Container Styles */
+  .bracket-right {
+    /* Initial State: Pushed inward (-7px) */
+    transform: translateX(-7px) scale(1);
+    transition: transform 0.5s ease-in-out;
   }
 
+  /* Hover: Open bracket (return to 0px) */
+  .coding-icon:hover .bracket-right,
+  .group:hover .coding-icon .bracket-right {
+    transform: translateX(0) scale(1);
+  }
+
+  /* 2. Shape Masking (Always visible as >) */
+  .bracket-right div:nth-child(1),
+  .bracket-right div:nth-child(3),
+  .bracket-right div:nth-child(4),
+  .bracket-right div:nth-child(5),
+  .bracket-right div:nth-child(7),
+  .bracket-right div:nth-child(9) {
+    opacity: 0;
+  }
+  /* =========================================
+     8. Professional Icon (Briefcase 4x4 Grid)
+     ========================================= */
+
+  /* --- SCULPTING THE SHAPE --- */
+  
+  /* Grid 4x4 = 16 cells. Indices 1-16. */
+  /* Row 1: 1, 2, 3, 4 */
+  
+  /* Hide top-left (1) and top-right (4) to create the Handle */
+  .briefcase-grid div:nth-child(1),
+  .briefcase-grid div:nth-child(4) {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Style the Handle (2, 3) */
+  .briefcase-grid div:nth-child(2) {
+    border-top-left-radius: 4px; /* Round the handle slightly */
+    border-right-width: 1px; /* Make the join seamless if desired */
+  }
+  .briefcase-grid div:nth-child(3) {
+    border-top-right-radius: 4px;
+    border-left-width: 1px;
+  }
+
+  /* --- HOVER ANIMATIONS --- */
+
+  .briefcase-grid div {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                background-color 0.3s ease, 
+                border-color 0.3s ease;
+  }
+
+  /* 1. Handle Animation (Lifting up) */
+  /* Target cells 2 and 3 */
+  .group:hover .briefcase-grid div:nth-child(2),
+  .group:hover .briefcase-grid div:nth-child(3) {
+    transform: translateY(-3px); /* Handle pops up */
+    background-color: #1e3a8a;   /* Fills with blue */
+    border-color: #1e3a8a;
+  }
+
+  /* 2. Body Animation (Solidifying) */
+  /* Target all cells from 5 downwards */
+  .group:hover .briefcase-grid div:nth-child(n+5) {
+    background-color: rgba(30, 58, 138, 0.1); /* Light blue fill */
+    border-color: #1e3a8a;
+  }
+
+  /* Optional: Center of the briefcase (Keyhole/Lock effect) */
+  /* Cells 10 and 11 (Middle of the 3rd row) */
+  .group:hover .briefcase-grid div:nth-child(10),
+  .group:hover .briefcase-grid div:nth-child(11) {
+    background-color: #1e3a8a; /* Dark center */
+    transform: scale(0.9);
+  }
   /* =========================================
      9. Certificate Icon (Medal/Star shape)
      ========================================= */
-  .cert-icon div {
-    transition: all 0.4s ease;
+
+  /* --- THE SHACKLE --- */
+  .lock-icon {
+    /* Pivot point: Bottom Right corner of the shackle */
+    transform-origin: 100% 100%;
+
+    /* 3D Behavior */
+    transform-style: preserve-3d;
+
+    /* CLOSING Animation (return) */
+    animation: lockReset 0.5s ease-out forwards;
   }
 
-  /* Shape: Plus/Star sign */
-  /* Hide corners: 1, 3, 7, 9 */
-  .cert-icon div:nth-child(1),
-  .cert-icon div:nth-child(3),
-  .cert-icon div:nth-child(7),
-  .cert-icon div:nth-child(9) {
-    opacity: 0;
-    transform: scale(0.5);
-  }
+  /* --- ANIMATION DEFINITIONS (3D) --- */
 
-  /* Hover: Rotate and expand to full square */
-  .cert-icon:hover div {
-    opacity: 1;
-    transform: scale(1);
-    border-radius: 50%; /* Turn into dots */
-    border-color: #ca8a04; /* yellow-600 */
-  }
-  .cert-icon:hover {
-    animation: spinPulse 2s infinite linear;
-  }
-
-  /* =========================================
-     10. Private Icon (Heart shape)
-     ========================================= */
-  .heart-icon div {
-    transition: all 0.4s ease;
-  }
-
-  /* Shape: Heart */
-  /* Hide: 1, 3 (top corners), 7, 9 (bottom corners) */
-  /* Keep: 2 (top mid), 4,5,6 (mid row), 8 (bot mid) - Simple Diamond/Heart */
-  .heart-icon div:nth-child(1),
-  .heart-icon div:nth-child(3),
-  .heart-icon div:nth-child(7),
-  .heart-icon div:nth-child(9) {
-    opacity: 0;
-  }
-
-  /* Hover: Heart beat */
-  .heart-icon:hover div:nth-child(2),
-  .heart-icon:hover div:nth-child(4),
-  .heart-icon:hover div:nth-child(6),
-  .heart-icon:hover div:nth-child(8) {
-    background-color: #b91c1c; /* red-700 */
-    border-color: #b91c1c;
-  }
-
-  .heart-icon:hover div:nth-child(5) {
-    transform: scale(0.5); /* Center contracts */
-  }
-
-  .heart-icon:hover {
-    animation: heartbeat 1s infinite;
-  }
-
-  @keyframes heartbeat {
-    0%,
+  /* 1. OPENING (Hover) */
+  @keyframes pickLockAction3D {
+    0% {
+      /* Start: Down 0, no rotation */
+      transform: translateY(0) rotateY(0deg);
+    }
+    40% {
+      /* Phase 1: Press down (5px), still no rotation */
+      transform: translateY(5px) rotateY(0deg);
+    }
     100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.15);
+      /* Phase 2: Pop up (-10px) + 3D ROTATION (180deg) */
+      /* rotateY makes the shackle "pop out" of the screen */
+      transform: translateY(0) rotateY(180deg);
     }
   }
+
+  /* 2. CLOSING (Return) */
+  @keyframes lockReset {
+    0% {
+      transform: rotateY(180deg);
+    }
+    100% {
+      transform: rotateY(0deg);
+    }
+  }
+
+  /* --- TRIGGERS --- */
+
+  /* Trigger OPENING on hover */
+  .cert-icon:hover .lock-icon,
+  .group:hover .cert-icon .lock-icon {
+    animation: pickLockAction3D 1s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+      forwards;
+  }
+
+  /* --- THE BODY (No changes) --- */
+  .cert-icon div:nth-child(2) {
+    transition: transform 0.2s ease;
+  }
+
+  .cert-icon:hover > div:nth-child(2),
+  .group:hover .cert-icon > div:nth-child(2) {
+    animation: lockBodyRecoil 1s ease forwards;
+  }
+
+  @keyframes lockBodyRecoil {
+    0% {
+      transform: scaleY(1);
+    }
+    40% {
+      transform: scaleY(0.9);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+  }
+
+  /* Hide center dot */
+  .cert-icon .grid div:nth-child(5) {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  
+  /* =========================================
+     10. Personal Icon (Interactive Face)
+     ========================================= */
+  .smile-icon :nth-last-child(1),
+  .smile-icon :nth-last-child(5),
+  .smile-icon :nth-last-child(16),
+  .smile-icon :nth-last-child(20) {
+    opacity: 0%;
+  }
+
+  
+  .smile-icon :nth-last-child(7),
+  .smile-icon :nth-last-child(8),
+  .smile-icon :nth-last-child(9),
+  .smile-icon :nth-last-child(12),
+  .smile-icon :nth-last-child(13),
+  .smile-icon :nth-last-child(14) {
+    opacity: 0;
+  }
+  
 }

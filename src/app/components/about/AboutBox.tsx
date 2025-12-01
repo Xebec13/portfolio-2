@@ -5,7 +5,7 @@ import AboutOverlay from "./AboutOverlay";
 // Change: Import helper function and Type from the new data file location
 import { getAboutData, AboutItem } from "../data/aboutData";
 import { useLanguage } from "../utils/LanguageProvider";
-import { CodingIcon, ProfIcon, CertIcon, HeartIcon } from "../icons/Icons";
+import { CodingIcon, ProfIcon, CertIcon, PersonalIcon } from "../icons/Icons";
 // Definition of component props
 interface AboutBoxProps {
     globalClass?: string;
@@ -24,7 +24,7 @@ export default function AboutBox({ globalClass = "" }: AboutBoxProps) {
             case 0: return <CodingIcon />;
             case 1: return <ProfIcon />;
             case 2: return <CertIcon />;
-            case 3: return <HeartIcon />;
+            case 3: return <PersonalIcon />;
             default: return null;
         }
     };
@@ -36,18 +36,25 @@ export default function AboutBox({ globalClass = "" }: AboutBoxProps) {
 
                 return (
                     // Item Wrapper: Dynamic z-index ensures the active overlay sits on top of sibling elements
-                    <div 
+                    <div
                         key={idx}
-                        className={`h-full w-full bottom-10 shadow-xl transition-all duration-300 ${isActive ? "z-50" : "z-0"}`} 
+                        className={`h-full w-full shadow-xl transition-[index] duration-300 ${isActive ? "z-50" : "z-0"}`}
                     >
                         {/* Category Trigger Button: Toggles the active state */}
                         <button
                             onClick={() => setActiveIdx(isActive ? null : idx)}
-                            className="flex items-center justify-center w-full h-full uppercase text-blue-800 bg-zinc-100 cursor-pointer hover:bg-zinc-50 transition-colors"
+                            className="group flex items-center justify-center w-full h-full uppercase text-blue-900/80 bg-zinc-100 cursor-pointer hover:bg-zinc-50 transition-colors"
                         >
-                            <div className="inline-flex items-center gap-4">
+
+                            <div className="flex items-center justify-center gap-3 md:gap-5">
+
                                 {getIcon(idx)}
-                                <p className="text-xs sm:text-lg md:text-xl font-semibold">{item.name}</p>
+
+
+                                <h3 className="text-sm md:text-base lg:text-xl font-semibold">
+                                    {item.name}
+                                </h3>
+
                             </div>
                         </button>
 
@@ -55,8 +62,8 @@ export default function AboutBox({ globalClass = "" }: AboutBoxProps) {
                         <AboutOverlay
                             isActive={isActive}
                             item={item}
-                            onClose={() => setActiveIdx(null)} 
-                            index={idx} 
+                            onClose={() => setActiveIdx(null)}
+                            index={idx}
                         />
                     </div>
                 );

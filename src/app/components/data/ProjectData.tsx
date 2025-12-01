@@ -229,42 +229,42 @@ const projectsData: ProjectDataSource[] = [
       }
     }
   },
-  {
-    id: 6,
-    key: "postprime",
-    name: "Post Prime",
-    date: "2025",
-    icons: [
-      <RiNextjsFill key="nextjs" aria-label="Next.js" />,
-      <RiTailwindCssFill key="tailwind" aria-label="Tailwind" />,
-      <BiLogoTypescript key="ts" aria-label="TypeScript" />,
-    ],
-    images: ["/assets/cl1.png", "/assets/cl2.png", "/assets/cl3.png"],
-    href: "#",
-    gitHref: "https://github.com/TwojNick/post-prime",
-    content: {
-      en: {
-        review: "Post Prime needed a fast, modern showcase to reflect their podcast’s energy. I delivered a high-performance site with 3D visuals, live social integrations, and a clean, dynamic layout. An added perk — automatic content syncing that unifies all their latest social media activity in one place.",
-        techReview: "Using Next.js, TypeScript, Tailwind CSS, react-scroll-parallax, and Spline, I built a responsive, ultra-fast site featuring a 3D interactive hero, smooth parallax sections, automatically fetched social content — delivering both a satisfying user experience and powerful management tools for the client.",
-        keyWords: ["Commercial", "Podcast", "Basketball", "Landing Page", "Social Media"],
-        keyAchi: [
-          "implemented ISR (Incremental Static Regeneration) for social feed updates",
-          "created a standout hero section by integrating an interactive 3D model using Spline",
-          "out workload with a fully automated, maintenance-free content pipeline"
-        ]
-      },
-      pl: {
-        review: "Marka Post Prime potrzebowała szybkiej, nowoczesnej strony-wizytówki, która przede wszystkim odda energię prowadzonego podcastu. Stworzyłem wysokowydajną stronę z interaktywnymi wizualizacjami 3D, integracją z social media w trybie live oraz przejrzystym, dynamicznym layoutem. Dodatkowym atutem jest automatyczna synchronizacja treści, która agreguje najnowsze materiały z YouTube, Instagram Reels i Facebooka w jednym miejscu.",
-        techReview: "Korzystając z Next.js, TypeScript, Tailwind CSS, react-scroll-parallax i Spline, zbudowałem responsywną, ultra-szybką stronę z interaktywnym 3D hero, płynnymi sekcjami parallax oraz automatycznie pobieraną treścią z social media — zapewniając zarówno satysfakcjonujące doświadczenie użytkownika, jak i zaawansowane narzędzia do zarządzania dla klienta.",
-        keyWords: ["Komercyjny", "Podcast", "Koszykówka", "Landing Page", "Social Media"],
-        keyAchi: [
-          "wdrożyłem ISR (Incremental Static Regeneration) dla aktualizacji feedów z YouTube, Instagram i Facebook",
-          "stworzyłem wyróżniające się hero section z interaktywnym modelem 3D przy użyciu Spline",
-          "zredukowałem czas pracy dzięki w pełni zautomatyzowanemu, bezobsługowemu pipeline’owi treści social media"
-        ]
-      }
-    }
-  },
+  // {
+  //   id: 6,
+  //   key: "postprime",
+  //   name: "Post Prime",
+  //   date: "2025",
+  //   icons: [
+  //     <RiNextjsFill key="nextjs" aria-label="Next.js" />,
+  //     <RiTailwindCssFill key="tailwind" aria-label="Tailwind" />,
+  //     <BiLogoTypescript key="ts" aria-label="TypeScript" />,
+  //   ],
+  //   images: ["/assets/cl1.png", "/assets/cl2.png", "/assets/cl3.png"],
+  //   href: "#",
+  //   gitHref: "https://github.com/TwojNick/post-prime",
+  //   content: {
+  //     en: {
+  //       review: "Post Prime needed a fast, modern showcase to reflect their podcast’s energy. I delivered a high-performance site with 3D visuals, live social integrations, and a clean, dynamic layout. An added perk — automatic content syncing that unifies all their latest social media activity in one place.",
+  //       techReview: "Using Next.js, TypeScript, Tailwind CSS, react-scroll-parallax, and Spline, I built a responsive, ultra-fast site featuring a 3D interactive hero, smooth parallax sections, automatically fetched social content — delivering both a satisfying user experience and powerful management tools for the client.",
+  //       keyWords: ["Commercial", "Podcast", "Basketball", "Landing Page", "Social Media"],
+  //       keyAchi: [
+  //         "implemented ISR (Incremental Static Regeneration) for social feed updates",
+  //         "created a standout hero section by integrating an interactive 3D model using Spline",
+  //         "out workload with a fully automated, maintenance-free content pipeline"
+  //       ]
+  //     },
+  //     pl: {
+  //       review: "Marka Post Prime potrzebowała szybkiej, nowoczesnej strony-wizytówki, która przede wszystkim odda energię prowadzonego podcastu. Stworzyłem wysokowydajną stronę z interaktywnymi wizualizacjami 3D, integracją z social media w trybie live oraz przejrzystym, dynamicznym layoutem. Dodatkowym atutem jest automatyczna synchronizacja treści, która agreguje najnowsze materiały z YouTube, Instagram Reels i Facebooka w jednym miejscu.",
+  //       techReview: "Korzystając z Next.js, TypeScript, Tailwind CSS, react-scroll-parallax i Spline, zbudowałem responsywną, ultra-szybką stronę z interaktywnym 3D hero, płynnymi sekcjami parallax oraz automatycznie pobieraną treścią z social media — zapewniając zarówno satysfakcjonujące doświadczenie użytkownika, jak i zaawansowane narzędzia do zarządzania dla klienta.",
+  //       keyWords: ["Komercyjny", "Podcast", "Koszykówka", "Landing Page", "Social Media"],
+  //       keyAchi: [
+  //         "wdrożyłem ISR (Incremental Static Regeneration) dla aktualizacji feedów z YouTube, Instagram i Facebook",
+  //         "stworzyłem wyróżniające się hero section z interaktywnym modelem 3D przy użyciu Spline",
+  //         "zredukowałem czas pracy dzięki w pełni zautomatyzowanemu, bezobsługowemu pipeline’owi treści social media"
+  //       ]
+  //     }
+  //   }
+  // },
 ];
 
 // ==========================================
