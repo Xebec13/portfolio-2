@@ -71,7 +71,7 @@ export default function Hero() {
                 </div>
 
                 {/* Introduction Text (Localized from Translations) */}
-                <div className="text-[clamp(1.5rem,3vw,4.5rem)] indent-12 md:max-w-1/2 font-medium tracking-tighter text-justify leading-none">
+                <div className="text-[clamp(1.5rem,3vw,4rem)] indent-12 md:max-w-1/2 font-medium tracking-tighter text-justify leading-none">
                     <div className="overflow-hidden p-1.5">
                         <p className={`${animate("animate-content-slide-up")} whitespace-pre-line`}>
                             {t.hero.bio}
