@@ -46,7 +46,7 @@ export default function Hero() {
 
                 {/* Profile Image Container */}
                 {/* pointer-events-auto restores interactivity for this specific element */}
-                <div className={`${animate("animate-scale-up-img")} relative shrink-0 h-45 w-45 md:w-60 md:h-60 lg:w-70 lg:h-70 rounded-full bg-linear-to-r from-gray-300/60 to-gray-300/10 pointer-events-auto`}>
+                <div className={`${animate("animate-scale-up-img")} relative shrink-0 h-45 w-45 md:size-55 lg:size-65 rounded-full bg-linear-to-r from-gray-300/60 to-gray-300/10 pointer-events-auto`}>
                     <Image
                         src="/profile-img1.png"
                         alt={GLOBAL.name} // Dynamic Alt Text
@@ -59,7 +59,7 @@ export default function Hero() {
             </div>
 
             {/* --- Lower Section: Role Title & Short Bio --- */}
-            <div className="flex flex-col gap-15 items-start md:flex-row md:justify-between z-0 pointer-events-none">
+            <div className="flex flex-col gap-5 items-start md:flex-row md:justify-between z-0 pointer-events-none">
 
                 {/* Job Title / Role (Dynamic from GLOBAL) */}
                 <div className="shrink-0 flex items-center p-3 font-semibold">
@@ -71,7 +71,7 @@ export default function Hero() {
                 </div>
 
                 {/* Introduction Text (Localized from Translations) */}
-                <div className="text-[clamp(1.5rem,3vw,4rem)] indent-12 md:max-w-1/2 font-medium tracking-tighter text-justify leading-none">
+                <div className="text-[clamp(1.5rem,3vw,4rem)] indent-12 md:max-w-1/2 font-medium text-justify leading-none">
                     <div className="overflow-hidden p-1.5">
                         <p className={`${animate("animate-content-slide-up")} whitespace-pre-line`}>
                             {t.hero.bio}

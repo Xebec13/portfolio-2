@@ -16,7 +16,7 @@ export default function About() {
     return (
         
             <section
-                className="min-h-screen bg-zinc-200 px-15 py-20 border-2 border-pink-500"
+                className="min-h-screen bg-zinc-200 px-5 py-10 md:px-15 md:py-20"
             >
                 {/* Section Header */}
                 <div className="py-5">
