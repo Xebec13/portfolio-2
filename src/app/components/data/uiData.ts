@@ -11,7 +11,7 @@ interface DictionarySchema {
     home: string;
     projects: string;
     about: string;
-    contact: string;
+    footer: string;
   };
   hero: {
     bio: string;
@@ -56,13 +56,13 @@ const navData: Record<Language, DictionarySchema["nav"]> = {
     home: "Home",
     projects: "Projects",
     about: "About",
-    contact: "Contact",
+    footer: "Contact",
   },
   pl: {
     home: "Start",
     projects: "Projekty",
     about: "O mnie",
-    contact: "Kontakt",
+    footer: "Kontakt",
   },
 };
 

@@ -421,5 +421,13 @@
   .smile-icon :nth-last-child(14) {
     opacity: 0;
   }
-  
+  .grin-icon :nth-child(2),
+  .grin-icon :nth-child(3),
+  .grin-icon :nth-child(4),
+  .grin-icon :nth-child(4),
+  .grin-icon :nth-child(6),
+  .grin-icon :nth-child(10){
+    
+    opacity: 0;
+  }
 }

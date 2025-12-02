@@ -126,7 +126,7 @@ export function CodingIcon({ onClick }: CustomIconsProps) {
   return (
     <div
       onClick={onClick}
-      className="coding-icon group flex items-center gap-3 cursor-pointer transition-transform duration-300 group-hover:scale-110"
+      className="coding-icon group flex items-center gap-3 cursor-pointer"
       aria-label="Code symbol"
     >
       {/* Left Bracket (<) - 2x3 Grid */}
@@ -159,7 +159,7 @@ export function ProfIcon({ onClick }: CustomIconsProps) {
     <div
       onClick={onClick}
       aria-label="Professional skills"
-      className="prof-icon group relative flex items-center justify-center cursor-pointer size-8 transition-transform duration-300 group-hover:scale-110"
+      className="prof-icon group relative flex items-center justify-center cursor-pointer size-8"
     >
       {/* 
         Grid 4 columns x 4 rows = 16 cells.
@@ -183,7 +183,7 @@ export function CertIcon({ onClick }: CustomIconsProps) {
     <div
       onClick={onClick}
       aria-label="Professional skills"
-      className="cert-icon gruop flex flex-col items-center justify-center cursor-pointer transition-transform duration-300 group-hover:scale-110"
+      className="cert-icon gruop flex flex-col items-center justify-center cursor-pointer"
     >
 
       <div className="lock-icon w-3 h-2 border-[2.5px] border-b-0 border-blue-900/80 rounded-t-full" />
@@ -266,7 +266,7 @@ export function PersonalIcon({ onClick }: CustomIconsProps) {
       onClick={onClick}
       // Removed onMouseMove/onMouseLeave here, handled by useEffect
       aria-label="Personal interests"
-      className="personal-icon group relative flex items-center justify-center cursor-pointer size-9 transition-transform duration-300 group-hover:scale-110"
+      className="personal-icon group relative flex items-center justify-center cursor-pointer size-9"
     >
 
       <div className="smile-icon right-0.5 relative size-full grid grid-cols-5 gap-2">
@@ -282,18 +282,26 @@ export function PersonalIcon({ onClick }: CustomIconsProps) {
       {/* EYES */}
       <div className="absolute top-[25%] w-full flex justify-center gap-1.5 px-1">
         {/* Left */}
-        <div className="relative w-2.5 h-2.5 bg-white border border-blue-900/80 rounded-full flex items-center justify-center overflow-hidden">
+        <div className="relative size-2.5 bg-white border border-blue-900/80 rounded-full flex items-center justify-center overflow-hidden">
           <div
             className="w-1 h-1 bg-blue-900 rounded-full transition-transform duration-100 ease-out"
             style={{ transform: `translate(${pupilPos.x}px, ${pupilPos.y}px)` }}
           />
         </div>
         {/* Right */}
-        <div className="relative w-2.5 h-2.5 bg-white border border-blue-900/80 rounded-full flex items-center justify-center overflow-hidden">
+        <div className="relative size-2.5 bg-white border border-blue-900/80 rounded-full flex items-center justify-center overflow-hidden">
           <div
             className="w-1 h-1 bg-blue-900 rounded-full transition-transform duration-100 ease-out"
             style={{ transform: `translate(${pupilPos.x}px, ${pupilPos.y}px)` }}
           />
+        </div>
+        <div className="grin-icon absolute -bottom-3 grid grid-cols-5 gap-[0.5px] rounded-full">
+          {[...Array(10)].map((_, i) => (
+          <div
+            key={i}
+            className="border-2 border-blue-900/80 rounded-full"
+          />
+        ))}
         </div>
       </div>
 

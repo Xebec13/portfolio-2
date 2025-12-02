@@ -45,7 +45,7 @@ export default function AboutContent({
         </div>
 
         {/* First Paragraph Text */}
-        <p className="relative top-1/2 -translate-y-1/2 indent-10 leading-7.5 text-base text-justify tracking-[7%] text-neutral-900">
+        <p className="relative top-1/2 -translate-y-1/2 indent-10 leading-7.5 text-sm md:text-base text-justify tracking-[7%] text-neutral-900">
           {firstText}
         </p>
 
@@ -56,7 +56,7 @@ export default function AboutContent({
       {/* --- Section 2: Remaining Biography Text --- */}
       <div className="relative space-y-4 mt-5">
         {restText.map((txt, i) => (
-          <p key={i} className="indent-10 leading-7.5 text-base text-justify tracking-[7%] relative z-10 text-neutral-900">
+          <p key={i} className="indent-10 leading-7.5 text-sm md:text-base text-justify tracking-[7%] relative z-10 text-neutral-900">
             {txt}
           </p>
         ))}

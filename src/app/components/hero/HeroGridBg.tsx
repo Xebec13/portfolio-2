@@ -30,7 +30,7 @@ export default function HeroGridBg() {
       aria-hidden="true"
       // Grid Container: Creates a 10-column layout filling the screen.
       // Hidden on mobile for performance; visible and interactive on desktop (md+).
-      className="hidden md:grid absolute inset-0 z-10 w-full h-full grid-cols-10 overflow-hidden pointer-events-auto"
+      className="hidden md:grid absolute inset-0 z-10 w-full h-full md:grid-cols-5 lg:grid-cols-10 overflow-hidden pointer-events-auto"
     >
       {Array.from({ length: TOTAL_CELLS }).map((_, i) => {
         const isActive = activeCells[i];

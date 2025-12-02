@@ -35,7 +35,7 @@ export default function Hero() {
 
                 {/* Typography: Main Name Heading (Dynamic from GLOBAL) */}
                 {/* pointer-events-none ensures text doesn't interfere with interactions underneath */}
-                <div className="max-w-fit text-[clamp(4.25rem,12vw,15rem)] font-semibold uppercase leading-none text-neutral-900 pointer-events-none">
+                <div className="max-w-fit text-[clamp(4.25rem,11vw,13rem)] font-semibold uppercase leading-none text-neutral-900 pointer-events-none">
                     <div className="overflow-hidden">
                         <h1 className={animate("animate-slide-up-h1")}>{firstName}</h1>
                     </div>

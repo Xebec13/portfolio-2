@@ -12,18 +12,69 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     // ==========================================
-    // ZMIANA: Dynamiczne generowanie linków
+    // CUSTOM SCROLL FUNCTION
     // ==========================================
-    // Teraz kod jest odporny na zmiany kolejności w globalData.
-    // Iterujemy po GLOBAL.navLinks i używamy 'link.key' aby wyciągnąć tekst z 't.nav'.
+    // duration = time in milliseconds
+    const smoothScrollToBottom = (duration: number) => {
+        const startPosition = window.scrollY;
+        // Target: absolute bottom of the document
+        const targetPosition = document.documentElement.scrollHeight - window.innerHeight;
+        const distance = targetPosition - startPosition;
+        let startTime: number | null = null;
+
+        // Modern Easing Function (easeInOutQuad) from easings.net
+        // Input 'x' is the progress from 0 to 1
+        const easeInOutQuad = (x: number): number => {
+            return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+        };
+
+        const animation = (currentTime: number) => {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            
+            // Calculate progress (0 to 1), ensuring it doesn't exceed 1
+            const progress = Math.min(timeElapsed / duration, 1);
+            
+            // Apply easing to the progress
+            const easedProgress = easeInOutQuad(progress);
+
+            // Calculate current scroll position based on eased progress
+            const run = startPosition + (distance * easedProgress);
+            
+            window.scrollTo(0, run);
+
+            // Continue animation until time is up
+            if (timeElapsed < duration) {
+                requestAnimationFrame(animation);
+            } else {
+                // Ensure exact final position
+                window.scrollTo(0, targetPosition);
+            }
+        };
+
+        requestAnimationFrame(animation);
+    };
+
     const navItems = GLOBAL.navLinks.map((link) => ({
-        href: link.href,
-        // TypeScript trick: mówimy mu, że link.key to na pewno klucz z t.nav
+        // Maintain custom href logic based on key
+        href: link.key === "footer" ? "footer" : link.href, 
+        key: link.key, 
         label: t.nav[link.key as keyof typeof t.nav] 
     }));
 
     const toggleMenu = () => setIsOpen((prev) => !prev);
-    const handleLinkClick = () => setIsOpen(false);
+
+    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, key: string) => {
+        setIsOpen(false); 
+
+        // Check if key is "footer" (or "contact")
+        if (key === "contact" || key === "footer") {
+            e.preventDefault(); 
+            
+            // Use custom scroll with duration (1500ms)
+            smoothScrollToBottom(1500); 
+        }
+    };
 
     const fadeClass = introFinished
         ? "opacity-100 translate-y-0"
@@ -43,12 +94,11 @@ export default function Navbar() {
             >
                 <nav>
                     <ul className="flex flex-col space-y-6 text-zinc-200 text-3xl md:text-4xl font-semibold uppercase">
-                        {/* Tutaj mapowanie pozostaje bez zmian */}
                         {navItems.map((item, i) => (
                             <li key={i} className="overflow-hidden">
                                 <Link
                                     href={item.href}
-                                    onClick={handleLinkClick}
+                                    onClick={(e) => handleLinkClick(e, item.key)}
                                     className="block transition-colors duration-300 hover:text-blue-600"
                                 >
                                     {item.label}

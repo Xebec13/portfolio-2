@@ -12,6 +12,6 @@ export const GLOBAL = {
     { href: "#home", key: "home" },
     { href: "#projects", key: "projects" },
     { href: "#about", key: "about" },
-    { href: "#footer", key: "contact" },
+    { href: "#footer", key: "footer" },
   ]
 };
