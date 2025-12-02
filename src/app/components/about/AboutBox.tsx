@@ -43,10 +43,10 @@ export default function AboutBox({ globalClass = "" }: AboutBoxProps) {
                         {/* Category Trigger Button: Toggles the active state */}
                         <button
                             onClick={() => setActiveIdx(isActive ? null : idx)}
-                            className="eye-ref group flex items-center justify-center w-full h-full uppercase cursor-pointer text-blue-900/80 bg-zinc-100/80 transition-colors duration-300 hover:bg-zinc-50"
+                            className="eye-ref group flex items-center justify-center w-full h-full  uppercase cursor-pointer text-blue-900/80 bg-zinc-100/80 transition-colors duration-300 hover:bg-zinc-50"
                         >
 
-                            <div className="flex flex-col items-center justify-center gap-3 md:gap-5">
+                            <div className="flex flex-col items-center justify-center gap-3 md:gap-5 p-10">
 
                                 {getIcon(idx)}
                                 <h3 className="text-md md:text-xl lg:text-2xl font-semibold">
