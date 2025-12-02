@@ -28,20 +28,16 @@ const workSans = Work_Sans({
 export const metadata: Metadata = {
   title: "DH Portfolio | Front-End Developer",
   description: "Developer Portfolio",
+  metadataBase: new URL("https://xebec13.netlify.app"),
   
-  // 1. KONFIGURACJA FAVICON (Ikona w pasku przeglądarki)
   icons: {
-
     icon: "/favicon.png", 
-     
   },
-
-  // 2. KONFIGURACJA OPEN GRAPH (Udostępnianie linków)
   openGraph: {
     title: "David Hoesen | Front-End Developer",
     description: "Sprawdź moje projekty i doświadczenie.",
     siteName: "David Hoesen Portfolio",
-    // Ważne: To zdjęcie musi być w folderze /public
+  
     images: [
       {
         url: "/opengraph-image.png", 
