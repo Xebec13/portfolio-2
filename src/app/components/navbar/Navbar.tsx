@@ -3,8 +3,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { NavIcon } from "../icons/Icons";
 import { useIntro } from "../utils/IntroProvider";
-import { useLanguage } from "../utils/LanguageProvider"; 
-import { GLOBAL } from "../data/globalData"; 
+import { useLanguage } from "../utils/LanguageProvider";
+import { GLOBAL } from "../data/globalData";
 
 export default function Navbar() {
     const { introFinished } = useIntro();
@@ -31,16 +31,16 @@ export default function Navbar() {
         const animation = (currentTime: number) => {
             if (startTime === null) startTime = currentTime;
             const timeElapsed = currentTime - startTime;
-            
+
             // Calculate progress (0 to 1), ensuring it doesn't exceed 1
             const progress = Math.min(timeElapsed / duration, 1);
-            
+
             // Apply easing to the progress
             const easedProgress = easeInOutQuad(progress);
 
             // Calculate current scroll position based on eased progress
             const run = startPosition + (distance * easedProgress);
-            
+
             window.scrollTo(0, run);
 
             // Continue animation until time is up
@@ -56,23 +56,24 @@ export default function Navbar() {
     };
 
     const navItems = GLOBAL.navLinks.map((link) => ({
-        // Maintain custom href logic based on key
-        href: link.key === "footer" ? "footer" : link.href, 
-        key: link.key, 
-        label: t.nav[link.key as keyof typeof t.nav] 
+        
+        href: link.href,
+
+        key: link.key,
+        label: t.nav[link.key as keyof typeof t.nav]
     }));
 
     const toggleMenu = () => setIsOpen((prev) => !prev);
 
     const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, key: string) => {
-        setIsOpen(false); 
+        setIsOpen(false);
 
         // Check if key is "footer" (or "contact")
         if (key === "contact" || key === "footer") {
-            e.preventDefault(); 
-            
+            e.preventDefault();
+
             // Use custom scroll with duration (1500ms)
-            smoothScrollToBottom(1500); 
+            smoothScrollToBottom(1500);
         }
     };
 

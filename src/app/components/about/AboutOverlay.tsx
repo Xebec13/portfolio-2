@@ -54,7 +54,7 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
         <div className="inline-flex items-center gap-2 w-full">
           <BackChevron onClick={onClose} />
           <div className="w-full flex flex-row justify-between items-center gap-2">
-            <h4 className="text-lg md:text-xl font-bold uppercase tracking-wide text-blue-900/80">{item.name}</h4>
+            <h4 className="text-lg md:text-xl font-bold uppercase tracking-wide text-blue-900/90">{item.name}</h4>
             {getIcon(index)}
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
 
         {/* Section 1: Badges */}
         <div>
-          <p className="mb-3 text-blue-900/60 text-base md:text-lg font-bold uppercase">
+          <p className="mb-3 text-blue-900/80 text-base md:text-lg font-bold uppercase">
             {item.headings[0]}
           </p>
           <div className="flex flex-wrap gap-1 uppercase">
@@ -83,7 +83,7 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
         {/* Section 2: Detailed List Content (4 DIFFERENT LAYOUTS) */}
         <div>
           {item.headings[1] && (
-            <p className="mb-3 mt-2 text-blue-900/60 text-base md:text-lg font-bold uppercase">
+            <p className="mb-3 mt-2 text-blue-900/80 text-base md:text-lg font-bold uppercase">
               {item.headings[1]}
             </p>
           )}
@@ -103,7 +103,7 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
                         href={project.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-700 font-bold underline decoration-blue-800 hover:decoration-transparent text-sm md:text-base capitalize"
+                        className="text-blue-700/50 font-bold underline decoration-blue-700/80 hover:decoration-transparent text-sm md:text-base capitalize"
                       >
                         {project.name}
                       </a>
@@ -136,7 +136,7 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
                 return (
                   <div key={idx} className="mb-4 space-y-1 leading-relaxed">
                     {/* Powiększony tekst nagłówka (zgodnie z prośbą) */}
-                    <p className="text-blue-600 text-sm md:text-base uppercase font-semibold">
+                    <p className="text-blue-900/40 text-sm md:text-base uppercase font-semibold">
                       {subHeading}
                     </p>
 

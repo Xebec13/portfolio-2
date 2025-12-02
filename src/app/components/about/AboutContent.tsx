@@ -23,7 +23,8 @@ export default function AboutContent({
       <div className="mb-3 space-x-5 relative">
 
         {/* Decorative Quote Icon (Top-Left) */}
-        <div className="absolute top-0 left-30 md:left-37 size-15 md:size-20 rotate-180 opacity-80 pointer-events-none select-none">
+        {/* Tu zostawiamy absolute, bo ma nachodzić na tło/zdjęcie */}
+        <div className="absolute -top-5 left-30 md:left-37 size-15 md:size-20 rotate-180 opacity-80 pointer-events-none select-none">
           <Image
             src="/quote-img.png"
             alt="Quote decoration"
@@ -40,12 +41,12 @@ export default function AboutContent({
             alt="David"
             fill
             sizes="(max-width: 768px) 100px, 140px"
-            className="object-cover scale-110"
+            className="object-cover"
           />
         </div>
 
         {/* First Paragraph Text */}
-        <p className="relative top-1/2 -translate-y-1/2 indent-10 leading-7.5 text-sm md:text-base text-justify tracking-[7%] text-neutral-900">
+        <p className="relative top-1/2 -translate-y-1/2 indent-10 leading-5 md:leading-7.5 text-sm md:text-base text-justify tracking-[7%] text-neutral-900">
           {firstText}
         </p>
 
@@ -54,15 +55,18 @@ export default function AboutContent({
       </div>
 
       {/* --- Section 2: Remaining Biography Text --- */}
-      <div className="relative space-y-4 mt-5">
+      {/* ZMIANA: Dodano 'flex flex-col', aby elementy układały się jeden pod drugim */}
+      <div className="relative space-y-4 mt-5 z-20 flex flex-col">
         {restText.map((txt, i) => (
-          <p key={i} className="indent-10 leading-7.5 text-sm md:text-base text-justify tracking-[7%] relative z-10 text-neutral-900">
+          <p key={i} className="indent-10 leading-5 md:leading-7.5 text-sm md:text-base text-justify tracking-[7%] relative text-neutral-900">
             {txt}
           </p>
         ))}
 
         {/* Decorative Quote Icon (Bottom-Right) */}
-        <div className="absolute bottom-0 right-0 size-15 md:size-20 opacity-80 pointer-events-none select-none">
+        {/* ZMIANA: Usunięto 'absolute bottom-0 right-0'. 
+            Dodano 'relative', 'self-end' (wyrównanie do prawej) i margines góry 'mt-2'. */}
+        <div className="relative bottom-12 self-end size-15 md:size-20 opacity-80 pointer-events-none select-none mt-2">
           <Image
             src="/quote-img.png"
             alt="Quote decoration"

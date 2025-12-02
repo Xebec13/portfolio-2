@@ -96,9 +96,9 @@ export function BackChevron({ onClick }: CustomIconsProps) {
       aria-label="Go back"
       className="cursor-pointer"
     >
-      <div className="chevron-back grid grid-cols-3 gap-1 p-1 outline-0 cursor-pointer bg-transparent transition-all duration-500 ease-in-out hover:scale-105 hover:bg-blue-700/80">
+      <div className="chevron-back grid grid-cols-3 gap-1 p-1 outline-0 cursor-pointer bg-transparent transition-all duration-500 ease-in-out hover:scale-105 hover:bg-zinc-300">
         {[...Array(9)].map((_, i) => (
-          <div key={i} className="border-2 border-current" />
+          <div key={i} className="border-2 border-blue-900/80" />
         ))}
       </div>
     </button>
@@ -132,21 +132,21 @@ export function CodingIcon({ onClick }: CustomIconsProps) {
       {/* Left Bracket (<) - 2x3 Grid */}
       <div className="bracket-left grid grid-cols-3 gap-1">
         {[...Array(9)].map((_, i) => (
-          <div key={i} className="border-current border-2" />
+          <div key={i} className="border-blue-900/80 border-2" />
         ))}
       </div>
 
       {/* Slash (/) - 3x3 Grid */}
       <div className="slash grid grid-cols-1 gap-1">
         {[...Array(6)].map((_, i) => (
-          <div key={i} className="border-current border-2" />
+          <div key={i} className="border-blue-900/80 border-2" />
         ))}
       </div>
 
       {/* Right Bracket (>) - 2x3 Grid */}
       <div className="bracket-right grid grid-cols-3 gap-1">
         {[...Array(9)].map((_, i) => (
-          <div key={i} className="border-current border-2" />
+          <div key={i} className="border-blue-900/80 border-2" />
         ))}
       </div>
     </div>
@@ -295,16 +295,10 @@ export function PersonalIcon({ onClick }: CustomIconsProps) {
             style={{ transform: `translate(${pupilPos.x}px, ${pupilPos.y}px)` }}
           />
         </div>
-        <div className="grin-icon absolute -bottom-3 grid grid-cols-5 gap-[0.5px] rounded-full">
-          {[...Array(10)].map((_, i) => (
-          <div
-            key={i}
-            className="border-2 border-blue-900/80 rounded-full"
-          />
-        ))}
-        </div>
+        <div className="absolute -bottom-2.5 h-0.5 w-1/3 bg-blue-900/80 rounded-full"/>
       </div>
-
     </div>
+
+
   );
 }
