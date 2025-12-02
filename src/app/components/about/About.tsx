@@ -19,14 +19,14 @@ export default function About() {
                 className="min-h-screen bg-zinc-200 px-5 py-10 md:px-15 md:py-20"
             >
                 {/* Section Header */}
-                <div className="py-5">
-                    <h3 className="uppercase text-[clamp(4rem,8.5vw,9rem)] font-semibold leading-none tracking-widest">
+                <div className="pb-5 md:pb-15">
+                    <h3 className="uppercase text-[clamp(4rem,8vw,8.5rem)] font-semibold leading-none tracking-widest">
                         About Me
                     </h3>
                 </div>
 
                 {/* Main Content Grid: Switches from 1 column (mobile) to 2 columns (desktop) */}
-                <div className="grid grid-cols-1 lg:grid-cols-2">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
                     {/* Left Column: Biography & General Info */}
                     <AboutContent
                         content={currentInfoContent}

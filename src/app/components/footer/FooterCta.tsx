@@ -84,7 +84,7 @@ export default function FooterCta() {
                         <div className="overflow-hidden">
 
                             {/* Large Heading */}
-                            <h3 className="uppercase nav-slide-down text-[clamp(4rem,8.25vw,9rem)] font-bold leading-tight tracking-tight text-neutral-900">
+                            <h3 className="uppercase nav-slide-down text-[clamp(4rem,7.25vw,8rem)] font-bold leading-tight tracking-tight text-neutral-900">
                                 {t.form.title}
                             </h3>
                         </div>

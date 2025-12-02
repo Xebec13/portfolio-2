@@ -17,7 +17,7 @@ export default function AboutContent({
 
   return (
     // Main Text Container
-    <div className={`font-medium text-base ${globalClass} flex flex-col break-normal leading-relaxed`}>
+    <div className={`font-medium text-base ${globalClass} flex flex-col leading-relaxed`}>
 
       {/* --- Section 1: Intro with Profile Image --- */}
       <div className="relative">
@@ -51,7 +51,7 @@ export default function AboutContent({
         </p>
 
         {/* Clearfix to ensure container height respects floated elements */}
-        <div className="clear-both" />
+        <div className="clear-both pointer-events-none" />
       </div>
 
       {/* --- Section 2: Remaining Biography Text --- */}
