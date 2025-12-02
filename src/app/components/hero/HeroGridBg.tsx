@@ -41,7 +41,6 @@ export default function HeroGridBg() {
             onMouseEnter={() => handleHover(i)}
             className={`
               w-full aspect-square border-transparent transition-all duration-700 ease-out
-              /* Performance Optimization: Force GPU acceleration for smooth backdrop filters */
               transform-gpu will-change-[backdrop-filter]
               ${isActive ? "backdrop-invert" : "backdrop-invert-0"}
             `}

@@ -19,7 +19,7 @@ export default function About() {
                 className="min-h-screen bg-zinc-200 px-5 py-5 md:px-13 md:py-10"
             >
                 {/* Section Header */}
-                <div className="pb-10 lg:pb-15">
+                <div className="py-3">
                     <h3 className="uppercase text-[clamp(4rem,8.5vw,9rem)] font-semibold leading-none tracking-widest">
                         About Me
                     </h3>
