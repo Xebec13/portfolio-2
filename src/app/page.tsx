@@ -9,7 +9,7 @@ export default function Home() {
 
       {/* Kontener Layoutu */}
       <div className="relative w-full">
-        <span id="about" className="absolute top-0 left-0 w-full h-1 scroll-mt-20" />
+        <span id="about" className="absolute top-0 left-0 w-full h-1" />
         <div className="relative z-10 lg:sticky lg:top-0">
           <About />
         </div>
