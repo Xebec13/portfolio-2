@@ -20,7 +20,7 @@ export default function AboutContent({
     <div className={`font-medium text-base ${globalClass} flex flex-col break-normal leading-relaxed`}>
 
       {/* --- Section 1: Intro with Profile Image --- */}
-      <div className="mb-3 space-x-5 relative">
+      <div className="relative">
 
         {/* Decorative Quote Icon (Top-Left) */}
         {/* Tu zostawiamy absolute, bo ma nachodzić na tło/zdjęcie */}

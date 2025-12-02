@@ -16,10 +16,10 @@ export default function About() {
     return (
         
             <section
-                className="min-h-screen bg-zinc-200 px-15 py-auto"
+                className="min-h-screen bg-zinc-200 px-15 py-20 border-2 border-pink-500"
             >
                 {/* Section Header */}
-                <div className="py-3">
+                <div className="py-5">
                     <h3 className="uppercase text-[clamp(4rem,8.5vw,9rem)] font-semibold leading-none tracking-widest">
                         About Me
                     </h3>
@@ -27,7 +27,6 @@ export default function About() {
 
                 {/* Main Content Grid: Switches from 1 column (mobile) to 2 columns (desktop) */}
                 <div className="grid grid-cols-1 lg:grid-cols-2">
-
                     {/* Left Column: Biography & General Info */}
                     <AboutContent
                         content={currentInfoContent}
@@ -36,7 +35,7 @@ export default function About() {
 
                     {/* Right Column: Interactive Details Box */}
                     <AboutBox
-                        globalClass="justify-self-center h-full  w-full "
+                        globalClass="justify-self-center h-full w-full "
                     />
                 </div>
             </section>
