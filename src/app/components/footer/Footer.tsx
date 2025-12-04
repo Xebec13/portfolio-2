@@ -10,7 +10,7 @@ export default function Footer() {
     return (
         <footer 
             id="footer"
-            className="relative min-h-screen flex flex-col justify-center gap-10 md:justify-between bg-neutral-900 font-medium p-7 md:p-22 overflow-hidden"
+            className="relative min-h-screen flex flex-col justify-center gap-10 md:justify-evenly bg-neutral-900 font-medium p-7 md:p-22 overflow-hidden"
         >
             {/* Social Links z GLOBAL */}
             <div className="flex justify-start md:justify-end items-center gap-6 text-zinc-100 text-sm md:text-base uppercase tracking-wide">

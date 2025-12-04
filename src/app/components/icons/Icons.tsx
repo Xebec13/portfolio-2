@@ -18,7 +18,7 @@ export function NavIcon({ isOpen = false, onClick }: CustomIconsProps) {
       onClick={onClick}
       // Accessibility: Dynamically updates label based on state
       aria-label={isOpen ? "Close menu" : "Open menu"}
-      className={`nav-slide-down nav-icon relative grid grid-cols-3 gap-2 p-1 md:p-1.5 rounded-sm cursor-pointer transition-all duration-700 ease-in-out z-10 
+      className={`nav-slide-down nav-icon relative grid grid-cols-3 gap-1.5 p-1 md:p-1.5 rounded-sm cursor-pointer transition-all duration-700 ease-in-out z-10 
         ${isOpen ? "bg-blue-700 hover:bg-zinc-200 hover:scale-110" : "bg-zinc-200 hover:invert hover:scale-110"}`}
     >
       {/* Renders a 3x3 grid. CSS classes in 'icons.css' handle the rotation/hiding of specific cells */}

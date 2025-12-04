@@ -14,7 +14,7 @@ export default function ContentInfoSection({ project }: ContentInfoSectionProps)
       
       {/* --- Section 1: Infinite Marquee --- */}
       {/* Duplicates the array 3 times to create a seamless scrolling loop effect via CSS */}
-      <ul className="key-font flex items-center self-center shrink-0 max-w-full text-blue-800 text-xs lg:text-sm uppercase whitespace-nowrap overflow-hidden">
+      <ul className="key-font flex items-center self-center shrink-0 max-w-full text-blue-800 text-xs md:text-sm uppercase whitespace-nowrap overflow-hidden">
         <div className="marquee-track">
           {[...keyWords, ...keyWords, ...keyWords].map((word, idx) => (
             <li key={idx} className="inline-flex items-center gap-5 py-0.5 px-3 tracking-widest">
@@ -34,7 +34,7 @@ export default function ContentInfoSection({ project }: ContentInfoSectionProps)
         {icons.map((icon, idx) => (
           <li
             key={idx}
-            className="rounded-full text-[10px] md:text-sm border border-blue-900 bg-blue-600/30 text-blue-950 py-1 px-3"
+            className="rounded-full text-[10px] md:text-xs border border-blue-900 bg-blue-600/30 text-blue-950 py-1 px-3"
           >
             {icon.props["aria-label"]}
           </li>

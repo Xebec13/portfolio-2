@@ -24,7 +24,7 @@ export default function Hero() {
     return (
         // Main Hero Container
         // Uses flex layout to distribute content vertically (justify-evenly on desktop)
-        <section id="home" className="relative flex min-h-screen flex-col items-stretch justify-start md:justify-evenly gap-10 px-5 pb-0 pt-30 md:pb-15 md:px-22 md:pt-35 overflow-hidden">
+        <section id="home" className="relative flex min-h-screen flex-col items-stretch justify-start md:justify-evenly gap-10 px-5 pb-0 pt-25 md:pb-15 md:px-18 md:pt-30 overflow-hidden">
 
             {/* Background Layer: Decorative Grid (Desktop only) */}
             <HeroGridBg />
