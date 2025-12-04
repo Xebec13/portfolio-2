@@ -72,7 +72,7 @@ export default function AboutOverlay({ isActive, item, onClose, index }: AboutOv
             {item.badges?.map((badge, idx) => (
               <span
                 key={idx}
-                className={`py-1 px-3 text-xs md:text-sm font-semibold rounded-full border ${badgeClass}`}
+                className={`py-1 px-3 text-[10px] lg:text-xs font-semibold rounded-full border ${badgeClass}`}
               >
                 {badge}
               </span>
