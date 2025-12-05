@@ -77,7 +77,7 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
                             }}
                         >
                             {/* Image Wrapper: Maintains aspect ratio and centers content */}
-                            <div className="relative w-[80vw] max-w-[700px] aspect-4/3">
+                            <div className="relative w-[80vw] max-w-[550px] lg:max-w-[700px] aspect-4/3">
                                 <Image
                                     src={img}
                                     alt={`${name} screenshot ${idx + 1}`}
