@@ -68,7 +68,7 @@ const heroData: Record<Language, DictionarySchema["hero"]> = {
     bio: "Hello, I’m passionate about creating clean, responsive, and visually sharp interfaces. \nLet’s create!",
   },
   pl: {
-    bio: "Cześć! Projektuję strony proste minimalistyczne, responsywne i wizualnie dopracowane interfejsy. \nZróbmy coś razem!",
+    bio: "Cześć! Projektuję strony minimalistyczne, responsywne i wizualnie dopracowane. \nZróbmy coś razem!",
   },
 };
 
