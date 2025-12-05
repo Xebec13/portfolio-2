@@ -1,7 +1,3 @@
-// ==========================================
-// Type Definitions
-// ==========================================
-
 export type Language = "en" | "pl";
 
 // 1. Define the shape of the dictionary for ONE language
