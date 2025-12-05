@@ -187,7 +187,7 @@ const projectsData: ProjectDataSource[] = [
         keyAchi: [
           "zaprojektowałem immersyjne animacje przewijania przy użyciu GSAP ScrollTrigger",
           "dostarczyłem pixel-perfect responsywny layout na wszystkich breakpointach",
-          "zoptymalizowałem wydajność renderowania, zapewniając płynne animacje w 60fps"
+          "zoptymalizowałem wydajność renderowania, zapewniając płynne animacje"
         ]
       }
     }

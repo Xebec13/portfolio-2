@@ -48,12 +48,12 @@ interface AboutDataSource {
 
 const infoData: Record<Language, string[]> = {
   en: [
-    "I’m a Front-End Developer creating modern, responsive, and animation-rich web applications with React, TypeScript, Tailwind, and GSAP, with experience managing teams of up to 50 people.",
+    "I’m a Front-End Developer creating modern, responsive, and animation-rich web applications with React, JavaScript, TypeScript, Tailwind, Motion, GSAP, with experience managing teams of up to 50 people.",
     "Driven to transition fully into IT, I completed comprehensive coding programs at CodersLab and continued developing my skills through self-learning, online courses, and hands-on practice, including community platforms like icodethis.com.",
     "Since then, I’ve built 5+ fully responsive, animated projects, including a working MVP for a local business. I’m actively looking to apply my skills in real team environments, delivering end-to-end, market-ready products, and I aim to expand my UX knowledge to better leverage my psychology academic background."
   ],
   pl: [
-    "Jestem Front-End Developerem, który tworzy nowoczesne, responsywne i bogate w animacje aplikacje webowe przy użyciu React, TypeScript, Tailwind i GSAP, a w poprzednich rolach zawodowych zarządzałem zespołami liczącymi nawet 50 osób.",
+    "Jestem Front-End Developerem, który tworzy nowoczesne, responsywne i bogate w animacje aplikacje webowe przy użyciu React, JavaScript, TypeScript, Tailwind, Motion, GSAP, a w poprzednich rolach zawodowych zarządzałem zespołami liczącymi nawet 50 osób.",
     "Dążąc do pełnego wejścia do branży IT, ukończyłem certyfikowane programy w CodersLab, a następnie kontynuowałem rozwój poprzez samodzielną naukę, kursy online i praktykę — również na platformach z aktywną społecznością, takich jak icodethis.com.",
     "Od tego czasu zrealizowałem ponad 5 w pełni responsywnych i animowanych projektów, w tym stronę MVP dla lokalnego biznesu. Szukam możliwości współpracy w rzeczywistych projektach zespołowych przy tworzeniu end-to-end produktów gotowych do wdrożenia i chciałbym rozwijać kompetencje UX, aby lepiej wykorzystać moje psychologiczne wykształcenie."
   ]
@@ -72,7 +72,7 @@ const aboutDataSource: AboutDataSource[] = [
         headings: ["Tech Stack", "Activity"],
         badges: [
           "HTML", "CSS", "JavaScript", "TypeScript",
-          "Tailwind", "SCSS", "GSAP",
+          "Tailwind", "SCSS", "GSAP","Motion",
           "React", "Next.js", "Node.js", "Jest", "Python", "Java basics", "PHP basics"
         ],
         items: [
@@ -101,7 +101,7 @@ const aboutDataSource: AboutDataSource[] = [
         headings: ["Tech Stack", "Aktywności"],
         badges: [
           "HTML", "CSS", "JavaScript", "TypeScript",
-          "Tailwind", "SCSS", "GSAP",
+          "Tailwind", "SCSS", "GSAP","Motion",
           "React", "Next.js", "Node.js", "Jest", "Python", "Java basics", "PHP basics"
         ],
         items: [

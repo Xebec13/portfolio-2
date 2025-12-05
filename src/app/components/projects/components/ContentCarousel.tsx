@@ -10,7 +10,7 @@ interface ContentCarouselProps {
 
 export default function ContentCarousel({ images, name }: ContentCarouselProps) {
     const [activeIndex, setActiveIndex] = useState(0);
-    
+
     // Data Safety: Ensure images is always an array to prevent crashes
     const safeImages = images || [];
     const length = safeImages.length;
@@ -41,7 +41,7 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
         <div className="relative bottom-10 h-[40vh] md:h-[50vh] w-full ">
 
             {/* --- Slides Area --- */}
-            <div className="relative w-full h-full ">
+            <div className="w-full h-full ">
                 {safeImages.map((img, idx) => {
                     // --- Infinite Loop Positioning Logic ---
                     // Calculate distance from the currently active slide
@@ -60,7 +60,7 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
                     // Visibility Optimization: 
                     // Hide slides that are "far away" (outside the -1 to 1 range) to prevent them 
                     // from visually flying across the screen during wrap-around.
-                    const isVisible = Math.abs(delta) <= 1; 
+                    const isVisible = Math.abs(delta) <= 1;
 
                     return (
                         <div
@@ -77,7 +77,7 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
                             }}
                         >
                             {/* Image Wrapper: Maintains aspect ratio and centers content */}
-                            <div className="relative w-[80vw] max-w-[500px] aspect-4/3">
+                            <div className="relative w-[80vw] max-w-[700px] aspect-4/3">
                                 <Image
                                     src={img}
                                     alt={`${name} screenshot ${idx + 1}`}
@@ -92,7 +92,7 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
             </div>
 
             {/* --- Navigation Controls (Buttons & Indicators) --- */}
-            <div className="absolute -bottom-6 left-0 right-0 flex items-center justify-center gap-6 z-30 pb-4">
+            <div className="relative bottom-0 left-0 flex items-center justify-center gap-6 z-30 pb-4">
                 {/* Previous Slide Button */}
                 <PrevChevron onClick={() => changeIndex(-1)} />
 
@@ -101,9 +101,8 @@ export default function ContentCarousel({ images, name }: ContentCarouselProps) 
                     {safeImages.map((_, idx) => (
                         <div
                             key={idx}
-                            className={`size-2 md:size-2.5 rounded-full transition-all duration-300 ${
-                                idx === activeIndex ? "bg-blue-800 scale-110" : "bg-zinc-400"
-                            }`}
+                            className={`size-2 md:size-2.5 rounded-full transition-all duration-300 ${idx === activeIndex ? "bg-blue-800 scale-110" : "bg-zinc-400"
+                                }`}
                         />
                     ))}
                 </div>

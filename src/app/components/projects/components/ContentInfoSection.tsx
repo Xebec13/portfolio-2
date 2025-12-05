@@ -10,7 +10,7 @@ export default function ContentInfoSection({ project }: ContentInfoSectionProps)
 
   return (
     // Main Grid Layout: Switches from a vertical stack (mobile) to a 3-column specific layout (desktop)
-    <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-1 gap-5 lg:gap-x-15 place-items-stretch mb-10">
+    <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-1 gap-5  place-items-stretch mb-5">
       
       {/* --- Section 1: Infinite Marquee --- */}
       {/* Duplicates the array 3 times to create a seamless scrolling loop effect via CSS */}
@@ -44,13 +44,13 @@ export default function ContentInfoSection({ project }: ContentInfoSectionProps)
       {/* --- Section 3: General Overview --- */}
       {/* Position: First column on desktop */}
       <div className="lg:col-start-1 indent-10">
-        <p className="text-base font-medium break-normal leading-relaxed">{review}</p>
+        <p className="text-xs lg:text-base font-medium break-normal leading-relaxed">{review}</p>
       </div>
 
       {/* --- Section 4: Technical Deep Dive --- */}
       {/* Position: Spans the remaining 2 columns on desktop */}
       <div className="lg:col-start-2 lg:col-span-2 indent-10">
-        <p className="text-base font-medium break-normal leading-relaxed">{techReview}</p>
+        <p className="text-xs lg:text-base font-medium break-normal leading-relaxed">{techReview}</p>
       </div>
     </div>
   );

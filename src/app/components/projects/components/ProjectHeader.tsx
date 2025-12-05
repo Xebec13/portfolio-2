@@ -25,7 +25,7 @@ export default function ProjectHeader({
                 transition-[transform,margin] duration-500 ease-in-out
                 ${isExpanded ? "scale-130 md:scale-110 ml-5" : "ml-0"} 
             `}>
-                <p className="text-base md:text-xl lg:text-2xl font-medium  text-inherit">
+                <p className="text-base md:text-xl lg:text-2xl font-medium text-inherit">
                     {name}
                 </p>
             </div>
