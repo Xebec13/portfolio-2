@@ -20,10 +20,10 @@ export default function IntroButtons({ onSelect }: IntroButtonsProps) {
     return (
         // Wrapper: Ustawia tekst nad przyciskami
         <div className="flex flex-col items-center gap-2">
-            
+
             {/* --- Label (Skromny tekst) --- */}
             <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-300 font-semibold opacity-70">
-                {language === "pl" ? "Wybierz język" : "Choose Language"}
+                Choose Language
             </span>
 
             {/* --- Buttons Container --- */}

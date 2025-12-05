@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useLayoutEffect, useEffect } from "react";
-import { useIntro } from "../utils/IntroProvider";
+import { useIntro } from "./IntroProvider";
 import { useLanguage } from "./LanguageProvider"; 
 import { Language } from "../data/uiData";
 import IntroButtons from "./IntroButtons";
@@ -59,8 +59,8 @@ export default function Loader({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <div className="relative">
-      {/* --- Overlay Section --- */}
+    <div className="relative" >
+      
       {showLoader && (
         // High Z-index (9999) ensures the loader covers the Navbar (usually z-50).
         // pointer-events-auto is crucial to allow clicking the buttons.
