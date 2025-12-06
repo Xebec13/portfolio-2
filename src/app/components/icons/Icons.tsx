@@ -96,7 +96,7 @@ export function BackChevron({ onClick }: CustomIconsProps) {
       aria-label="Go back"
       className="cursor-pointer"
     >
-      <div className="chevron-back grid grid-cols-3 gap-1 p-1 outline-0 cursor-pointer bg-transparent transition-all duration-500 ease-in-out hover:scale-105 hover:bg-zinc-300">
+      <div className="chevron-back grid grid-cols-3 p-1 gap-1 cursor-pointer bg-transparent transition-colors ease-in-out duration-700 hover:bg-zinc-400">
         {[...Array(9)].map((_, i) => (
           <div key={i} className="border-2 border-blue-900/80" />
         ))}
@@ -112,7 +112,7 @@ export function FooterBackChevron({ onClick }: CustomIconsProps) {
       onClick={onClick}
       aria-label="Scroll to top"
       // Positioned absolutely within the footer/modal context
-      className="chevron-footer-back absolute top-5 left-5 grid grid-cols-3 gap-1 p-1 cursor-pointer bg-transparent transition-all duration-500 ease-in-out hover:scale-105 hover:bg-blue-700/80"
+      className="chevron-footer-back absolute top-5 left-5 grid grid-cols-3 gap-1 p-1 cursor-pointer bg-transparent transition-colors ease-in-out duration-700 hover:bg-zinc-400"
     >
       {[...Array(9)].map((_, i) => (
         <div key={i} className="border-2" />
